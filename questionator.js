@@ -826,7 +826,7 @@ function enviar(dato, indice){
     if(indice < dato.length){
         var newquestion = dato[indice].id;
       $.ajax({
-        url: "https://contenidos.sallenet.org/question/question.php",
+        url: "https://"+hostname+"/question/question.php",
         method: "POST",
         data: dato[indice]
         }).done(function(data) {
@@ -835,7 +835,7 @@ function enviar(dato, indice){
                 var questionname = dato[indice].name;
                 var courseid = dato[indice].courseid;
                 var category = dato[indice].category;
-                $.get(`https://contenidos.sallenet.org/question/edit.php?courseid=${courseid}&cat=${category}` , function(datas) {
+                $.get('https://'+hostname+'/question/edit.php?courseid=${courseid}&cat=${category}' , function(datas) {
                     var idpreg = $("label:contains("+questionname+")", datas).attr('for');
                     idpreg = idpreg.replace("checkq", "");
                     googledata.push(idpreg);
@@ -914,6 +914,7 @@ function convertanswernumbering(data){
 
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
+    const hostname = window.location.hostname;
     if (numberofquestions == undefined){
         alert("No tengo datos");
     } else {
