@@ -1,1 +1,1 @@
-Edit and create questions in Moodle jhkj
+Edit and create questions in Moodle jhk
