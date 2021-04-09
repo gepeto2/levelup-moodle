@@ -825,8 +825,10 @@ function enviar(dato, indice){
     var googledata = [];
     if(indice < dato.length){
         var newquestion = dato[indice].id;
+        const hostname = window.location.hostname;
+        const urlhost = "https://"+hostname+"/question/question.php";
       $.ajax({
-        url: "https://"+hostname+"/question/question.php",
+        url: urlhost,
         method: "POST",
         data: dato[indice]
         }).done(function(data) {
@@ -914,7 +916,6 @@ function convertanswernumbering(data){
 
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
-    const hostname = window.location.hostname;
     if (numberofquestions == undefined){
         alert("No tengo datos");
     } else {
