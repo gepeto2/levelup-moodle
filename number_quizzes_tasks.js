@@ -17,6 +17,7 @@ $( document ).ready(function() {
     var urladaptivequiz = geturl('adaptivequiz');
     var urlhvp = geturl('hvp');
     var urllti = geturl("lti");
+    var urlpage = geturl("page");
   $.get(urlassign, function(result){
     var obj = $(result).find('.generaltable tr td.c1');
     var tasks = obj.length;
@@ -46,5 +47,12 @@ $( document ).ready(function() {
     var ltis = obj.length;
     $('#contenido').append('<div id="numltis"><a href="'+urllti+'" target="_blank">LTIs: </a></div>');
     $('#numltis').append(ltis);
+   });
+   $.get(urlpage, function(result){
+    var obj = $(result).find('.generaltable tr td.c1');
+    var pages = obj.length;
+    $('#contenido').append('<div id="numpages"><a href="'+urlpage+'" target="_blank">Páginas: </a></div>');
+    $('#numpages').append(pages);
+   });
 });
 });
