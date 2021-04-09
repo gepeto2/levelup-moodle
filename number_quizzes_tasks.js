@@ -55,4 +55,3 @@ $( document ).ready(function() {
     $('#numpages').append(pages);
    });
 });
-});
