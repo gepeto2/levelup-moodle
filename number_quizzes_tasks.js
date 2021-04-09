@@ -16,28 +16,35 @@ $( document ).ready(function() {
     var urlquiz = geturl('quiz');
     var urladaptivequiz = geturl('adaptivequiz');
     var urlhvp = geturl('hvp');
+    var urllti = geturl("lti");
   $.get(urlassign, function(result){
-        var obj = $(result).find('.generaltable tr td.c1');
-        var tasks = obj.length;
-        $('#contenido').append('<div id="numtareas"><a href="'+urlassign+'" target="_blank">Tareas: </a></div>');
-        $('#numtareas').append(tasks);
+    var obj = $(result).find('.generaltable tr td.c1');
+    var tasks = obj.length;
+    $('#contenido').append('<div id="numtareas"><a href="'+urlassign+'" target="_blank">Tareas: </a></div>');
+    $('#numtareas').append(tasks);
    });
   $.get(urlquiz, function(result){
-        var obj = $(result).find('.generaltable tr td.c1');
-        var quizes = obj.length;
-        $('#contenido').append('<div id="numcuestionarios"><a href="'+urlquiz+'" target="_blank">Cuestionarios: </a></div>');
-        $('#numcuestionarios').append(quizes);
+    var obj = $(result).find('.generaltable tr td.c1');
+    var quizes = obj.length;
+    $('#contenido').append('<div id="numcuestionarios"><a href="'+urlquiz+'" target="_blank">Cuestionarios: </a></div>');
+    $('#numcuestionarios').append(quizes);
    });
   $.get(urladaptivequiz, function(result){
-        var obj = $(result).find('.generaltable tr td.c1');
-        var adaquizes = obj.length;
-        $('#contenido').append('<div id="numcuestionariosada"><a href="'+urladaptivequiz+'" target="_blank">Cuestionarios adaptativos: </a></div>');
-        $('#numcuestionariosada').append(adaquizes);
+    var obj = $(result).find('.generaltable tr td.c1');
+    var adaquizes = obj.length;
+    $('#contenido').append('<div id="numcuestionariosada"><a href="'+urladaptivequiz+'" target="_blank">Cuestionarios adaptativos: </a></div>');
+    $('#numcuestionariosada').append(adaquizes);
    });
   $.get(urlhvp, function(result){
-        var obj = $(result).find('.generaltable tr td.c1');
-        var hvps = obj.length;
-        $('#contenido').append('<div id="numhvps"><a href="'+urlhvp+'" target="_blank">H5Ps: </a></div>');
-        $('#numhvps').append(hvps);
+    var obj = $(result).find('.generaltable tr td.c1');
+    var hvps = obj.length;
+    $('#contenido').append('<div id="numhvps"><a href="'+urlhvp+'" target="_blank">H5Ps: </a></div>');
+    $('#numhvps').append(hvps);
    });
+   $.get(urllti, function(result){
+    var obj = $(result).find('.generaltable tr td.c1');
+    var ltis = obj.length;
+    $('#contenido').append('<div id="numltis"><a href="'+urllti+'" target="_blank">LTIs: </a></div>');
+    $('#numltis').append(ltis);
+});
 });
