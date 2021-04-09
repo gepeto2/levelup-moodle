@@ -59,6 +59,6 @@ $( document ).ready(function() {
     var obj = $(result).find('.generaltable tr td.c1');
     var urls = obj.length;
     $('#contenido').append('<div id="numurls"><a href="'+url+'" target="_blank">Enlaces: </a></div>');
-    $('#numpages').append(urls);
+    $('#numurls').append(urls);
   });
 });
