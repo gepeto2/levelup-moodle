@@ -18,6 +18,7 @@ $( document ).ready(function() {
     var urlhvp = geturl('hvp');
     var urllti = geturl("lti");
     var urlpage = geturl("page");
+    var url = geturl("url");
   $.get(urlassign, function(result){
     var obj = $(result).find('.generaltable tr td.c1');
     var tasks = obj.length;
@@ -53,5 +54,11 @@ $( document ).ready(function() {
     var pages = obj.length;
     $('#contenido').append('<div id="numpages"><a href="'+urlpage+'" target="_blank">Páginas: </a></div>');
     $('#numpages').append(pages);
+   });
+   $.get(url, function(result){
+    var obj = $(result).find('.generaltable tr td.c1');
+    var urls = obj.length;
+    $('#contenido').append('<div id="numurls"><a href="'+url+'" target="_blank">Enlaces: </a></div>');
+    $('#numpages').append(urls);
    });
 });
