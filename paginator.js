@@ -67,7 +67,8 @@ function leeJSON() {
                     "page[format]": 1,
                     printheading: 1,
                     printintro: 0,
-                    printlastmodified: 1  
+                    printlastmodified: 1,
+                    availabilityconditionsjson: ""
                         };
                  datos.push(obj);
                  idspreguntas.push(nombre);
