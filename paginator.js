@@ -163,11 +163,11 @@ function convertanswernumbering(data){
 }
 
 $(document).ready(function() {
-    const numberofquestions = GetURLParameter('numberofquestions');
-    if (numberofquestions == undefined){
+    const numberofpages= GetURLParameter('numberofpages');
+    if (numberofpages == undefined){
         alert("No tengo datos");
     } else {
-        if (confirm('Vas a editar '+numberofquestions+' preguntas')) {
+        if (confirm('Vas a editar '+numberofpages+' páginas')) {
             leeJSON();
         }
     }
