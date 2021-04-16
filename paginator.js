@@ -82,8 +82,7 @@ function leeJSON() {
 function enviar(dato, indice){
     var googledata = [];
     if(indice < dato.length){
-        var newquestion = dato[indice].id;
-        var idpagina = dato[indice].idpagina;
+        var idpagina = dato[indice].coursemodule;
         const hostname = window.location.hostname;
         const urlhost = "https://"+hostname+"/course/modedit.php?update="+idpagina+"&return=0&sr=0";
       $.ajax({
