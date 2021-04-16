@@ -84,7 +84,7 @@ function enviar(dato, indice){
     if(indice < dato.length){
         var idpagina = dato[indice].coursemodule;
         const hostname = window.location.hostname;
-        const urlhost = "https://"+hostname+"/course/modedit.php?update="+idpagina;
+        const urlhost = "https://"+hostname+"/course/modedit.php";
       $.ajax({
         url: urlhost,
         method: "POST",
