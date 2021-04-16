@@ -12,7 +12,7 @@ function GetURLParameter(sParam) {
 function leeJSON() {
     const sheet = GetURLParameter('sheetid');
     const page = GetURLParameter('sheetpage');
-    const activitytype = GetURLParameter('activitype');
+    const activitytype = GetURLParameter('activitytype');
     const sesskey = $("input[name=sesskey]").val();
     const numberofpages = GetURLParameter('numberofpages');
     urljson = "https://spreadsheets.google.com/feeds/list/"+sheet+"/"+page+"/public/values?alt=json";
