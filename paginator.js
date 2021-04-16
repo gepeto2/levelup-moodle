@@ -23,7 +23,9 @@ function leeJSON() {
         var entries = data.feed.entry;
         for(i = 0; i < entries.length; i++){
             if((entries[i].gsx$editar.$t) == "TRUE"){
-                var idpágina = entries[i].gsx$idpagina.$t;
+                var idpagina = entries[i].gsx$idpagina.$t;
+                var courseid = entries[i].gsx$courseid.$t;
+                var seccion = entries[i].gsx$seccion.$t;
                 var nombre = entries[i].gsx$nombre.$t;
                 var descripcion = entries[i].gsx$descripcion.$t;
                 var muestradescripcion = entries[i].gsx$muestradescripcion.$t;
@@ -34,87 +36,44 @@ function leeJSON() {
                 var disponibilidad = entries[i].gsx$disponibilidad.$t;
                 var numeroid = entries[i].gsx$numeroid.$t;
                 var obj = {
-                    mform_isexpanded_id_answerhdr: 1,
-                    noanswers: noanswers,
-                    numhints: 2,                        
-                    id: idpregunta,
-                    inpopup: "",
-                            cmid:"",
-                            courseid: courseid,
-                            scrollpos:0,
-                            appendqnumstring:"",
-                            qtype: tipo,
-                            makecopy:0,
-                            sesskey: sesskey,
-                            _qf__qtype_multichoice_edit_form:1,
-                            mform_isexpanded_id_generalheader:1,
-                            mform_isexpanded_id_combinedfeedbackhdr:0,
-                            mform_isexpanded_id_multitriesheader:0,
-                            mform_isexpanded_id_tagsheader:0,
-                            category: idcategoria,
-                            name: nombre,
-                            "questiontext[text]": enunciado,
-                            "questiontext[format]": 1,
-                            defaultmark: defaultmark,
-                            "generalfeedback[text]": generalfeedback,
-                            "generalfeedback[format]": 1,
-                            single: single,
-                            shuffleanswers: shuffleanswers,
-                            answernumbering: answernumbering,
-                            "answer[0][text]": eleccion1,
-                            "answer[0][format]": 1,
-                            "fraction[0]": fraction0,
-                            "feedback[0][text]": retroalimentacion1,
-                            "feedback[0][format]": 1,
-                            "feedback[1][text]": retroalimentacion2,
-                            "feedback[1][format]": 1,
-                            "feedback[2][text]": retroalimentacion3,
-                            "feedback[2][format]": 1,
-                            "feedback[3][text]": retroalimentacion4,
-                            "feedback[3][format]": 1,
-                            "feedback[4][text]": retroalimentacion5,
-                            "feedback[4][format]": 1,
-                            "feedback[5][text]": retroalimentacion6,
-                            "feedback[5][format]": 1,
-                            "feedback[6][text]": retroalimentacion7,
-                            "feedback[6][format]": 1,
-                            "feedback[7][text]": retroalimentacion8,
-                            "feedback[7][format]": 1,
-                            "answer[1][text]": eleccion2,
-                            "answer[1][format]": 1,
-                            "fraction[1]": fraction1,
-                            "answer[2][text]": eleccion3,
-                            "answer[2][format]": 1,
-                            "fraction[2]": fraction2,
-                            "answer[3][text]": eleccion4,
-                            "answer[3][format]": 1,
-                            "fraction[3]": fraction3,
-                            "answer[4][text]": eleccion5,
-                            "answer[4][format]": 1,
-                            "fraction[4]": fraction4,
-                            "answer[5][text]": eleccion6,
-                            "answer[5][format]": 1,
-                            "fraction[5]": fraction5,
-                            "answer[6][text]": eleccion7,
-                            "answer[6][format]": 1,
-                            "fraction[6]": fraction6,
-                            "answer[7][text]": eleccion8,
-                            "answer[7][format]": 1,
-                            "fraction[7]": fraction7,
-                            "correctfeedback[text]": retroalimentacioncorrecta,
-                            "correctfeedback[format]": 1,
-                            "partiallycorrectfeedback[text]": retroalimentacionparcial,
-                            "partiallycorrectfeedback[format]": 1,
-                            "incorrectfeedback[text]": retroalimentacionincorrecta,
-                            "incorrectfeedback[format]": 1
+                    display: 5,
+                    completionunlocked: 1,
+                    course: courseid,                        
+                    coursemodule: idpagina,
+                    section: seccion,
+                    module: 15,
+                    modulename: "page",
+                    instance: "",
+                    add: 0,
+                    update: idpagina,
+                    return: 0,
+                    sr: 0,
+                    revision: 2,
+                    sesskey: sesskey,
+                    _qf__mod_page_mod_form: 1,
+                    mform_isexpanded_id_general: 1,
+                    mform_isexpanded_id_contentsection: 1,
+                    mform_isexpanded_id_appearancehdr: 0,
+                    mform_isexpanded_id_modstandardelshdr: 0,
+                    mform_isexpanded_id_availabilityconditionsheader: 0,
+                    mform_isexpanded_id_activitycompletionheader: 0,
+                    mform_isexpanded_id_tagshdr: 0,
+                    mform_isexpanded_id_competenciessection: 0,
+                    name: nombre,
+                    "introeditor[format]": 1,
+                    "introeditor[text]": descripcion,
+                    showdescription: 0,
+                    "page[text]": contenido,
+                    "page[format]": 1,
+                    printheading: 1,
+                    printintro: 0,
+                    printlastmodified: 1  
                         };
-                        datos.push(obj);
-                        idspreguntas.push(nombre);
-                    }
+                 datos.push(obj);
+                 idspreguntas.push(nombre);
+             }
 
-            }
-            
-        }
+          }
     })
     .done(function(){
         enviar(datos, 0);
@@ -124,25 +83,15 @@ function enviar(dato, indice){
     var googledata = [];
     if(indice < dato.length){
         var newquestion = dato[indice].id;
+        var idpagina = dato[indice].idpagina;
         const hostname = window.location.hostname;
-        const urlhost = "https://"+hostname+"/question/question.php";
+        const urlhost = "https://"+hostname+"/course/modedit.php?update=${idpagina}&return=0&sr=0";
       $.ajax({
         url: urlhost,
         method: "POST",
         data: dato[indice]
         }).done(function(data) {
-            $( ".no-overflow" ).append( `<p>Pregunta ${indice} editada</p>` );
-            if (newquestion == ""){
-                var questionname = dato[indice].name;
-                var courseid = dato[indice].courseid;
-                var category = dato[indice].category;
-                $.get('https://'+hostname+'/question/edit.php?courseid=${courseid}&cat=${category}' , function(datas) {
-                    var idpreg = $("label:contains("+questionname+")", datas).attr('for');
-                    idpreg = idpreg.replace("checkq", "");
-                    googledata.push(idpreg);
-                    googledata.push(questionname);
-                });
-            }
+            $( ".no-overflow" ).append( `<p>Página${indice} editada</p>` );
             enviar(dato, indice + 1);
         });
     }
