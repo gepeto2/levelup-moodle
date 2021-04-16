@@ -85,7 +85,7 @@ function enviar(dato, indice){
         var newquestion = dato[indice].id;
         var idpagina = dato[indice].idpagina;
         const hostname = window.location.hostname;
-        const urlhost = "https://"+hostname+"/course/modedit.php?update=${idpagina}&return=0&sr=0";
+        const urlhost = "https://"+hostname+"/course/modedit.php?update="+idpagina+"&return=0&sr=0";
       $.ajax({
         url: urlhost,
         method: "POST",
