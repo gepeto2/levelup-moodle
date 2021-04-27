@@ -501,7 +501,7 @@ function leeJSON() {
                             datos.push(obj);
                             idspreguntas.push(idpregunta);
                         }
-                        if (questiontype == "match") {
+                        if (questiontype == "matching") {
                             var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
                             //var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
                             var noanswers = entries[i].gsx$numelecciones.$t;
