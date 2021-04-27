@@ -539,7 +539,7 @@ function leeJSON() {
                                 var respuesta3 = "{mlang es}"+entries[i].gsx$respuesta3.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta3.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta3.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$erespuesta3.$t+"{mlang}{mlang eu}"
+                                +entries[i+3].gsx$respuesta3.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta3.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta3.$t+"{mlang}";
                                 var pregunta4 = "{mlang es}"+entries[i].gsx$pregunta4.$t+"{mlang}{mlang ca}"
