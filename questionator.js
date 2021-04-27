@@ -538,9 +538,11 @@ function leeJSON() {
                                 +entries[i+3].gsx$respuesta2.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta2.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta2.$t+"{mlang}";
-                                alert(entries[i].gsx$pregunta3.$t);
                                 if((entries[i].gsx$pregunta3.$t) == ""){
+                                    alert("Blanco");
                                     var pregunta3 = "";
+                                } else if(entries[i].gsx$pregunta3.$t) == null ){
+                                    alert("Null");
                                 } else {
                                 var pregunta3 = "{mlang es}"+entries[i].gsx$pregunta3.$t+"{mlang}{mlang ca}"
                                     +entries[i+1].gsx$pregunta3.$t+"{mlang}{mlang ca_valencia}"
