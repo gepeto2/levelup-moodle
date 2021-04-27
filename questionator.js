@@ -541,7 +541,7 @@ function leeJSON() {
                                 if((entries[i].gsx$pregunta3.$t) == ""){
                                     alert("Blanco");
                                     var pregunta3 = "";
-                                } else if(entries[i].gsx$pregunta3.$t) == null ){
+                                } else if((entries[i].gsx$pregunta3.$t) == null ){
                                     alert("Null");
                                 } else {
                                 var pregunta3 = "{mlang es}"+entries[i].gsx$pregunta3.$t+"{mlang}{mlang ca}"
