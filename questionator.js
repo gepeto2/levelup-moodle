@@ -506,96 +506,128 @@ function leeJSON() {
                             //var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
                             var noanswers = entries[i].gsx$numelecciones.$t;
                             if((entries[i].gsx$multi.$t) == "TRUE"){
-                                var pregunta1 = "{mlang es}"+entries[i].gsx$pregunta1.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta1.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta1.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta1.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta1.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta1.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta1.$t) == ""){
+                                    var pregunta1 = "";
+                                } else {
+                                    var pregunta1 = "{mlang es}"+entries[i].gsx$pregunta1.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta1.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta1.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta1.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta1.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta1.$t+"{mlang}";
+                                }
                                 var respuesta1 = "{mlang es}"+entries[i].gsx$respuesta1.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta1.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta1.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta1.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta1.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta1.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta2.$t) == ""){
+                                    var pregunta2 = "";
+                                } else {
                                 var pregunta2 = "{mlang es}"+entries[i].gsx$pregunta2.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta2.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta2.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta2.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta2.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta2.$t+"{mlang}";
+                                    +entries[i+1].gsx$pregunta2.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta2.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta2.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta2.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta2.$t+"{mlang}";
+                                }
                                 var respuesta2 = "{mlang es}"+entries[i].gsx$respuesta2.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta2.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta2.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta2.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta2.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta2.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta3.$t) == ""){
+                                    var pregunta3 = "";
+                                } else {
                                 var pregunta3 = "{mlang es}"+entries[i].gsx$pregunta3.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta3.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta3.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta3.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta3.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta3.$t+"{mlang}";
+                                    +entries[i+1].gsx$pregunta3.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta3.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta3.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta3.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta3.$t+"{mlang}";
+                                }
                                 var respuesta3 = "{mlang es}"+entries[i].gsx$respuesta3.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta3.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta3.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta3.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta3.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta3.$t+"{mlang}";
-                                var pregunta4 = "{mlang es}"+entries[i].gsx$pregunta4.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta4.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta4.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta4.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta4.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta4.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta4.$t) == ""){
+                                    var pregunta4 = "";
+                                } else {
+                                    var pregunta4 = "{mlang es}"+entries[i].gsx$pregunta4.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta4.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta4.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta4.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta4.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta4.$t+"{mlang}";
+                                }
                                 var respuesta4 = "{mlang es}"+entries[i].gsx$respuesta4.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta4.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta4.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta4.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta4.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta4.$t+"{mlang}";
-                                var pregunta5 = "{mlang es}"+entries[i].gsx$pregunta5.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta5.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta5.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta5.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta5.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta5.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta5.$t) == ""){
+                                    var pregunta5 = "";
+                                } else {
+                                    var pregunta5 = "{mlang es}"+entries[i].gsx$pregunta5.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta5.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta5.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta5.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta5.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta5.$t+"{mlang}";
+                                }
                                 var respuesta5 = "{mlang es}"+entries[i].gsx$respuesta5.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta5.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta5.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta5.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta5.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta5.$t+"{mlang}";
-                                var pregunta6 = "{mlang es}"+entries[i].gsx$pregunta6.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta6.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta6.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta6.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta6.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta6.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta6.$t) == ""){
+                                    var pregunta6 = "";
+                                } else {
+                                    var pregunta6 = "{mlang es}"+entries[i].gsx$pregunta6.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta6.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta6.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta6.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta6.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta6.$t+"{mlang}";
+                                }
                                 var respuesta6 = "{mlang es}"+entries[i].gsx$respuesta6.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta6.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta6.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta6.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta6.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta6.$t+"{mlang}";
-                                var pregunta7 = "{mlang es}"+entries[i].gsx$pregunta7.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta7.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta7.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta7.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta7.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta7.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta7.$t) == ""){
+                                    var pregunta7 = "";
+                                } else {
+                                    var pregunta7 = "{mlang es}"+entries[i].gsx$pregunta7.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta7.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta7.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta7.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta7.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta7.$t+"{mlang}";
+                                }
                                 var respuesta7 = "{mlang es}"+entries[i].gsx$respuesta7.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta7.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta7.$t+"{mlang}{mlang en}"
                                 +entries[i+3].gsx$respuesta7.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta7.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta7.$t+"{mlang}";
-                                var pregunta8 = "{mlang es}"+entries[i].gsx$pregunta8.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$pregunta8.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$pregunta8.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$pregunta8.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$pregunta8.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$pregunta8.$t+"{mlang}";
+                                if((entries[i].gsx$pregunta8.$t) == ""){
+                                    var pregunta8 = "";
+                                } else {
+                                    var pregunta8 = "{mlang es}"+entries[i].gsx$pregunta8.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta8.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta8.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta8.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta8.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta8.$t+"{mlang}";
+                                }
                                 var respuesta8 = "{mlang es}"+entries[i].gsx$respuesta8.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$respuesta8.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$respuesta8.$t+"{mlang}{mlang en}"
