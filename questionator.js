@@ -538,6 +538,7 @@ function leeJSON() {
                                 +entries[i+3].gsx$respuesta2.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta2.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta2.$t+"{mlang}";
+                                alert(entries[i].gsx$pregunta3.$t);
                                 if((entries[i].gsx$pregunta3.$t) == ""){
                                     var pregunta3 = "";
                                 } else {
