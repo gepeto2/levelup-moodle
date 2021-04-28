@@ -262,9 +262,189 @@ function leeJSON() {
                             obj["tags[]"]  = tags;
                         }
                         datos.push(obj);
-
                         idspreguntas.push(nombre);
-
+                    }
+                    if (questiontype == "ordering") {
+                        if((entries[i].gsx$multi.$t) == "TRUE"){
+                            var item1 = "{mlang es}"+entries[i].gsx$item1.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item1.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item1.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item1.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item1.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item1.$t+"{mlang}";
+                            var item2 = "{mlang es}"+entries[i].gsx$item2.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item2.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item2.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item2.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item2.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item2.$t+"{mlang}";
+                            var item3 = "{mlang es}"+entries[i].gsx$item3.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item3.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item3.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item3.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item3.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item3.$t+"{mlang}";
+                            var item4 = "{mlang es}"+entries[i].gsx$item4.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item4.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item4.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item4.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item4.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item4.$t+"{mlang}";
+                            var item5 = "{mlang es}"+entries[i].gsx$item5.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item5.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item5.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item5.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item5.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item5.$t+"{mlang}";
+                            var item6 = "{mlang es}"+entries[i].gsx$item6.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item6.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item6.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item6.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item6.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item6.$t+"{mlang}";
+                            var item7 = "{mlang es}"+entries[i].gsx$item7.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item7.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item7.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item7.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item7.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item7.$t+"{mlang}";
+                            var item8 = "{mlang es}"+entries[i].gsx$item8.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$item8.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$item8.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$item8.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$item8.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$item8.$t+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacioncorrecta.$t+"{mlang}";
+                            var retroalimentacionparcial = "{mlang es}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacionparcial.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacionparcial.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacionparcial.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacionparcial.$t+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang es}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                        } else {
+                            var item1 = "{mlang "+idioma+"}"+entries[i].gsx$item1.$t+"{mlang}";
+                            var item2 = "{mlang "+idioma+"}"+entries[i].gsx$item2.$t+"{mlang}";
+                            var item3 = "{mlang "+idioma+"}"+entries[i].gsx$item3.$t+"{mlang}";
+                            var item4 = "{mlang "+idioma+"}"+entries[i].gsx$item4.$t+"{mlang}";
+                            var item5 = "{mlang "+idioma+"}"+entries[i].gsx$item5.$t+"{mlang}";
+                            var item6 = "{mlang "+idioma+"}"+entries[i].gsx$item6.$t+"{mlang}";
+                            var item7 = "{mlang "+idioma+"}"+entries[i].gsx$item7.$t+"{mlang}";
+                            var item8 = "{mlang "+idioma+"}"+entries[i].gsx$item8.$t+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                        }
+                        var idnumber = entries[i].gsx$idnumber.$t;
+                        var layouttype = entries[i].gsx$layouttype.$t;
+                        var itemselectiontype = entries[i].gsx$itemselectiontype.$t;
+                        var sizeofsubset = entries[i].gsx$sizeofsubset.$t;
+                        var gradingtype = entries[i].gsx$gradingtype.$t;
+                        var gradingdetails = entries[i].gsx$gradingdetails.$t;
+                        var numberthechoices = entries[i].gsx$numberthechoices.$t;
+                        var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
+                        var countanswers = entries[i].gsx$numitems.$t;
+                        var obj = {
+                            countanswers: countanswers,
+                            mform_isexpanded_id_answerheader_0: 1,
+                            mform_isexpanded_id_answerheader_1: 1,
+                            mform_isexpanded_id_answerheader_2: 1,
+                            mform_isexpanded_id_answerheader_3: 1,
+                            mform_isexpanded_id_answerheader_4: 1,
+                            mform_isexpanded_id_answerheader_5: 1,
+                            mform_isexpanded_id_answerheader_6: 1,
+                            mform_isexpanded_id_answerheader_7: 1,
+                            numhints: 2,                        
+                            id: idpregunta,
+                            inpopup: "",
+                            cmid:"",
+                            courseid: courseid,
+                            scrollpos:0,
+                            appendqnumstring:"",
+                            qtype: tipo,
+                            makecopy:0,
+                            sesskey: sesskey,
+                            _qf__qtype_ordering_edit_form:1,
+                            mform_isexpanded_id_generalheader:1,
+                            mform_isexpanded_id_combinedfeedbackhdr:0,
+                            mform_isexpanded_id_multitriesheader:0,
+                            mform_isexpanded_id_tagsheader:0,
+                            category: idcategoria,
+                            name: nombre,
+                            "questiontext[text]": enunciado,
+                            "questiontext[format]": 1,
+                            defaultmark: defaultmark,
+                            "generalfeedback[text]": generalfeedback,
+                            "generalfeedback[format]": 1,
+                            idnumber: idnumber,
+                            layouttype: layouttype,
+                            selecttype: itemselectiontype,
+                            
+                            
+                            shuffleanswers: shuffleanswers,
+                            answernumbering: answernumbering,
+                            "answer[0][text]": eleccion1,
+                            "answer[0][format]": 1,
+                            "fraction[0]": fraction0,
+                            "feedback[0][text]": retroalimentacion1,
+                            "feedback[0][format]": 1,
+                            "feedback[1][text]": retroalimentacion2,
+                            "feedback[1][format]": 1,
+                            "feedback[2][text]": retroalimentacion3,
+                            "feedback[2][format]": 1,
+                            "feedback[3][text]": retroalimentacion4,
+                            "feedback[3][format]": 1,
+                            "feedback[4][text]": retroalimentacion5,
+                            "feedback[4][format]": 1,
+                            "feedback[5][text]": retroalimentacion6,
+                            "feedback[5][format]": 1,
+                            "feedback[6][text]": retroalimentacion7,
+                            "feedback[6][format]": 1,
+                            "feedback[7][text]": retroalimentacion8,
+                            "feedback[7][format]": 1,
+                            "answer[1][text]": eleccion2,
+                            "answer[1][format]": 1,
+                            "fraction[1]": fraction1,
+                            "answer[2][text]": eleccion3,
+                            "answer[2][format]": 1,
+                            "fraction[2]": fraction2,
+                            "answer[3][text]": eleccion4,
+                            "answer[3][format]": 1,
+                            "fraction[3]": fraction3,
+                            "answer[4][text]": eleccion5,
+                            "answer[4][format]": 1,
+                            "fraction[4]": fraction4,
+                            "answer[5][text]": eleccion6,
+                            "answer[5][format]": 1,
+                            "fraction[5]": fraction5,
+                            "answer[6][text]": eleccion7,
+                            "answer[6][format]": 1,
+                            "fraction[6]": fraction6,
+                            "answer[7][text]": eleccion8,
+                            "answer[7][format]": 1,
+                            "fraction[7]": fraction7,
+                            "correctfeedback[text]": retroalimentacioncorrecta,
+                            "correctfeedback[format]": 1,
+                            "partiallycorrectfeedback[text]": retroalimentacionparcial,
+                            "partiallycorrectfeedback[format]": 1,
+                            "incorrectfeedback[text]": retroalimentacionincorrecta,
+                            "incorrectfeedback[format]": 1
+                        };
+                        if (tags !== "") {
+                            obj["tags[]"]  = tags;
+                        }
+                        datos.push(obj);
+                        idspreguntas.push(nombre);
                     }
                     if (questiontype == "shortanswer") {
                         if((entries[i].gsx$multi.$t) == "TRUE"){
@@ -950,7 +1130,7 @@ function convertanswernumbering(data){
     if (data == "1. 2. 3..."){ answernumbering = "123"}
     if (data == "i. ii. iii..."){ answernumbering = "iii"}
     if (data == "I. II. III..."){ answernumbering = "IIII"}
-    if (data == "Sin numeraciÃ³n"){ answernumbering = "none"}
+    if (data == "Sin numeración"){ answernumbering = "none"}
     return answernumbering;
 }
 
