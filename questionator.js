@@ -346,13 +346,12 @@ function leeJSON() {
                             var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
                         }
                         var idnumber = entries[i].gsx$idnumber.$t;
-                        var layouttype = entries[i].gsx$layouttype.$t;
-                        var itemselectiontype = entries[i].gsx$itemselectiontype.$t;
+                        var layouttype = convertlayouttype(entries[i].gsx$layouttype.$t);
+                        var itemselectiontype = convertitemselectiontype(entries[i].gsx$itemselectiontype.$t);
                         var sizeofsubset = entries[i].gsx$sizeofsubset.$t;
-                        var gradingtype = entries[i].gsx$gradingtype.$t;
-                        var gradingdetails = entries[i].gsx$gradingdetails.$t;
-                        var numberthechoices = entries[i].gsx$numberthechoices.$t;
-                        var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
+                        var gradingtype = convertgradingtype(entries[i].gsx$gradingtype.$t);
+                        var gradingdetails = convertgradingdetails(entries[i].gsx$gradingdetails.$t);
+                        var numberthechoices = convertanswernumbering(entries[i].gsx$numberthechoices.$t);
                         var countanswers = entries[i].gsx$numitems.$t;
                         var obj = {
                             countanswers: countanswers,
@@ -389,50 +388,26 @@ function leeJSON() {
                             idnumber: idnumber,
                             layouttype: layouttype,
                             selecttype: itemselectiontype,
-                            
-                            
-                            shuffleanswers: shuffleanswers,
-                            answernumbering: answernumbering,
-                            "answer[0][text]": eleccion1,
+                            selectcount: sizeofsubset,
+                            gradingtype: gradingtype,
+                            showgrading: gradingdetails,
+                            numberingstyle: numberthechoices,
+                            "answer[0][text]": item1,
                             "answer[0][format]": 1,
-                            "fraction[0]": fraction0,
-                            "feedback[0][text]": retroalimentacion1,
-                            "feedback[0][format]": 1,
-                            "feedback[1][text]": retroalimentacion2,
-                            "feedback[1][format]": 1,
-                            "feedback[2][text]": retroalimentacion3,
-                            "feedback[2][format]": 1,
-                            "feedback[3][text]": retroalimentacion4,
-                            "feedback[3][format]": 1,
-                            "feedback[4][text]": retroalimentacion5,
-                            "feedback[4][format]": 1,
-                            "feedback[5][text]": retroalimentacion6,
-                            "feedback[5][format]": 1,
-                            "feedback[6][text]": retroalimentacion7,
-                            "feedback[6][format]": 1,
-                            "feedback[7][text]": retroalimentacion8,
-                            "feedback[7][format]": 1,
-                            "answer[1][text]": eleccion2,
+                            "answer[1][text]": item2,
                             "answer[1][format]": 1,
-                            "fraction[1]": fraction1,
-                            "answer[2][text]": eleccion3,
+                            "answer[2][text]": item3,
                             "answer[2][format]": 1,
-                            "fraction[2]": fraction2,
-                            "answer[3][text]": eleccion4,
+                            "answer[3][text]": item4,
                             "answer[3][format]": 1,
-                            "fraction[3]": fraction3,
-                            "answer[4][text]": eleccion5,
+                            "answer[4][text]": item5,
                             "answer[4][format]": 1,
-                            "fraction[4]": fraction4,
-                            "answer[5][text]": eleccion6,
+                            "answer[5][text]": item6,
                             "answer[5][format]": 1,
-                            "fraction[5]": fraction5,
-                            "answer[6][text]": eleccion7,
+                            "answer[6][text]": item7,
                             "answer[6][format]": 1,
-                            "fraction[6]": fraction6,
-                            "answer[7][text]": eleccion8,
+                            "answer[7][text]": item8,
                             "answer[7][format]": 1,
-                            "fraction[7]": fraction7,
                             "correctfeedback[text]": retroalimentacioncorrecta,
                             "correctfeedback[format]": 1,
                             "partiallycorrectfeedback[text]": retroalimentacionparcial,
@@ -1134,6 +1109,38 @@ function convertanswernumbering(data){
     return answernumbering;
 }
 
+function convertgradingtype(data){
+    var gradingtype;    
+    if (data == "All or nothing"){ gradingtype = "-1"}
+    if (data == "Absolute position"){ gradingtype = 0}
+    if (data == "Relative to correct position"){ gradingtype = 7}
+    if (data == "Relative to the next item (excluding last)"){ gradingtype = 1}
+    if (data == "Relative to the next item (including last)"){ gradingtype = 2}
+    if (data == "Relative to both the previous and next items"){ gradingtype = 3}
+    if (data == "Relative to ALL the previous and next items"){ gradingtype = 4}
+    if (data == "Longest ordered subset"){ gradingtype = 5}
+    if (data == "Longest contiguous subset"){ gradingtype = 6}
+    return gradingtype;
+}
+function convertlayouttype(data){
+    var layouttype;
+    if (data == "Vertical"){ layouttype = 0}
+    if (data == "Horizontal"){ layouttype = 1}
+    return layouttype;
+}
+function convertitemselectiontype(data){
+    var itemselectiontype;
+    if (data == "Select all items"){ itemselectiontype = 0}
+    if (data == "Select a random subset of items"){ itemselectiontype = 1}
+    if (data == "Select a contiguous subset of items"){ itemselectiontype = 2}
+    return itemselectiontype;
+}
+function convertgradingdetails(data){
+    var gradingdetails;
+    if (data == "Ocultar"){ gradingdetails = 0}
+    if (data == "Mostrar"){ gradingdetails = 1}
+    return gradingdetails;
+}
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
     if (numberofquestions == undefined){
