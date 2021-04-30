@@ -1135,6 +1135,12 @@ function convertitemselectiontype(data){
     if (data == "Select a contiguous subset of items"){ itemselectiontype = 2}
     return itemselectiontype;
 }
+function convertsizeofsubset(data){
+    var sizeofsubset;
+    if (data == "Todos"){ sizeofsubset = 0} 
+        else { sizeofsubset = data}
+    return sizeofsubset;
+}
 function convertgradingdetails(data){
     var gradingdetails;
     if (data == "Ocultar"){ gradingdetails = 0}
