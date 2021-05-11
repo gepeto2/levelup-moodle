@@ -797,6 +797,74 @@ function leeJSON() {
                                 +entries[i+3].gsx$respuesta8.$t+"{mlang}{mlang eu}"
                                 +entries[i+4].gsx$respuesta8.$t+"{mlang}{mlang gl}"
                                 +entries[i+5].gsx$respuesta8.$t+"{mlang}";
+                                var pregunta9;
+                                if((entries[i].gsx$pregunta9.$t) == ""){
+                                    pregunta9 = "";
+                                } else {
+                                    pregunta9 = "{mlang es}"+entries[i].gsx$pregunta9.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta9.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta9.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta9.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta9.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta9.$t+"{mlang}";
+                                }
+                                var respuesta9 = "{mlang es}"+entries[i].gsx$respuesta9.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$respuesta9.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$respuesta9.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$respuesta9.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$respuesta9.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$respuesta9.$t+"{mlang}";
+                                var pregunta10;
+                                if((entries[i].gsx$pregunta10.$t) == ""){
+                                    pregunta10 = "";
+                                } else {
+                                    pregunta10 = "{mlang es}"+entries[i].gsx$pregunta10.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta10.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta10.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta10.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta10.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta10.$t+"{mlang}";
+                                }
+                                var respuesta10 = "{mlang es}"+entries[i].gsx$respuesta10.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$respuesta10.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$respuesta10.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$respuesta10.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$respuesta10.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$respuesta10.$t+"{mlang}";
+                                var pregunta11;
+                                if((entries[i].gsx$pregunta11.$t) == ""){
+                                    pregunta11 = "";
+                                } else {
+                                    pregunta11 = "{mlang es}"+entries[i].gsx$pregunta11.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta11.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta11.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta11.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta11.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta11.$t+"{mlang}";
+                                }
+                                var respuesta11 = "{mlang es}"+entries[i].gsx$respuesta11.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$respuesta11.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$respuesta11.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$respuesta11.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$respuesta11.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$respuesta11.$t+"{mlang}";
+                                var pregunta12;
+                                if((entries[i].gsx$pregunta12.$t) == ""){
+                                    pregunta12 = "";
+                                } else {
+                                    pregunta12 = "{mlang es}"+entries[i].gsx$pregunta12.$t+"{mlang}{mlang ca}"
+                                    +entries[i+1].gsx$pregunta12.$t+"{mlang}{mlang ca_valencia}"
+                                    +entries[i+2].gsx$pregunta12.$t+"{mlang}{mlang en}"
+                                    +entries[i+3].gsx$pregunta12.$t+"{mlang}{mlang eu}"
+                                    +entries[i+4].gsx$pregunta12.$t+"{mlang}{mlang gl}"
+                                    +entries[i+5].gsx$pregunta12.$t+"{mlang}";
+                                }
+                                var respuesta12 = "{mlang es}"+entries[i].gsx$respuesta12.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$respuesta12.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$respuesta12.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$respuesta12.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$respuesta12.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$respuesta12.$t+"{mlang}";
                                 var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
@@ -824,6 +892,10 @@ function leeJSON() {
                                 var pregunta6 = entries[i].gsx$pregunta6.$t; 
                                 var pregunta7 = entries[i].gsx$pregunta7.$t;   
                                 var pregunta8 = entries[i].gsx$pregunta8.$t;  
+                                var pregunta9 = entries[i].gsx$pregunta9.$t;  
+                                var pregunta10 = entries[i].gsx$pregunta10.$t;  
+                                var pregunta11 = entries[i].gsx$pregunta11.$t;  
+                                var pregunta12 = entries[i].gsx$pregunta12.$t;  
                                 var respuesta1 = entries[i].gsx$respuesta1.$t;
                                 var respuesta2 = entries[i].gsx$respuesta2.$t;
                                 var respuesta3 = entries[i].gsx$respuesta3.$t;
@@ -832,6 +904,10 @@ function leeJSON() {
                                 var respuesta6 = entries[i].gsx$respuesta6.$t;
                                 var respuesta7 = entries[i].gsx$respuesta7.$t;
                                 var respuesta8 = entries[i].gsx$respuesta8.$t;
+                                var respuesta9 = entries[i].gsx$respuesta9.$t;
+                                var respuesta10 = entries[i].gsx$respuesta10.$t;
+                                var respuesta11 = entries[i].gsx$respuesta11.$t;
+                                var respuesta12 = entries[i].gsx$respuesta12.$t;
                             }
                         var obj = {
                             mform_isexpanded_id_answerhdr: 1,
@@ -883,6 +959,18 @@ function leeJSON() {
                             "subquestions[7][text]:": pregunta8,
                             "subquestions[7][format]": 1,
                             "subanswers[7]": respuesta8,
+                            "subquestions[8][text]:": pregunta9,
+                            "subquestions[8][format]": 1,
+                            "subanswers[8]": respuesta9,
+                            "subquestions[9][text]:": pregunta10,
+                            "subquestions[9][format]": 1,
+                            "subanswers[9]": respuesta10,
+                            "subquestions[10][text]:": pregunta11,
+                            "subquestions[10][format]": 1,
+                            "subanswers[10]": respuesta11,
+                            "subquestions[11][text]:": pregunta12,
+                            "subquestions[11][format]": 1,
+                            "subanswers[11]": respuesta12,
                             "correctfeedback[text]": retroalimentacioncorrecta,
                             "correctfeedback[format]": 1,
                             "partiallycorrectfeedback[text]": retroalimentacionparcial,
