@@ -47,7 +47,7 @@ function fileicon(tipoarchivo){
         iconoarchivo = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Image_tagging_icon_01.svg';
     }
     if (tipoarchivo == 'xlsx'||tipoarchivo == 'xls') {
-        iconoarchivo = 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Microsoft_Office_Excel_%282018%E2%80%93present%29.svg';      
+        iconoarchivo = 'https://upload.wikimedia.org/wikipedia/commons/f/f3/.xlsx_icon.svg';      
     }
     return iconoarchivo;
 }
