@@ -174,6 +174,7 @@ function leeJSON() {
                         var single = convertsingle(entries[i].gsx$unavariasrespuestas.$t);
                         var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
                         var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
+                        var showstandardinstruction = convertshowstandardinstruction(entries[i].gsx$mostrarinstruccionesestandar.$t);
                         var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
                         var fraction1 = convertCalif(entries[i].gsx$calif2.$t);
                         var fraction2 = convertCalif(entries[i].gsx$calif3.$t);
@@ -211,6 +212,7 @@ function leeJSON() {
                             single: single,
                             shuffleanswers: shuffleanswers,
                             answernumbering: answernumbering,
+                            showstandardinstruction: showstandardinstruction,
                             "answer[0][text]": eleccion1,
                             "answer[0][format]": 1,
                             "fraction[0]": fraction0,
@@ -1300,6 +1302,12 @@ function convertgradingdetails(data){
     if (data == "Ocultar"){ gradingdetails = 0}
     if (data == "Mostrar"){ gradingdetails = 1}
     return gradingdetails;
+}
+function convertshowstandardinstruction(data){
+    var showstandardinstruction;
+    if (data == "Sí"){ showstandardinstruction = 1}
+    if (data == "No"){ showstandardinstruction = 0}
+    return showstandardinstruction;
 }
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
