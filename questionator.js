@@ -1143,7 +1143,7 @@ function leeJSON() {
                             idspreguntas.push(idpregunta);
                             idspreguntas.push(nombre);
                         }
-                        if (questiontype == "gapselect") {
+                        if (questiontype == "gapfill") {
                             if((entries[i].gsx$multi.$t) == "TRUE"){
                              } else {
                             var respuestasincorrectas = "{mlang "+idioma+"}"+entries[i].gsx$respuestasincorrectas.$t+"{mlang}";
@@ -1153,17 +1153,19 @@ function leeJSON() {
                             }
                         var delimitchars = entries[i].gsx$caracteresdelimitadores.$t
                         var answerdisplay = convertanswerdisplay(entries[i].gsx$muestralasrespuestas.$t);
-                        var single = convertsingle(entries[i].gsx$unavariasrespuestas.$t);
-                        var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
-                        var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
-                        var showstandardinstruction = convertshowstandardinstruction(entries[i].gsx$mostrarinstruccionesestandar.$t);
-                        var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
+                        var fixedgapsize = conterttruefalse(entries[i].gsx$tamanofijohuecos.$t);
+                        var singleuse = conterttruefalse(entries[i].gsx.$arrastrablesusounico.$t);
+                        var optionsaftertext = converttruefalse(entries[i].gsx.$opcionesdespuestexto.$t);
+                        var disableregex = converttruefalse(entries[i].gsx.$deshabilitarregex.$t);
+                        var letterhints = converttruefalse(entries[i].gsx.$pistasdeletra.$t);
+                        var noduplicates = converttruefalse(entries[i].gsx.$sinduplicados.$t);
+                        var casesensitive = converttruefalse(entries[i].gsx$mayuscminusc.$t);    
                         var obj = {
-                            mform_isexpanded_id_answerhdr: 1,
-                            noanswers: noanswers,
+                            reload: 1,
+                            itemsettings: "",
                             numhints: 2,                        
                             id: idpregunta,
-                            inpopup: "",
+                            inpopup: 0,
                             cmid:"",
                             courseid: courseid,
                             scrollpos:0,
@@ -1171,7 +1173,8 @@ function leeJSON() {
                             qtype: tipo,
                             makecopy:0,
                             sesskey: sesskey,
-                            _qf__qtype_multichoice_edit_form:1,
+                            _qf__qtype_gapfill_edit_form:1,
+                            mform_showmore_id_feedbackheader:0,
                             mform_isexpanded_id_generalheader:1,
                             mform_isexpanded_id_combinedfeedbackhdr:0,
                             mform_isexpanded_id_multitriesheader:0,
@@ -1180,53 +1183,19 @@ function leeJSON() {
                             name: nombre,
                             "questiontext[text]": enunciado,
                             "questiontext[format]": 1,
-                            defaultmark: defaultmark,
+                            "wronganswers[text]": respuestasincorrectas,
+                            "wronganswers[format]": 1,
                             "generalfeedback[text]": generalfeedback,
                             "generalfeedback[format]": 1,
-                            single: single,
-                            shuffleanswers: shuffleanswers,
-                            answernumbering: answernumbering,
-                            showstandardinstruction: showstandardinstruction,
-                            "answer[0][text]": eleccion1,
-                            "answer[0][format]": 1,
-                            "fraction[0]": fraction0,
-                            "feedback[0][text]": retroalimentacion1,
-                            "feedback[0][format]": 1,
-                            "feedback[1][text]": retroalimentacion2,
-                            "feedback[1][format]": 1,
-                            "feedback[2][text]": retroalimentacion3,
-                            "feedback[2][format]": 1,
-                            "feedback[3][text]": retroalimentacion4,
-                            "feedback[3][format]": 1,
-                            "feedback[4][text]": retroalimentacion5,
-                            "feedback[4][format]": 1,
-                            "feedback[5][text]": retroalimentacion6,
-                            "feedback[5][format]": 1,
-                            "feedback[6][text]": retroalimentacion7,
-                            "feedback[6][format]": 1,
-                            "feedback[7][text]": retroalimentacion8,
-                            "feedback[7][format]": 1,
-                            "answer[1][text]": eleccion2,
-                            "answer[1][format]": 1,
-                            "fraction[1]": fraction1,
-                            "answer[2][text]": eleccion3,
-                            "answer[2][format]": 1,
-                            "fraction[2]": fraction2,
-                            "answer[3][text]": eleccion4,
-                            "answer[3][format]": 1,
-                            "fraction[3]": fraction3,
-                            "answer[4][text]": eleccion5,
-                            "answer[4][format]": 1,
-                            "fraction[4]": fraction4,
-                            "answer[5][text]": eleccion6,
-                            "answer[5][format]": 1,
-                            "fraction[5]": fraction5,
-                            "answer[6][text]": eleccion7,
-                            "answer[6][format]": 1,
-                            "fraction[6]": fraction6,
-                            "answer[7][text]": eleccion8,
-                            "answer[7][format]": 1,
-                            "fraction[7]": fraction7,
+                            delimitchars: delimitchars,
+                            answerdisplay: answerdisplay,
+                            fixedgapsize: fixedgapsize,
+                            singleuse: singleuse,
+                            optionsaftertext: optionsaftertext,
+                            disableregex: disableregex,
+                            letterhints: letterhints,
+                            noduplicates: noduplicates,
+                            casesensitive: casesensitive,
                             "correctfeedback[text]": retroalimentacioncorrecta,
                             "correctfeedback[format]": 1,
                             "partiallycorrectfeedback[text]": retroalimentacionparcial,
