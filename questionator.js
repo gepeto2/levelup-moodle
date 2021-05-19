@@ -1143,6 +1143,104 @@ function leeJSON() {
                             idspreguntas.push(idpregunta);
                             idspreguntas.push(nombre);
                         }
+                        if (questiontype == "gapselect") {
+                            if((entries[i].gsx$multi.$t) == "TRUE"){
+                             } else {
+                            var respuestasincorrectas = "{mlang "+idioma+"}"+entries[i].gsx$respuestasincorrectas.$t+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                            }
+                        var delimitchars = entries[i].gsx$caracteresdelimitadores.$t
+                        var answerdisplay = convertanswerdisplay(entries[i].gsx$muestralasrespuestas.$t);
+                        var single = convertsingle(entries[i].gsx$unavariasrespuestas.$t);
+                        var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
+                        var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
+                        var showstandardinstruction = convertshowstandardinstruction(entries[i].gsx$mostrarinstruccionesestandar.$t);
+                        var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
+                        var obj = {
+                            mform_isexpanded_id_answerhdr: 1,
+                            noanswers: noanswers,
+                            numhints: 2,                        
+                            id: idpregunta,
+                            inpopup: "",
+                            cmid:"",
+                            courseid: courseid,
+                            scrollpos:0,
+                            appendqnumstring:"",
+                            qtype: tipo,
+                            makecopy:0,
+                            sesskey: sesskey,
+                            _qf__qtype_multichoice_edit_form:1,
+                            mform_isexpanded_id_generalheader:1,
+                            mform_isexpanded_id_combinedfeedbackhdr:0,
+                            mform_isexpanded_id_multitriesheader:0,
+                            mform_isexpanded_id_tagsheader:0,
+                            category: idcategoria,
+                            name: nombre,
+                            "questiontext[text]": enunciado,
+                            "questiontext[format]": 1,
+                            defaultmark: defaultmark,
+                            "generalfeedback[text]": generalfeedback,
+                            "generalfeedback[format]": 1,
+                            single: single,
+                            shuffleanswers: shuffleanswers,
+                            answernumbering: answernumbering,
+                            showstandardinstruction: showstandardinstruction,
+                            "answer[0][text]": eleccion1,
+                            "answer[0][format]": 1,
+                            "fraction[0]": fraction0,
+                            "feedback[0][text]": retroalimentacion1,
+                            "feedback[0][format]": 1,
+                            "feedback[1][text]": retroalimentacion2,
+                            "feedback[1][format]": 1,
+                            "feedback[2][text]": retroalimentacion3,
+                            "feedback[2][format]": 1,
+                            "feedback[3][text]": retroalimentacion4,
+                            "feedback[3][format]": 1,
+                            "feedback[4][text]": retroalimentacion5,
+                            "feedback[4][format]": 1,
+                            "feedback[5][text]": retroalimentacion6,
+                            "feedback[5][format]": 1,
+                            "feedback[6][text]": retroalimentacion7,
+                            "feedback[6][format]": 1,
+                            "feedback[7][text]": retroalimentacion8,
+                            "feedback[7][format]": 1,
+                            "answer[1][text]": eleccion2,
+                            "answer[1][format]": 1,
+                            "fraction[1]": fraction1,
+                            "answer[2][text]": eleccion3,
+                            "answer[2][format]": 1,
+                            "fraction[2]": fraction2,
+                            "answer[3][text]": eleccion4,
+                            "answer[3][format]": 1,
+                            "fraction[3]": fraction3,
+                            "answer[4][text]": eleccion5,
+                            "answer[4][format]": 1,
+                            "fraction[4]": fraction4,
+                            "answer[5][text]": eleccion6,
+                            "answer[5][format]": 1,
+                            "fraction[5]": fraction5,
+                            "answer[6][text]": eleccion7,
+                            "answer[6][format]": 1,
+                            "fraction[6]": fraction6,
+                            "answer[7][text]": eleccion8,
+                            "answer[7][format]": 1,
+                            "fraction[7]": fraction7,
+                            "correctfeedback[text]": retroalimentacioncorrecta,
+                            "correctfeedback[format]": 1,
+                            "partiallycorrectfeedback[text]": retroalimentacionparcial,
+                            "partiallycorrectfeedback[format]": 1,
+                            "incorrectfeedback[text]": retroalimentacionincorrecta,
+                            "incorrectfeedback[format]": 1
+                        };
+                        if (tags !== "") {
+                            obj["tags[]"]  = tags;
+                        }
+                        datos.push(obj);
+                        idspreguntas.push(nombre);
+                    }
+                
             }
             
         }
@@ -1308,6 +1406,19 @@ function convertshowstandardinstruction(data){
     if (data == "Sí"){ showstandardinstruction = 1}
     if (data == "No"){ showstandardinstruction = 0}
     return showstandardinstruction;
+}
+function convertanswerdisplay(data){
+    var answerdisplay;
+    if (data == "Arrastrar/ soltar"){ answerdisplay = "dragdrop"}
+    if (data == "rellenar espacio"){ answerdisplay = "gapfill"}
+    if (data == "desplegable"){ answerdisplay = "dropdown"}
+    return answerdisplay;
+}
+function converttruefalse(data){
+    var truefalse;
+    if (data == "TRUE"){ truefalse = 1}
+    if (data == "FALSE"){ truefalse = 0}
+    retutn truefalse;
 }
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
