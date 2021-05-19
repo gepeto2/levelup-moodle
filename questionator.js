@@ -1153,8 +1153,8 @@ function leeJSON() {
                             }
                         var delimitchars = entries[i].gsx$caracteresdelimitadores.$t
                         var answerdisplay = convertanswerdisplay(entries[i].gsx$muestralasrespuestas.$t);
-                        var fixedgapsize = conterttruefalse(entries[i].gsx$tamanofijohuecos.$t);
-                        var singleuse = conterttruefalse(entries[i].gsx.$arrastrablesusounico.$t);
+                        var fixedgapsize = converttruefalse(entries[i].gsx$tamanofijohuecos.$t);
+                        var singleuse = converttruefalse(entries[i].gsx.$arrastrablesusounico.$t);
                         var optionsaftertext = converttruefalse(entries[i].gsx.$opcionesdespuestexto.$t);
                         var disableregex = converttruefalse(entries[i].gsx.$deshabilitarregex.$t);
                         var letterhints = converttruefalse(entries[i].gsx.$pistasdeletra.$t);
