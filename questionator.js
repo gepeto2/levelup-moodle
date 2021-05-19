@@ -8,7 +8,6 @@ function GetURLParameter(sParam) {
         }
     }
 }
-
 function leeJSON() {
     const sheet = GetURLParameter('sheetid');
     const page = GetURLParameter('sheetpage');
@@ -1266,7 +1265,6 @@ function enviar(dato, indice){
         });
     }
 }
-
 function sendGoogle(datos){
     window.location.replace("https://script.google.com/macros/s/AKfycbxt4vgLE_GawyA0aRO3gEyW2ghGQANB1P5i66PbUQCaVL9xCiPfFnnWT3Mo-d7o7rAjIA/dev?"+datos);
 }
@@ -1313,14 +1311,12 @@ function convertCalif(data){
     if (data == "10%"){ califdef = "0.1"}
     return califdef;
 }
-
 function convertshuffleanswers(data){
     var shuffleanswers;
     if (data == "Sí"){ shuffleanswers = 1}
     if (data == "No"){ shuffleanswers = 0}
     return shuffleanswers;
 }
-
 function convertanswernumbering(data){
     var answernumbering;
     if (data == "a. b. c..."){ answernumbering = "abc"}
@@ -1331,7 +1327,6 @@ function convertanswernumbering(data){
     if (data == "Sin numeración"){ answernumbering = "none"}
     return answernumbering;
 }
-
 function convertgradingtype(data){
     var gradingtype;    
     if (data == "All or nothing"){ gradingtype = "-1"}
