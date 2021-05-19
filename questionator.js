@@ -1387,7 +1387,7 @@ function converttruefalse(data){
     var truefalse;
     if (data == "TRUE"){ truefalse = 1}
     if (data == "FALSE"){ truefalse = 0}
-    retutn truefalse;
+    return truefalse;
 }
 $(document).ready(function() {
     const numberofquestions = GetURLParameter('numberofquestions');
