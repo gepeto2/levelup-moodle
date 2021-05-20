@@ -1208,7 +1208,167 @@ function leeJSON() {
                         datos.push(obj);
                         idspreguntas.push(nombre);
                     }
-                
+                    if (questiontype == "numerical") {
+                        if((entries[i].gsx$multi.$t) == "TRUE"){
+                              var retroalimentacion1 = "{mlang es}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion1.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion1.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion1.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion1.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion1.$t+"{mlang}";
+                              var retroalimentacion2 = "{mlang es}"+entries[i].gsx$retroalimentacion2.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion2.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion2.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion2.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion2.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion2.$t+"{mlang}";
+                              var retroalimentacion3 = "{mlang es}"+entries[i].gsx$retroalimentacion3.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion3.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion3.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion3.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion3.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion3.$t+"{mlang}";
+                              var retroalimentacion4 = "{mlang es}"+entries[i].gsx$retroalimentacion4.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion4.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion4.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion4.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion4.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion4.$t+"{mlang}";
+                              var retroalimentacion5 = "{mlang es}"+entries[i].gsx$retroalimentacion5.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion5.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion5.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion5.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion5.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion5.$t+"{mlang}";
+                              var retroalimentacion6 = "{mlang es}"+entries[i].gsx$retroalimentacion6.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion6.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion6.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion6.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion6.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion6.$t+"{mlang}";
+                              var retroalimentacion7 = "{mlang es}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion7.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion7.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion7.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion7.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion7.$t+"{mlang}";
+                              var retroalimentacion8 = "{mlang es}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}{mlang ca}"
+                                +entries[i+1].gsx$retroalimentacion8.$t+"{mlang}{mlang ca_valencia}"
+                                +entries[i+2].gsx$retroalimentacion8.$t+"{mlang}{mlang en}"
+                                +entries[i+3].gsx$retroalimentacion8.$t+"{mlang}{mlang eu}"
+                                +entries[i+4].gsx$retroalimentacion8.$t+"{mlang}{mlang gl}"
+                                +entries[i+5].gsx$retroalimentacion8.$t+"{mlang}";
+                        } else {
+                            var retroalimentacion1 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}";
+                            var retroalimentacion2 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion2.$t+"{mlang}";
+                            var retroalimentacion3 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion3.$t+"{mlang}";
+                            var retroalimentacion4 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion4.$t+"{mlang}";
+                            var retroalimentacion5 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion5.$t+"{mlang}";
+                            var retroalimentacion6 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion6.$t+"{mlang}";
+                            var retroalimentacion7 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}";
+                            var retroalimentacion8 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}";
+                        }
+                        var fraction1 = entries[i].gsx$calif1.$t;
+                        var fraction2 = entries[i].gsx$calif2.$t;
+                        var fraction3 = entries[i].gsx$calif3.$t;
+                        var fraction4 = entries[i].gsx$calif4.$t;
+                        var fraction5 = entries[i].gsx$calif5.$t;
+                        var fraction6 = entries[i].gsx$calif6.$t;
+                        var fraction7 = entries[i].gsx$calif7.$t;
+                        var fraction8 = entries[i].gsx$calif8.$t;
+                        var respuesta1 = entries[i].gsx$respuesta1.$t;
+                        var respuesta2 = entries[i].gsx$respuesta2.$t;                        
+                        var respuesta3 = entries[i].gsx$respuesta3.$t;
+                        var respuesta4 = entries[i].gsx$respuesta4.$t;
+                        var respuesta5 = entries[i].gsx$respuesta5.$t;
+                        var respuesta6 = entries[i].gsx$respuesta6.$t;
+                        var respuesta7 = entries[i].gsx$respuesta7.$t;
+                        var respuesta8 = entries[i].gsx$respuesta8.$t;
+                        var error1 = entries[i].gsx$error1.$t;
+                        var error2 = entries[i].gsx$error2.$t;
+                        var error3 = entries[i].gsx$error3.$t;
+                        var error4 = entries[i].gsx$error4.$t;
+                        var error5 = entries[i].gsx$error5.$t;
+                        var error6 = entries[i].gsx$error6.$t;
+                        var error7 = entries[i].gsx$error7.$t;
+                        var error8 = entries[i].gsx$error8.$t;
+                        var noanswers = entries[i].gsx$numrespuestas.$t;   
+                        var obj = {
+                            mform_isexpanded_id_answerhdr: 1,
+                            noanswers: noanswers, 
+                            nounits: 1,
+                            numhints: 2,
+                            id: idpregunta,
+                            inpopup: 0,
+                            cmid:"",
+                            courseid: courseid,
+                            scrollpos:0,
+                            appendqnumstring:"",
+                            qtype: tipo,
+                            makecopy:0,
+                            sesskey: sesskey,
+                            _qf__qtype_numerical_edit_form:1,
+                            mform_isexpanded_id_generalheader:1,
+                            mform_isexpanded_id_unithandling:1,                         
+                            mform_isexpanded_id_unithdr:1,
+                            mform_isexpanded_id_multitriesheader:0,
+                            mform_isexpanded_id_tagsheader:0,
+                            category: idcategoria,
+                            name: nombre,
+                            "questiontext[text]": enunciado,
+                            "questiontext[format]": 1,
+                            defaultmark: defaultmark,
+                            "answer[0]": respuesta1,
+                            "torelance[0]": error1,
+                            "fraction[0]": fraction1,
+                            "answer[1]": respuesta2,
+                            "tolerance[1]": error2,
+                            "fraction[1]": fraction2,
+                            "answer[2]": respuesta3,
+                            "tolerance[2]": error3,
+                            "fraction[2]": fraction3,
+                            "answer[3]": respuesta4,
+                            "tolerance[3]": error4
+                            "fraction[3]": fraction4,
+                            "answer[4]": eleccion5,
+                            "tolerance[4]": error5,
+                            "fraction[4]": fraction5,
+                            "answer[5]": eleccion6,
+                            "tolerance[5]": error6,
+                            "fraction[5]": fraction6,
+                            "answer[6]": eleccion7,
+                            "tolerance[6]": error7
+                            "fraction[6]": fraction7,
+                            "answer[7]": eleccion8,
+                            "tolerance[7]": error8,
+                            "fraction[7]": fraction8,                              
+                            "feedback[0][text]": retroalimentacion1,
+                            "feedback[0][format]": 1,
+                            "feedback[1][text]": retroalimentacion2,
+                            "feedback[1][format]": 1,
+                            "feedback[2][text]": retroalimentacion3,
+                            "feedback[2][format]": 1,
+                            "feedback[3][text]": retroalimentacion4,
+                            "feedback[3][format]": 1,
+                            "feedback[4][text]": retroalimentacion5,
+                            "feedback[4][format]": 1,
+                            "feedback[5][text]": retroalimentacion6,
+                            "feedback[5][format]": 1,
+                            "feedback[6][text]": retroalimentacion7,
+                            "feedback[6][format]": 1,
+                            "feedback[7][text]": retroalimentacion8,
+                            "feedback[7][format]": 1,
+                            "generalfeedback[text]": generalfeedback,
+                            "generalfeedback[format]": 1,
+                        };
+                        if (tags !== "") {
+                            obj["tags[]"]  = tags;
+                        }
+                        datos.push(obj);
+                        idspreguntas.push(nombre);
+                    }
+                        
+                        
             }
             
         }
