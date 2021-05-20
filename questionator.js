@@ -1268,14 +1268,14 @@ function leeJSON() {
                             var retroalimentacion7 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}";
                             var retroalimentacion8 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}";
                         }
-                        var fraction1 = entries[i].gsx$calif1.$t;
-                        var fraction2 = entries[i].gsx$calif2.$t;
-                        var fraction3 = entries[i].gsx$calif3.$t;
-                        var fraction4 = entries[i].gsx$calif4.$t;
-                        var fraction5 = entries[i].gsx$calif5.$t;
-                        var fraction6 = entries[i].gsx$calif6.$t;
-                        var fraction7 = entries[i].gsx$calif7.$t;
-                        var fraction8 = entries[i].gsx$calif8.$t;
+                        var fraction1 = convertCalif(entries[i].gsx$calif1.$t);
+                        var fraction2 = convertCalif(entries[i].gsx$calif2.$t);
+                        var fraction3 = convertCalif(entries[i].gsx$calif3.$t);
+                        var fraction4 = convertCalif(entries[i].gsx$calif4.$t);
+                        var fraction5 = convertCalif(entries[i].gsx$calif5.$t);
+                        var fraction6 = convertCalif(entries[i].gsx$calif6.$t);
+                        var fraction7 = convertCalif(entries[i].gsx$calif7.$t);
+                        var fraction8 = convertCalif(entries[i].gsx$calif8.$t);
                         var respuesta1 = entries[i].gsx$respuesta1.$t;
                         var respuesta2 = entries[i].gsx$respuesta2.$t;                        
                         var respuesta3 = entries[i].gsx$respuesta3.$t;
