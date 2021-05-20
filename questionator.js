@@ -1359,7 +1359,7 @@ function leeJSON() {
                             "feedback[7][text]": retroalimentacion8,
                             "feedback[7][format]": 1,
                             "generalfeedback[text]": generalfeedback,
-                            "generalfeedback[format]": 1,
+                            "generalfeedback[format]": 1
                         };
                         if (tags !== "") {
                             obj["tags[]"]  = tags;
