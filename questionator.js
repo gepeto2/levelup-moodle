@@ -1328,7 +1328,7 @@ function leeJSON() {
                             "tolerance[2]": error3,
                             "fraction[2]": fraction3,
                             "answer[3]": respuesta4,
-                            "tolerance[3]": error4
+                            "tolerance[3]": error4,
                             "fraction[3]": fraction4,
                             "answer[4]": eleccion5,
                             "tolerance[4]": error5,
