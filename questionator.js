@@ -1145,7 +1145,7 @@ function leeJSON() {
                         if (questiontype == "gapfill") {
                             if((entries[i].gsx$multi.$t) == "TRUE"){
                              } else {
-                            enunciado = entries[i].gsx$enunciadopregunta.$t;
+                            var enunciadosinmlang = entries[i].gsx$enunciadopregunta.$t;
                             var respuestasincorrectas = "{mlang "+idioma+"}"+entries[i].gsx$respuestasincorrectas.$t+"{mlang}";
                             var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
                             var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
@@ -1181,7 +1181,7 @@ function leeJSON() {
                             mform_isexpanded_id_tagsheader:0,
                             category: idcategoria,
                             name: nombre,
-                            "questiontext[text]": enunciado,
+                            "questiontext[text]": enunciadosinmlang,
                             "questiontext[format]": 1,
                             "wronganswers[text]": respuestasincorrectas,
                             "wronganswers[format]": 1,
