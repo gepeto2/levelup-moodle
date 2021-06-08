@@ -34,12 +34,17 @@ function leeJSON() {
                     +entries[i+3].gsx$enunciadopregunta.$t+"{mlang}{mlang eu}"
                     +entries[i+4].gsx$enunciadopregunta.$t+"{mlang}{mlang gl}"
                     +entries[i+5].gsx$enunciadopregunta.$t+"{mlang}";
+                    var generalfeedback = "{mlang es}"+entries[i].gsx$retroalimentacion.$t+"{mlang}{mlang ca}"
+                    +entries[i+1].gsx$retroalimentacion.$t+"{mlang}{mlang ca_valencia}"
+                    +entries[i+2].gsx$retroalimentacion.$t+"{mlang}{mlang en}"
+                    +entries[i+3].gsx$retroalimentacion.$t+"{mlang}{mlang eu}"
+                    +entries[i+4].gsx$retroalimentacion.$t+"{mlang}{mlang gl}"
+                    +entries[i+5].gsx$retroalimentacion.$t+"{mlang}";
                 } else {
                     var idioma = entries[i].gsx$idioma.$t;
                     var enunciado = "{mlang "+idioma+"}"+entries[i].gsx$enunciadopregunta.$t+"{mlang}";
                 }
                     var defaultmark = entries[i].gsx$puntuacion.$t;
-                    var generalfeedback = entries[i].gsx$retroalimentacion.$t;
                     var tags = entries[i].gsx$tags.$t;
                     if (questiontype == "multichoice") {
                         if((entries[i].gsx$multi.$t) == "TRUE"){
