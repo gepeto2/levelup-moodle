@@ -678,12 +678,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta1.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta1.$t+"{mlang}";
                                 }
-                                var respuesta1 = "{mlang es}"+entries[i].gsx$respuesta1.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta1.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta1.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta1.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta1.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta1.$t+"{mlang}";
+                                var respuesta1 = entries[i].gsx$respuesta1.$t;
                                 var pregunta2;
                                 if((entries[i].gsx$pregunta2.$t) == ""){
                                     pregunta2 = "";
@@ -695,12 +690,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta2.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta2.$t+"{mlang}";
                                 }
-                                var respuesta2 = "{mlang es}"+entries[i].gsx$respuesta2.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta2.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta2.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta2.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta2.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta2.$t+"{mlang}";
+                                var respuesta2 = entries[i].gsx$respuesta2.$t;
                                 var pregunta3;
                                 if((entries[i].gsx$pregunta3.$t) == ""){
                                     pregunta3 = "";
@@ -712,12 +702,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta3.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta3.$t+"{mlang}";
                                 }
-                                var respuesta3 = "{mlang es}"+entries[i].gsx$respuesta3.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta3.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta3.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta3.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta3.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta3.$t+"{mlang}";
+                                var respuesta3 = entries[i].gsx$respuesta3.$t;
                                 var pregunta4;
                                 if((entries[i].gsx$pregunta4.$t) == ""){
                                     pregunta4 = "";
@@ -729,12 +714,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta4.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta4.$t+"{mlang}";
                                 }
-                                var respuesta4 = "{mlang es}"+entries[i].gsx$respuesta4.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta4.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta4.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta4.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta4.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta4.$t+"{mlang}";
+                                var respuesta4 = entries[i].gsx$respuesta4.$t;
                                 var pregunta5;
                                 if((entries[i].gsx$pregunta5.$t) == ""){
                                     pregunta5 = "";
@@ -746,12 +726,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta5.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta5.$t+"{mlang}";
                                 }
-                                var respuesta5 = "{mlang es}"+entries[i].gsx$respuesta5.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta5.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta5.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta5.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta5.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta5.$t+"{mlang}";
+                                var respuesta5 = entries[i].gsx$respuesta5.$t;
                                 var pregunta6;
                                 if((entries[i].gsx$pregunta6.$t) == ""){
                                     pregunta6 = "";
@@ -763,12 +738,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta6.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta6.$t+"{mlang}";
                                 }
-                                var respuesta6 = "{mlang es}"+entries[i].gsx$respuesta6.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta6.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta6.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta6.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta6.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta6.$t+"{mlang}";
+                                var respuesta6 = entries[i].gsx$respuesta6.$t;
                                 var pregunta7;
                                 if((entries[i].gsx$pregunta7.$t) == ""){
                                     pregunta7 = "";
@@ -780,12 +750,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta7.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta7.$t+"{mlang}";
                                 }
-                                var respuesta7 = "{mlang es}"+entries[i].gsx$respuesta7.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta7.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta7.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta7.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta7.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta7.$t+"{mlang}";
+                                var respuesta7 = entries[i].gsx$respuesta7.$t;
                                 var pregunta8;
                                 if((entries[i].gsx$pregunta8.$t) == ""){
                                     pregunta8 = "";
@@ -797,12 +762,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta8.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta8.$t+"{mlang}";
                                 }
-                                var respuesta8 = "{mlang es}"+entries[i].gsx$respuesta8.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta8.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta8.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta8.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta8.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta8.$t+"{mlang}";
+                                var respuesta8 = entries[i].gsx$respuesta8.$t;
                                 var pregunta9;
                                 if((entries[i].gsx$pregunta9.$t) == ""){
                                     pregunta9 = "";
@@ -814,12 +774,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta9.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta9.$t+"{mlang}";
                                 }
-                                var respuesta9 = "{mlang es}"+entries[i].gsx$respuesta9.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta9.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta9.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta9.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta9.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta9.$t+"{mlang}";
+                                var respuesta9 = entries[i].gsx$respuesta9.$t;
                                 var pregunta10;
                                 if((entries[i].gsx$pregunta10.$t) == ""){
                                     pregunta10 = "";
@@ -831,12 +786,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta10.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta10.$t+"{mlang}";
                                 }
-                                var respuesta10 = "{mlang es}"+entries[i].gsx$respuesta10.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta10.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta10.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta10.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta10.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta10.$t+"{mlang}";
+                                var respuesta10 = entries[i].gsx$respuesta10.$t;
                                 var pregunta11;
                                 if((entries[i].gsx$pregunta11.$t) == ""){
                                     pregunta11 = "";
@@ -848,12 +798,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta11.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta11.$t+"{mlang}";
                                 }
-                                var respuesta11 = "{mlang es}"+entries[i].gsx$respuesta11.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta11.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta11.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta11.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta11.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta11.$t+"{mlang}";
+                                var respuesta11 = entries[i].gsx$respuesta11.$t;
                                 var pregunta12;
                                 if((entries[i].gsx$pregunta12.$t) == ""){
                                     pregunta12 = "";
@@ -865,12 +810,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta12.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta12.$t+"{mlang}";
                                 }
-                                var respuesta12 = "{mlang es}"+entries[i].gsx$respuesta12.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta12.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta12.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta12.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta12.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta12.$t+"{mlang}";
+                                var respuesta12 = entries[i].gsx$respuesta12.$t;
                                 var pregunta13;
                                 if((entries[i].gsx$pregunta13.$t) == ""){
                                     pregunta13 = "";
@@ -882,12 +822,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta13.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta13.$t+"{mlang}";
                                 }
-                                var respuesta13 = "{mlang es}"+entries[i].gsx$respuesta13.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta13.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta13.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta13.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta13.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta13.$t+"{mlang}";
+                                var respuesta13 = entries[i].gsx$respuesta13.$t;
                                 var pregunta14;
                                 if((entries[i].gsx$pregunta14.$t) == ""){
                                     pregunta14 = "";
@@ -899,12 +834,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta14.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta14.$t+"{mlang}";
                                 }
-                                var respuesta14 = "{mlang es}"+entries[i].gsx$respuesta14.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta14.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta14.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta14.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta14.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta14.$t+"{mlang}";
+                                var respuesta14 = entries[i].gsx$respuesta14.$t;
                                 var pregunta15;
                                 if((entries[i].gsx$pregunta15.$t) == ""){
                                     pregunta15 = "";
@@ -916,12 +846,7 @@ function leeJSON() {
                                     +entries[i+4].gsx$pregunta15.$t+"{mlang}{mlang gl}"
                                     +entries[i+5].gsx$pregunta15.$t+"{mlang}";
                                 }
-                                var respuesta15 = "{mlang es}"+entries[i].gsx$respuesta15.$t+"{mlang}{mlang ca}"
-                                +entries[i+1].gsx$respuesta15.$t+"{mlang}{mlang ca_valencia}"
-                                +entries[i+2].gsx$respuesta15.$t+"{mlang}{mlang en}"
-                                +entries[i+3].gsx$respuesta15.$t+"{mlang}{mlang eu}"
-                                +entries[i+4].gsx$respuesta15.$t+"{mlang}{mlang gl}"
-                                +entries[i+5].gsx$respuesta15.$t+"{mlang}";
+                                var respuesta15 = entries[i].gsx$respuesta15.$t;
                                 var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
                                 +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
                                 +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
