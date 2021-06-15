@@ -27,7 +27,12 @@ function leeJSON() {
                 var courseid = entries[i].gsx$courseid.$t;
                 var seccion = entries[i].gsx$seccion.$t;
                 var nombre = entries[i].gsx$nombre.$t;
-                var descripcion = entries[i].gsx$descripcion.$t;
+                var descripcion = "{mlang es}"+entries[i].gsx$descripcion.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$descripcion.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$descripcion.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$descripcion.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$descripcion.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$descripcion.$t+"{mlang}";
                 var muestradescripcion = convertyesno(entries[i].gsx$muestradescripcion.$t);
                 var permitirentregasdesde = convertyesno(entries[i].gsx$permitirentregasdesde.$t);
                 var fechadeentrega = convertyesno(entries[i].gsx$fechadeentrega.$t);
