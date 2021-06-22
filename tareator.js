@@ -37,7 +37,7 @@ function leeJSON() {
                         var fechadeentrega = convertyesno(entries[i].gsx$fechadeentrega.$t);
                         var fechalimite = convertyesno(entries[i].gsx$fechalimite.$t);
                         var recordarmecalificaren = convertyesno(entries[i].gsx$recordarmecalificaren.$t);
-                        var assignsubmission_file_maxfiles = entries[i].gsx$Numeromaximoarchivos.$t;
+                        var assignsubmission_file_maxfiles = entries[i].gsx$numeromaximoarchivos.$t;
                         var archivosenviados = convertyesno(entries[i].gsx$archivosenviados.$t);
                         var tipoarchivo;
                         var iconoarchivo;
