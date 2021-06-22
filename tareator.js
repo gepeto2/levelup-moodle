@@ -37,6 +37,7 @@ function leeJSON() {
                         var fechadeentrega = convertyesno(entries[i].gsx$fechadeentrega.$t);
                         var fechalimite = convertyesno(entries[i].gsx$fechalimite.$t);
                         var recordarmecalificaren = convertyesno(entries[i].gsx$recordarmecalificaren.$t);
+                        var assignsubmission_file_maxfiles = entries[i].gsx$Numeromaximoarchivos.$t;
                         var archivosenviados = convertyesno(entries[i].gsx$archivosenviados.$t);
                         var tipoarchivo;
                         var iconoarchivo;
@@ -263,6 +264,7 @@ function leeJSON() {
                             gradepass: gradepass,
                             cmidnumber: nombre,
                             "allowsubmissionsfromdate[enabled]": permitirentregasdesde,
+                            assignsubmission_file_maxfiles: assignsubmission_file_maxfiles,
                             "duedate[enabled]": fechadeentrega,
                             "cutoffdate[enabled]": fechalimite,
                             "gradingduedate[enabled]": recordarmecalificaren,
