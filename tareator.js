@@ -262,7 +262,6 @@ function leeJSON() {
                             "grade[modgrade_point]": maxgrade,
                             advancedgradingmethod_submissions: advancedgradingmethod_submissions,
                             gradepass: gradepass,
-                            cmidnumber: nombre,
                             "allowsubmissionsfromdate[enabled]": permitirentregasdesde,
                             assignsubmission_file_maxfiles: assignsubmission_file_maxfiles,
                             "duedate[enabled]": fechadeentrega,
