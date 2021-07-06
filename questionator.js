@@ -96,6 +96,48 @@ function leeJSON() {
                             +entries[i+3].gsx$eleccion8.$t+"{mlang}{mlang eu}"
                             +entries[i+4].gsx$eleccion8.$t+"{mlang}{mlang gl}"
                             +entries[i+5].gsx$eleccion8.$t+"{mlang}";
+                            var eleccion9 = "{mlang es}"+entries[i].gsx$eleccion9.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion9.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion9.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion9.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion9.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion9.$t+"{mlang}";
+                            var eleccion10 = "{mlang es}"+entries[i].gsx$eleccion10.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion10.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion10.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion10.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion10.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion10.$t+"{mlang}";
+                            var eleccion11 = "{mlang es}"+entries[i].gsx$eleccion11.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion11.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion11.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion11.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion11.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion11.$t+"{mlang}";
+                            var eleccion12 = "{mlang es}"+entries[i].gsx$eleccion12.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion12.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion12.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion12.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion12.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion12.$t+"{mlang}";
+                            var eleccion13 = "{mlang es}"+entries[i].gsx$eleccion13.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion13.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion13.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion13.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion13.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion13.$t+"{mlang}";
+                            var eleccion14 = "{mlang es}"+entries[i].gsx$eleccion14.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion14.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion14.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion14.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion14.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion14.$t+"{mlang}";
+                            var eleccion15 = "{mlang es}"+entries[i].gsx$eleccion15.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$eleccion15.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$eleccion15.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$eleccion15.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$eleccion15.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$eleccion15.$t+"{mlang}";
                             var retroalimentacion1 = "{mlang es}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}{mlang ca}"
                             +entries[i+1].gsx$retroalimentacion1.$t+"{mlang}{mlang ca_valencia}"
                             +entries[i+2].gsx$retroalimentacion1.$t+"{mlang}{mlang en}"
@@ -144,6 +186,48 @@ function leeJSON() {
                             +entries[i+3].gsx$retroalimentacion8.$t+"{mlang}{mlang eu}"
                             +entries[i+4].gsx$retroalimentacion8.$t+"{mlang}{mlang gl}"
                             +entries[i+5].gsx$retroalimentacion8.$t+"{mlang}";
+                            var retroalimentacion9 = "{mlang es}"+entries[i].gsx$retroalimentacion9.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion9.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion9.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion9.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion9.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion9.$t+"{mlang}";
+                            var retroalimentacion10 = "{mlang es}"+entries[i].gsx$retroalimentacion10.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion10.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion10.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion10.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion10.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion10.$t+"{mlang}";
+                            var retroalimentacion11 = "{mlang es}"+entries[i].gsx$retroalimentacion11.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion11.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion11.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion11.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion11.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion11.$t+"{mlang}";
+                            var retroalimentacion12 = "{mlang es}"+entries[i].gsx$retroalimentacion12.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion12.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion12.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion12.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion12.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion12.$t+"{mlang}";
+                            var retroalimentacion13 = "{mlang es}"+entries[i].gsx$retroalimentacion13.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion13.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion13.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion13.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion13.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion13.$t+"{mlang}";
+                            var retroalimentacion14 = "{mlang es}"+entries[i].gsx$retroalimentacion14.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion14.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion14.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion14.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion14.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion14.$t+"{mlang}";
+                            var retroalimentacion15 = "{mlang es}"+entries[i].gsx$retroalimentacion15.$t+"{mlang}{mlang ca}"
+                            +entries[i+1].gsx$retroalimentacion15.$t+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2].gsx$retroalimentacion15.$t+"{mlang}{mlang en}"
+                            +entries[i+3].gsx$retroalimentacion15.$t+"{mlang}{mlang eu}"
+                            +entries[i+4].gsx$retroalimentacion15.$t+"{mlang}{mlang gl}"
+                            +entries[i+5].gsx$retroalimentacion15.$t+"{mlang}";
                             var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
                             +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
                             +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
@@ -171,6 +255,28 @@ function leeJSON() {
                             var eleccion6 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion6.$t+"{mlang}";
                             var eleccion7 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion7.$t+"{mlang}";
                             var eleccion8 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion8.$t+"{mlang}";
+                            var eleccion9 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion9.$t+"{mlang}";
+                            var eleccion10 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion10.$t+"{mlang}";
+                            var eleccion11 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion11.$t+"{mlang}";
+                            var eleccion12 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion12.$t+"{mlang}";
+                            var eleccion13 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion13.$t+"{mlang}";
+                            var eleccion14 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion14.$t+"{mlang}";
+                            var eleccion15 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion15.$t+"{mlang}";
+                            var retroalimentacion1 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}";
+                            var retroalimentacion2 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion2.$t+"{mlang}";
+                            var retroalimentacion3 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion3.$t+"{mlang}";
+                            var retroalimentacion4 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion4.$t+"{mlang}";
+                            var retroalimentacion5 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion5.$t+"{mlang}";    
+                            var retroalimentacion6 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion6.$t+"{mlang}";
+                            var retroalimentacion7 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}";
+                            var retroalimentacion8 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}";
+                            var retroalimentacion9 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion9.$t+"{mlang}";
+                            var retroalimentacion10 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion10.$t+"{mlang}";  
+                            var retroalimentacion11 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion11.$t+"{mlang}";
+                            var retroalimentacion12 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion12.$t+"{mlang}";
+                            var retroalimentacion13 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion13.$t+"{mlang}";
+                            var retroalimentacion14 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion14.$t+"{mlang}";
+                            var retroalimentacion15 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion15.$t+"{mlang}";                              
                             var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
                             var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
                             var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
@@ -187,6 +293,13 @@ function leeJSON() {
                         var fraction5 = convertCalif(entries[i].gsx$calif6.$t);
                         var fraction6 = convertCalif(entries[i].gsx$calif7.$t);
                         var fraction7 = convertCalif(entries[i].gsx$calif8.$t); 
+                        var fraction8 = convertCalif(entries[i].gsx$calif9.$t);
+                        var fraction9 = convertCalif(entries[i].gsx$calif10.$t); 
+                        var fraction10 = convertCalif(entries[i].gsx$calif11.$t);
+                        var fraction11 = convertCalif(entries[i].gsx$calif12.$t);
+                        var fraction12 = convertCalif(entries[i].gsx$calif13.$t);
+                        var fraction13 = convertCalif(entries[i].gsx$calif14.$t);
+                        var fraction14 = convertCalif(entries[i].gsx$calif15.$t); 
                         var noanswers = entries[i].gsx$numelecciones.$t;
                         var obj = {
                             mform_isexpanded_id_answerhdr: 1,
@@ -236,6 +349,20 @@ function leeJSON() {
                             "feedback[6][format]": 1,
                             "feedback[7][text]": retroalimentacion8,
                             "feedback[7][format]": 1,
+                            "feedback[8][text]": retroalimentacion9,
+                            "feedback[8][format]": 1,
+                            "feedback[9][text]": retroalimentacion10,
+                            "feedback[9][format]": 1,
+                            "feedback[10][text]": retroalimentacion11,
+                            "feedback[10][format]": 1,
+                            "feedback[11][text]": retroalimentacion12,
+                            "feedback[11][format]": 1,
+                            "feedback[12][text]": retroalimentacion13,
+                            "feedback[12][format]": 1,
+                            "feedback[13][text]": retroalimentacion14,
+                            "feedback[13][format]": 1,
+                            "feedback[14][text]": retroalimentacion15,
+                            "feedback[14][format]": 1,
                             "answer[1][text]": eleccion2,
                             "answer[1][format]": 1,
                             "fraction[1]": fraction1,
@@ -257,6 +384,27 @@ function leeJSON() {
                             "answer[7][text]": eleccion8,
                             "answer[7][format]": 1,
                             "fraction[7]": fraction7,
+                            "answer[8][text]": eleccion9,
+                            "answer[8][format]": 1,
+                            "fraction[8]": fraction8,
+                            "answer[9][text]": eleccion10,
+                            "answer[9][format]": 1,
+                            "fraction[9]": fraction9,
+                            "answer[10][text]": eleccion11,
+                            "answer[10][format]": 1,
+                            "fraction[10]": fraction10,     
+                            "answer[11][text]": eleccion12,
+                            "answer[11][format]": 1,
+                            "fraction[11]": fraction11,    
+                             "answer[12][text]": eleccion13,
+                            "answer[12][format]": 1,
+                            "fraction[12]": fraction12,    
+                             "answer[13][text]": eleccion14,
+                            "answer[13][format]": 1,
+                            "fraction[13]": fraction13,    
+                             "answer[14][text]": eleccion15,
+                            "answer[14][format]": 1,
+                            "fraction[14]": fraction14,    
                             "correctfeedback[text]": retroalimentacioncorrecta,
                             "correctfeedback[format]": 1,
                             "partiallycorrectfeedback[text]": retroalimentacionparcial,
