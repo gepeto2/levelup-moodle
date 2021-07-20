@@ -727,7 +727,7 @@ function leeJSON() {
                             obj["fraction[8]"] = convertCalif(entries[i+2].gsx$calif2.$t);
                             obj["fraction[9]"] = convertCalif(entries[i+3].gsx$calif2.$t);
                             obj["fraction[10]"] = convertCalif(entries[i+4].gsx$calif2.$t);
-                            obj["fraction[11]"] = convertCalif(entries[i+5].gsx$calif3.$t);
+                            obj["fraction[11]"] = convertCalif(entries[i+5].gsx$calif2.$t);
                             obj["fraction[12]"] = convertCalif(entries[i].gsx$calif3.$t);
                             obj["fraction[13]"] = convertCalif(entries[i+1].gsx$calif3.$t);
                             obj["fraction[14]"] = convertCalif(entries[i+2].gsx$calif3.$t);
