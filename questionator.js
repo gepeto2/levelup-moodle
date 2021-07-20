@@ -576,81 +576,6 @@ function leeJSON() {
                         idspreguntas.push(nombre);
                     }
                     if (questiontype == "shortanswer") {
-                        if((entries[i].gsx$multi.$t) == "TRUE"){
-                            var answer1 = entries[i].gsx$respuesta1.$t;
-                            var answer2 = entries[i+1].gsx$respuesta1.$t;
-                            var answer3 = entries[i+2].gsx$respuesta1.$t;
-                            var answer4 = entries[i+3].gsx$respuesta1.$t;
-                            var answer5 = entries[i+4].gsx$respuesta1.$t;
-                            var answer6 = entries[i+5].gsx$respuesta1.$t;
-                            var answer7 = entries[i].gsx$respuesta2.$t;
-                            var answer8 = entries[i+1].gsx$respuesta2.$t;
-                            var answer9 = entries[i+2].gsx$respuesta2.$t;
-                            var answer10 = entries[i+3].gsx$respuesta2.$t;
-                            var answer11 = entries[i+4].gsx$respuesta2.$t;
-                            var answer12 = entries[i+5].gsx$respuesta2.$t;
-                            var answer13 = entries[i].gsx$respuesta3.$t;
-                            var answer14 = entries[i+1].gsx$respuesta3.$t;
-                            var answer15 = entries[i+2].gsx$respuesta3.$t;
-                            var answer16 = entries[i+3].gsx$respuesta3.$t;
-                            var answer17 = entries[i+4].gsx$respuesta3.$t;
-                            var answer18 = entries[i+5].gsx$respuesta3.$t;
-                            var feedback1 = entries[i].gsx$retroalimentacion1.$t;
-                            var feedback2 = entries[i+1].gsx$retroalimentacion1.$t;
-                            var feedback3 = entries[i+2].gsx$retroalimentacion1.$t;
-                            var feedback4 = entries[i+3].gsx$retroalimentacion1.$t;
-                            var feedback5 = entries[i+4].gsx$retroalimentacion1.$t;
-                            var feedback6 = entries[i+5].gsx$retroalimentacion1.$t;
-                            var feedback7 = entries[i].gsx$retroalimentacion2.$t;
-                            var feedback8 = entries[i+1].gsx$retroalimentacion2.$t;
-                            var feedback9 = entries[i+2].gsx$retroalimentacion2.$t;
-                            var feedback10 = entries[i+3].gsx$retroalimentacion2.$t;
-                            var feedback11 = entries[i+4].gsx$retroalimentacion2.$t;
-                            var feedback12 = entries[i+5].gsx$retroalimentacion2.$t;
-                            var feedback13 = entries[i].gsx$retroalimentacion3.$t;
-                            var feedback14 = entries[i+1].gsx$retroalimentacion3.$t;
-                            var feedback15 = entries[i+2].gsx$retroalimentacion3.$t;
-                            var feedback16 = entries[i+3].gsx$retroalimentacion3.$t;
-                            var feedback17 = entries[i+4].gsx$retroalimentacion3.$t;
-                            var feedback18 = entries[i+5].gsx$retroalimentacion3.$t;
-                            var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction1 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction2 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction3 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction4 = convertCalif(entries[i].gsx$calif1.$t); 
-                            var fraction5 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction6 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction7 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction8 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction9 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction10 = convertCalif(entries[i].gsx$calif2.$t); 
-                            var fraction11 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction12 = convertCalif(entries[i].gsx$calif3.$t);
-                            var fraction13 = convertCalif(entries[i].gsx$calif3.$t);
-                            var fraction14 = convertCalif(entries[i].gsx$calif3.$t);
-                            var fraction15 = convertCalif(entries[i].gsx$calif3.$t);
-                            var fraction16 = convertCalif(entries[i].gsx$calif3.$t); 
-                            var fraction17 = convertCalif(entries[i].gsx$calif3.$t);
-                        } else {
-                            var answer1 = entries[i].gsx$respuesta1.$t;
-                            var answer2 = entries[i].gsx$respuesta2.$t;
-                            var answer3 = entries[i].gsx$respuesta3.$t;
-                            var answer4 = entries[i].gsx$respuesta4.$t;
-                            var answer5 = entries[i].gsx$respuesta5.$t;
-                            var answer6 = entries[i].gsx$respuesta6.$t;
-                            var feedback1 = entries[i].gsx$retroalimentacion1.$t;
-                            var feedback2 = entries[i].gsx$retroalimentacion2.$t;
-                            var feedback3 = entries[i].gsx$retroalimentacion3.$t;
-                            var feedback4 = entries[i].gsx$retroalimentacion4.$t;
-                            var feedback5 = entries[i].gsx$retroalimentacion5.$t;
-                            var feedback6 = entries[i].gsx$retroalimentacion6.$t;
-                            var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
-                            var fraction1 = convertCalif(entries[i].gsx$calif2.$t);
-                            var fraction2 = convertCalif(entries[i].gsx$calif3.$t);
-                            var fraction3 = convertCalif(entries[i].gsx$calif4.$t);
-                            var fraction4 = convertCalif(entries[i].gsx$calif5.$t); 
-                            var fraction5 = convertCalif(entries[i].gsx$calif6.$t);
-                        }
                         var usecase = convertUsecase(entries[i].gsx$mayuscminusc.$t);
                         var noanswers = entries[i].gsx$numrespuestas.$t;   
                         var obj = {
@@ -678,79 +603,176 @@ function leeJSON() {
                             "generalfeedback[text]": generalfeedback,
                             "generalfeedback[format]": 1,
                             usecase: usecase,
-                            "answer[0]": answer1,
-                            "feedback[0][text]": feedback1,
                             "feedback[0][format]": 1,
-                            "fraction[0]": fraction0,
-                            "answer[1]": answer2,
-                            "feedback[1][text]": feedback2,
                             "feedback[1][format]": 1,                            
-                            "fraction[1]": fraction1,
-                            "answer[2]": answer3,
-                            "feedback[2][text]": feedback3,
                             "feedback[2][format]": 1,            
-                            "fraction[2]": fraction2,
-                            "answer[3]": answer4,
-                            "feedback[3][text]": feedback4,
                             "feedback[3][format]": 1,
-                            "fraction[3]": fraction3,
-                            "answer[4]": answer5,
-                            "feedback[4][text]": feedback5,
                             "feedback[4][format]": 1,                            
-                            "fraction[4]": fraction4,
-                            "answer[5]": answer6,
-                            "feedback[5][text]": feedback6,
                             "feedback[5][format]": 1,
-                            "fraction[5]": fraction5,
-                            "answer[6]": answer7,
-                            "feedback[6][text]": feedback7,
                             "feedback[6][format]": 1,
-                            "fraction[6]": fraction6,
-                            "answer[7]": answer8,
-                            "feedback[7][text]": feedback8,
                             "feedback[7][format]": 1,                            
-                            "fraction[7]": fraction7,
-                            "answer[8]": answer9,
-                            "feedback[8][text]": feedback9,
                             "feedback[8][format]": 1,            
-                            "fraction[8]": fraction8,
-                            "answer[9]": answer10,
-                            "feedback[9][text]": feedback10,
                             "feedback[9][format]": 1,
-                            "fraction[9]": fraction9,
-                            "answer[10]": answer11,
-                            "feedback[10][text]": feedback11,
                             "feedback[10][format]": 1,                            
-                            "fraction[10]": fraction10,
-                            "answer[11]": answer12,
-                            "feedback[11][text]": feedback12,
                             "feedback[11][format]": 1,
-                            "fraction[11]": fraction11,
-                            "answer[12]": answer13,
-                            "feedback[12][text]": feedback13,
                             "feedback[12][format]": 1,
-                            "fraction[12]": fraction12,
-                            "answer[13]": answer14,
-                            "feedback[13][text]": feedback14,
                             "feedback[13][format]": 1,
-                            "fraction[13]": fraction13,
-                            "answer[14]": answer15,
-                            "feedback[14][text]": feedback15,
                             "feedback[14][format]": 1,
-                            "fraction[14]": fraction14,
-                            "answer[15]": answer16,
-                            "feedback[15][text]": feedback16,
                             "feedback[15][format]": 1,
-                            "fraction[15]": fraction15,
-                            "answer[16]": answer17,
-                            "feedback[16][text]": feedback17,
                             "feedback[16][format]": 1,
-                            "fraction[16]": fraction16,
-                            "answer[17]": answer18,
-                            "feedback[17][text]": feedback18,
                             "feedback[17][format]": 1,
-                            "fraction[17]": fraction17
+                            "feedback[18][format]": 1,                            
+                            "feedback[19][format]": 1,            
+                            "feedback[20][format]": 1,
+                            "feedback[21][format]": 1,                            
+                            "feedback[22][format]": 1,
+                            "feedback[23][format]": 1,
+                            "feedback[24][format]": 1,
+                            "feedback[25][format]": 1,
+                            "feedback[26][format]": 1,
+                            "feedback[27][format]": 1,
+                            "feedback[28][format]": 1,
+                            "feedback[29][format]": 1,
+                            "feedback[30][format]": 1,
+                            "feedback[31][format]": 1,
+                            "feedback[32][format]": 1,
+                            "feedback[33][format]": 1,
+                            "feedback[34][format]": 1,
+                            "feedback[35][format]": 1
                         };
+                        if((entries[i].gsx$multi.$t) == "TRUE"){
+                            var respuestas = []; 
+                            var retros = [];
+                            var califs = [];  
+                            obj["answer[0]"] = entries[i].gsx$respuesta1.$t;
+                            obj["answer[1]"] = entries[i+1].gsx$respuesta1.$t;
+                            obj["answer[2]"] = entries[i+2].gsx$respuesta1.$t;
+                            obj["answer[3]"] = entries[i+3].gsx$respuesta1.$t;
+                            obj["answer[4]"] = entries[i+4].gsx$respuesta1.$t;
+                            obj["answer[5]"] = entries[i+5].gsx$respuesta1.$t;
+                            obj["answer[6]"] = entries[i].gsx$respuesta2.$t;
+                            obj["answer[7]"] = entries[i+1].gsx$respuesta2.$t;
+                            obj["answer[8]"] = entries[i+2].gsx$respuesta2.$t;
+                            obj["answer[9]"] = entries[i+3].gsx$respuesta2.$t;
+                            obj["answer[10]"] = entries[i+4].gsx$respuesta2.$t;
+                            obj["answer[11]"] = entries[i+5].gsx$respuesta2.$t;
+                            obj["answer[12]"] = entries[i].gsx$respuesta3.$t;
+                            obj["answer[13]"] = entries[i+1].gsx$respuesta3.$t;
+                            obj["answer[15]"] = entries[i+2].gsx$respuesta3.$t;
+                            obj["answer[15]"] = entries[i+3].gsx$respuesta3.$t;
+                            obj["answer[16]"] = entries[i+4].gsx$respuesta3.$t;
+                            obj["answer[17]"] = entries[i+5].gsx$respuesta3.$t;
+                            obj["answer[18]"] = entries[i].gsx$respuesta4.$t;
+                            obj["answer[19]"] = entries[i+1].gsx$respuesta4.$t;
+                            obj["answer[20]"] = entries[i+2].gsx$respuesta4.$t;
+                            obj["answer[21]"] = entries[i+3].gsx$respuesta4.$t;
+                            obj["answer[22]"] = entries[i+4].gsx$respuesta4.$t;
+                            obj["answer[23]"] = entries[i+5].gsx$respuesta4.$t;
+                            obj["answer[24]"] = entries[i].gsx$respuesta5.$t;
+                            obj["answer[25]"] = entries[i+1].gsx$respuesta5.$t;
+                            obj["answer[26]"] = entries[i+2].gsx$respuesta5.$t;
+                            obj["answer[27]"] = entries[i+3].gsx$respuesta5.$t;
+                            obj["answer[28]"] = entries[i+4].gsx$respuesta5.$t;
+                            obj["answer[29]"] = entries[i+5].gsx$respuesta5.$t;
+                            obj["answer[30]"] = entries[i].gsx$respuesta6.$t;
+                            obj["answer[31]"] = entries[i+1].gsx$respuesta6.$t;
+                            obj["answer[32]"] = entries[i+2].gsx$respuesta6.$t;
+                            obj["answer[33]"] = entries[i+3].gsx$respuesta6.$t;
+                            obj["answer[34]"] = entries[i+4].gsx$respuesta6.$t;
+                            obj["answer[35]"] = entries[i+5].gsx$respuesta6.$t;
+                            obj["feedback[0][text]"] = entries[i].gsx$retroalimentacion1.$t;
+                            obj["feedback[1][text]"] = entries[i+1].gsx$retroalimentacion1.$t;
+                            obj["feedback[2][text]"] = entries[i+2].gsx$retroalimentacion1.$t;
+                            obj["feedback[3][text]"] = entries[i+3].gsx$retroalimentacion1.$t;
+                            obj["feedback[4][text]"] = entries[i+4].gsx$retroalimentacion1.$t;
+                            obj["feedback[5][text]"] = entries[i+5].gsx$retroalimentacion1.$t;
+                            obj["feedback[6][text]"] = entries[i].gsx$retroalimentacion2.$t;
+                            obj["feedback[7][text]"] = entries[i+1].gsx$retroalimentacion2.$t;
+                            obj["feedback[8][text]"] = entries[i+2].gsx$retroalimentacion2.$t;
+                            obj["feedback[9][text]"] = entries[i+3].gsx$retroalimentacion2.$t;
+                            obj["feedback[10][text]"] = entries[i+4].gsx$retroalimentacion2.$t;
+                            obj["feedback[11][text]"] = entries[i+5].gsx$retroalimentacion2.$t;
+                            obj["feedback[12][text]"] = entries[i].gsx$retroalimentacion3.$t;
+                            obj["feedback[13][text]"] = entries[i+1].gsx$retroalimentacion3.$t;
+                            obj["feedback[14][text]"] = entries[i+2].gsx$retroalimentacion3.$t;
+                            obj["feedback[15][text]"] = entries[i+3].gsx$retroalimentacion3.$t;
+                            obj["feedback[16][text]"] = entries[i+4].gsx$retroalimentacion3.$t;
+                            obj["feedback[17][text]"] = entries[i+5].gsx$retroalimentacion3.$t;
+                            obj["feedback[18][text]"] = entries[i].gsx$retroalimentacion4.$t;
+                            obj["feedback[19][text]"] = entries[i+1].gsx$retroalimentacion4.$t;
+                            obj["feedback[20][text]"] = entries[i+2].gsx$retroalimentacion4.$t;
+                            obj["feedback[21][text]"] = entries[i+3].gsx$retroalimentacion4.$t;
+                            obj["feedback[22][text]"] = entries[i+4].gsx$retroalimentacion4.$t;
+                            obj["feedback[23][text]"] = entries[i+5].gsx$retroalimentacion4.$t;
+                            obj["feedback[24][text]"] = entries[i].gsx$retroalimentacion5.$t;
+                            obj["feedback[25][text]"] = entries[i+1].gsx$retroalimentacion5.$t;
+                            obj["feedback[26][text]"] = entries[i+2].gsx$retroalimentacion5.$t;
+                            obj["feedback[27][text]"] = entries[i+3].gsx$retroalimentacion5.$t;
+                            obj["feedback[28][text]"] = entries[i+4].gsx$retroalimentacion5.$t;
+                            obj["feedback[29][text]"] = entries[i+5].gsx$retroalimentacion5.$t;
+                            obj["feedback[30][text]"] = entries[i].gsx$retroalimentacion6.$t;
+                            obj["feedback[31][text]"] = entries[i+1].gsx$retroalimentacion6.$t;
+                            obj["feedback[32][text]"] = entries[i+2].gsx$retroalimentacion6.$t;
+                            obj["feedback[33][text]"] = entries[i+3].gsx$retroalimentacion6.$t;
+                            obj["feedback[34][text]"] = entries[i+4].gsx$retroalimentacion6.$t;
+                            obj["feedback[35][text]"] = entries[i+5].gsx$retroalimentacion6.$t;
+                            obj["fraction[0]"] = convertCalif(entries[i].gsx$calif1.$t);
+                            obj["fraction[1]"] = convertCalif(entries[i+1].gsx$calif1.$t);
+                            obj["fraction[2]"] = convertCalif(entries[i+2].gsx$calif1.$t);
+                            obj["fraction[3]"] = convertCalif(entries[i+3].gsx$calif1.$t);
+                            obj["fraction[4]"] = convertCalif(entries[i+4].gsx$calif1.$t);
+                            obj["fraction[5]"] = convertCalif(entries[i+5].gsx$calif1.$t);
+                            obj["fraction[6]"] = convertCalif(entries[i].gsx$calif2.$t);
+                            obj["fraction[7]"] = convertCalif(entries[i+1].gsx$calif2.$t);
+                            obj["fraction[8]"] = convertCalif(entries[i+2].gsx$calif2.$t);
+                            obj["fraction[9]"] = convertCalif(entries[i+3].gsx$calif2.$t);
+                            obj["fraction[10]"] = convertCalif(entries[i+4].gsx$calif2.$t);
+                            obj["fraction[11]"] = convertCalif(entries[i+5].gsx$calif3.$t);
+                            obj["fraction[12]"] = convertCalif(entries[i].gsx$calif3.$t);
+                            obj["fraction[13]"] = convertCalif(entries[i+1].gsx$calif3.$t);
+                            obj["fraction[14]"] = convertCalif(entries[i+2].gsx$calif3.$t);
+                            obj["fraction[15]"] = convertCalif(entries[i+3].gsx$calif3.$t);
+                            obj["fraction[16]"] = convertCalif(entries[i+4].gsx$calif3.$t);
+                            obj["fraction[17]"] = convertCalif(entries[i+5].gsx$calif3.$t);
+                            obj["fraction[18]"] = convertCalif(entries[i].gsx$calif4.$t);
+                            obj["fraction[19]"] = convertCalif(entries[i+1].gsx$calif4.$t);
+                            obj["fraction[20]"] = convertCalif(entries[i+2].gsx$calif4.$t);
+                            obj["fraction[21]"] = convertCalif(entries[i+3].gsx$calif4.$t);
+                            obj["fraction[22]"] = convertCalif(entries[i+4].gsx$calif4.$t);
+                            obj["fraction[23]"] = convertCalif(entries[i+5].gsx$calif4.$t);
+                            obj["fraction[24]"] = convertCalif(entries[i].gsx$calif5.$t);
+                            obj["fraction[25]"] = convertCalif(entries[i+1].gsx$calif5.$t);
+                            obj["fraction[26]"] = convertCalif(entries[i+2].gsx$calif5.$t);
+                            obj["fraction[27]"] = convertCalif(entries[i+3].gsx$calif5.$t);
+                            obj["fraction[28]"] = convertCalif(entries[i+4].gsx$calif5.$t);
+                            obj["fraction[29]"] = convertCalif(entries[i+5].gsx$calif5.$t);
+                            obj["fraction[30]"] = convertCalif(entries[i].gsx$calif6.$t);
+                            obj["fraction[31]"] = convertCalif(entries[i+1].gsx$calif6.$t);
+                            obj["fraction[32]"] = convertCalif(entries[i+2].gsx$calif6.$t);
+                            obj["fraction[33]"] = convertCalif(entries[i+3].gsx$calif6.$t);
+                            obj["fraction[34]"] = convertCalif(entries[i+4].gsx$calif6.$t);
+                            obj["fraction[35]"] = convertCalif(entries[i+5].gsx$calif6.$t);
+                        } else {
+                            var answer1 = entries[i].gsx$respuesta1.$t;
+                            var answer2 = entries[i].gsx$respuesta2.$t;
+                            var answer3 = entries[i].gsx$respuesta3.$t;
+                            var answer4 = entries[i].gsx$respuesta4.$t;
+                            var answer5 = entries[i].gsx$respuesta5.$t;
+                            var answer6 = entries[i].gsx$respuesta6.$t;
+                            var feedback1 = entries[i].gsx$retroalimentacion1.$t;
+                            var feedback2 = entries[i].gsx$retroalimentacion2.$t;
+                            var feedback3 = entries[i].gsx$retroalimentacion3.$t;
+                            var feedback4 = entries[i].gsx$retroalimentacion4.$t;
+                            var feedback5 = entries[i].gsx$retroalimentacion5.$t;
+                            var feedback6 = entries[i].gsx$retroalimentacion6.$t;
+                            var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
+                            var fraction1 = convertCalif(entries[i].gsx$calif2.$t);
+                            var fraction2 = convertCalif(entries[i].gsx$calif3.$t);
+                            var fraction3 = convertCalif(entries[i].gsx$calif4.$t);
+                            var fraction4 = convertCalif(entries[i].gsx$calif5.$t); 
+                            var fraction5 = convertCalif(entries[i].gsx$calif6.$t);
+                        }
+
                         if (tags !== "") {
                             obj["tags[]"]  = tags;
                         }
