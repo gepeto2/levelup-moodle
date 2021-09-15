@@ -15,84 +15,125 @@ function leeJSON() {
     const activitytype = GetURLParameter('activitytype');
     const sesskey = $("input[name=sesskey]").val();
     const numberofpages = GetURLParameter('numberofpages');
-    var urljson = "https://spreadsheets.google.com/feeds/list/" + sheet + "/" + page + "/public/values?alt=json";
+    var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key=AIzaSyAGwGIRI2y4r7Oumhme6zYVqLzwQEx4klQ";
     var datos = [];
     var idspreguntas = [];
 
         $.getJSON(urljson, function(data) {
-                var entries = data.feed.entry;
+                // var entries = data.feed.entry;
+                  var entries = data.values;
                 for (i = 0; i < entries.length; i++) {
-                    if ((entries[i].gsx$editar.$t) == "TRUE") {
-                        var idtarea = entries[i].gsx$idtarea.$t;
-                        var courseid = entries[i].gsx$courseid.$t;
-                        var nombre = entries[i].gsx$nombre.$t;
-                        var descripcion = "{mlang " + "es}" + entries[i].gsx$descripcion.$t + "{mlang" + "}{mlang " + "ca}" +
-                            entries[i + 1].gsx$descripcion.$t + "{mlang" + "}{mlang " + "ca_valencia}" +
-                            entries[i + 2].gsx$descripcion.$t + "{mlang" + "}{mlang " + "en}" +
-                            entries[i + 3].gsx$descripcion.$t + "{mlang" + "}{mlang " + "eu}" +
-                            entries[i + 4].gsx$descripcion.$t + "{mlang" + "}{mlang " + "gl}" +
-                            entries[i + 5].gsx$descripcion.$t + "{mlang" + "}";
-                        var muestradescripcion = convertyesno(entries[i].gsx$muestradescripcion.$t);
-                        var permitirentregasdesde = convertyesno(entries[i].gsx$permitirentregasdesde.$t);
-                        var fechadeentrega = convertyesno(entries[i].gsx$fechadeentrega.$t);
-                        var fechalimite = convertyesno(entries[i].gsx$fechalimite.$t);
-                        var recordarmecalificaren = convertyesno(entries[i].gsx$recordarmecalificaren.$t);
-                        var assignsubmission_file_maxfiles = entries[i].gsx$numeromaximoarchivos.$t;
-                        var archivosenviados = convertyesno(entries[i].gsx$archivosenviados.$t);
+                   if ((entries[i][1]) == "TRUE") {
+                     var idtarea = entries[i][6];
+                        var courseid = entries[i][5];
+                        var nombre = entries[i][9];
+                        var descripcion = "{mlang " + "es}" + entries[i][10] + "{mlang" + "}{mlang " + "ca}" +
+                            entries[i+1][10] + "{mlang" + "}{mlang " + "ca_valencia}" +
+                            entries[i+2][10] + "{mlang" + "}{mlang " + "en}" +
+                            entries[i+3][10]+ "{mlang" + "}{mlang " + "eu}" +
+                            entries[i+4][10] + "{mlang" + "}{mlang " + "gl}" +
+                            entries[i+5][10] + "{mlang" + "}";
+                        var muestradescripcion = convertyesno(entries[i][19]);
+                        var permitirentregasdesde = convertyesno(entries[i][24]);
+                        var fechadeentrega = convertyesno(entries[i][25]);
+                        var fechalimite = convertyesno(entries[i][26]);
+                        var recordarmecalificaren = convertyesno(entries[i][27]);
+                        var assignsubmission_file_maxfiles = entries[i][29];
+                        var archivosenviados = convertyesno(entries[i][28]);
                         var tipoarchivo;
                         var iconoarchivo;
                         var htmlarchivo1 = "";
                         var htmlarchivo2 = "";
                         var htmlarchivo3 = "";
                         var htmlarchivo4 = "";
-                        var archivo1_es = entries[i].gsx$nombrearchivo1.$t;
-                        var archivo1_ca = entries[i + 1].gsx$nombrearchivo1.$t;
-                        var archivo1_ca_valencia = entries[i + 2].gsx$nombrearchivo1.$t;
-                        var archivo1_en = entries[i + 3].gsx$nombrearchivo1.$t;
-                        var archivo1_eu = entries[i + 4].gsx$nombrearchivo1.$t;
-                        var archivo1_gl = entries[i + 5].gsx$nombrearchivo1.$t;
-                        var enlace1_es = entries[i].gsx$enlacearchivo1.$t;
-                        var enlace1_ca = entries[i + 1].gsx$enlacearchivo1.$t;
-                        var enlace1_ca_valencia = entries[i + 2].gsx$enlacearchivo1.$t;
-                        var enlace1_en = entries[i + 3].gsx$enlacearchivo1.$t;
-                        var enlace1_eu = entries[i + 4].gsx$enlacearchivo1.$t;
-                        var enlace1_gl = entries[i + 5].gsx$enlacearchivo1.$t;
-                        var archivo2_es = entries[i].gsx$nombrearchivo2.$t;
-                        var archivo2_ca = entries[i + 1].gsx$nombrearchivo2.$t;
-                        var archivo2_ca_valencia = entries[i + 2].gsx$nombrearchivo2.$t;
-                        var archivo2_en = entries[i + 3].gsx$nombrearchivo2.$t;
-                        var archivo2_eu = entries[i + 4].gsx$nombrearchivo2.$t;
-                        var archivo2_gl = entries[i + 5].gsx$nombrearchivo2.$t;
-                        var enlace2_es = entries[i].gsx$enlacearchivo2.$t;
-                        var enlace2_ca = entries[i + 1].gsx$enlacearchivo2.$t;
-                        var enlace2_ca_valencia = entries[i + 2].gsx$enlacearchivo2.$t;
-                        var enlace2_en = entries[i + 3].gsx$enlacearchivo2.$t;
-                        var enlace2_eu = entries[i + 4].gsx$enlacearchivo2.$t;
-                        var enlace2_gl = entries[i + 5].gsx$enlacearchivo2.$t;
-                        var archivo3_es = entries[i].gsx$nombrearchivo3.$t;
-                        var archivo3_ca = entries[i + 1].gsx$nombrearchivo3.$t;
-                        var archivo3_ca_valencia = entries[i + 2].gsx$nombrearchivo3.$t;
-                        var archivo3_en = entries[i + 3].gsx$nombrearchivo3.$t;
-                        var archivo3_eu = entries[i + 4].gsx$nombrearchivo3.$t;
-                        var archivo3_gl = entries[i + 5].gsx$nombrearchivo3.$t;
-                        var enlace3_es = entries[i].gsx$enlacearchivo3.$t;
-                        var enlace3_ca = entries[i + 1].gsx$enlacearchivo3.$t;
-                        var enlace3_ca_valencia = entries[i + 2].gsx$enlacearchivo3.$t;
-                        var enlace3_en = entries[i + 3].gsx$enlacearchivo3.$t;
-                        var enlace3_eu = entries[i + 4].gsx$enlacearchivo3.$t;
-                        var enlace3_gl = entries[i + 5].gsx$enlacearchivo3.$t;
-                        var archivo4_es = entries[i].gsx$nombrearchivo4.$t;
-                        var archivo4_ca = entries[i + 1].gsx$nombrearchivo4.$t;
-                        var archivo4_ca_valencia = entries[i + 2].gsx$nombrearchivo4.$t;
-                        var archivo4_en = entries[i + 3].gsx$nombrearchivo4.$t;
-                        var archivo4_eu = entries[i + 4].gsx$nombrearchivo4.$t;
-                        var archivo4_gl = entries[i + 5].gsx$nombrearchivo4.$t;
-                        var enlace4_es = entries[i].gsx$enlacearchivo4.$t;
-                        var enlace4_ca = entries[i + 1].gsx$enlacearchivo4.$t;
-                        var enlace4_ca_valencia = entries[i + 2].gsx$enlacearchivo4.$t;
-                        var enlace4_en = entries[i + 3].gsx$enlacearchivo4.$t;
-                        var enlace4_eu = entries[i + 4].gsx$enlacearchivo4.$t;
-                        var enlace4_gl = entries[i + 5].gsx$enlacearchivo4.$t;
+                        var archivo1_es = entries[i][11];
+                          if (entries[i+1][11] === undefined) {
+                            var archivo1_ca = "";   } else {
+                            var archivo1_ca = entries[i+1][11];}
+                          if (entries[i+2][11] === undefined) {
+                            var archivo1_ca_valencia = "";   } else {
+                            var archivo1_ca_valencia = entries[i+2][11];}
+                          if (entries[i+3][11] === undefined) {
+                            var archivo1_en = "";   } else {
+                            var archivo1_en = entries[i+3][11];}
+                          if (entries[i+4][11] === undefined) {
+                            var archivo1_eu = "";   } else {
+                            var archivo1_eu = entries[i+4][11];}
+                          if (entries[i+5][11] === undefined) {
+                            var archivo1_gl = "";   } else {
+                            var archivo1_gl = entries[i+5][11];}
+                        var enlace1_es = entries[i][12];
+                        var enlace1_ca = entries[i+1][12];
+                        var enlace1_ca_valencia = entries[i + 2][12];
+                        var enlace1_en = entries[i+3][12];
+                        var enlace1_eu = entries[i+4][12];
+                        var enlace1_gl = entries[i+5][12];
+                        var archivo2_es = entries[i][13];
+                          if (entries[i+1][11] === undefined) {
+                            var archivo2_ca = "";   } else {
+                            var archivo2_ca = entries[i+1][11];}
+                          if (entries[i+2][11] === undefined) {
+                            var archivo2_ca_valencia = "";   } else {
+                            var archivo2_ca_valencia = entries[i+2][11];}
+                          if (entries[i+3][11] === undefined) {
+                            var archivo2_en = "";   } else {
+                            var archivo2_en = entries[i+3][11];}
+                          if (entries[i+4][11] === undefined) {
+                            var archivo2_eu = "";   } else {
+                            var archivo2_eu = entries[i+4][11];}
+                          if (entries[i+5][11] === undefined) {
+                            var archivo2_gl = "";   } else {
+                            var archivo2_gl = entries[i+5][11];}
+                        var enlace2_es = entries[i][14];
+                        var enlace2_ca = entries[i+1][14];
+                        var enlace2_ca_valencia = entries[i+2][14];
+                        var enlace2_en = entries[i+3][14];
+                        var enlace2_eu = entries[i+4][14];
+                        var enlace2_gl = entries[i+5][14];
+                        var archivo3_es = entries[i][15];
+                          if (entries[i+1][11] === undefined) {
+                            var archivo3_ca = "";   } else {
+                            var archivo3_ca = entries[i+1][11];}
+                          if (entries[i+2][11] === undefined) {
+                            var archivo3_ca_valencia = "";   } else {
+                            var archivo3_ca_valencia = entries[i+2][11];}
+                          if (entries[i+3][11] === undefined) {
+                            var archivo3_en = "";   } else {
+                            var archivo3_en = entries[i+3][11];}
+                          if (entries[i+4][11] === undefined) {
+                            var archivo3_eu = "";   } else {
+                            var archivo3_eu = entries[i+4][11];}
+                          if (entries[i+5][11] === undefined) {
+                            var archivo3_gl = "";   } else {
+                            var archivo3_gl = entries[i+5][11];}
+                        var enlace3_es = entries[i][16];
+                        var enlace3_ca = entries[i+1][16];
+                        var enlace3_ca_valencia = entries[i+2][16];
+                        var enlace3_en = entries[i+3][16];
+                        var enlace3_eu = entries[i+4][16];
+                        var enlace3_gl = entries[i+5][16];
+                        var archivo4_es = entries[i][17];
+                          if (entries[i+1][11] === undefined) {
+                            var archivo4_ca = "";   } else {
+                            var archivo4_ca = entries[i+1][11];}
+                          if (entries[i+2][11] === undefined) {
+                            var archivo4_ca_valencia = "";   } else {
+                            var archivo4_ca_valencia = entries[i+2][11];}
+                          if (entries[i+3][11] === undefined) {
+                            var archivo4_en = "";   } else {
+                            var archivo4_en = entries[i+3][11];}
+                          if (entries[i+4][11] === undefined) {
+                            var archivo4_eu = "";   } else {
+                            var archivo4_eu = entries[i+4][11];}
+                          if (entries[i+5][11] === undefined) {
+                            var archivo4_gl = "";   } else {
+                            var archivo4_gl = entries[i+5][11];}
+                        var enlace4_es = entries[i][18];
+                        var enlace4_ca = entries[i+1][18];
+                        var enlace4_ca_valencia = entries[i+2][18];
+                        var enlace4_en = entries[i+3][18];
+                        var enlace4_eu = entries[i+4][18];
+                        var enlace4_gl = entries[i+5][18];
                         tipoarchivo = archivo1_es.substr(archivo1_es.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo1_es != "") {
@@ -216,15 +257,16 @@ function leeJSON() {
                             htmlarchivo4 += "{mlang " + "gl}" + "<img src=" + iconoarchivo + " alt=" + archivo4_gl + "width='20' height='28'><a href=" + enlace4_gl + " target='_blank'> " + archivo4_gl + "</a><p></p>{mlang}";
                         }
                         descripcion = descripcion + htmlarchivo1 + htmlarchivo2 + htmlarchivo3 + htmlarchivo4;
-                        var gradetype = convertgradetype(entries[i].gsx$tipocalificacion.$t);
-                        var maxgrade = entries[i].gsx$calificacionmaxima.$t;
-                        var advancedgradingmethod_submissions = convertadvancedgradingmethod(entries[i].gsx$metodocalificacion.$t);
-                        var gradepass = entries[i].gsx$calificacionaprobar.$t;
-                        var visible = convertdisponibilidad(entries[i].gsx$disponibilidad.$t);
-                        var completion = convertcompletion(entries[i].gsx$finalizacionactividad.$t);
-                        var completionview = convertyesno(entries[i].gsx$requerirver.$t);
-                        var completionusegrade = convertyesno(entries[i].gsx$requerircalificacion.$t);
-                        var completionsubmit = convertyesno(entries[i].gsx$requerirentrega.$t);
+                        var feedback_comments = convertyesno(entries[i][20]);
+                        var gradetype = convertgradetype(entries[i][21]);
+                        var maxgrade = entries[i][22];
+                        var advancedgradingmethod_submissions = convertadvancedgradingmethod(entries[i][23]);
+                        var gradepass = entries[i][26];
+                        var visible = convertdisponibilidad(entries[i][31]);
+                        var completion = convertcompletion(entries[i][32]);
+                        var completionview = convertyesno(entries[i][33]);
+                        var completionusegrade = convertyesno(entries[i][34]);
+                        var completionsubmit = convertyesno(entries[i][35]);
                         var obj = {
                             mform_isexpanded_id_availability: 1,
                             ggbparameters: "",
@@ -258,6 +300,7 @@ function leeJSON() {
                             "introeditor[format]": 1,
                             "introeditor[text]": descripcion,
                             showdescription: 0,
+                            assignfeedback_comments_enabled: feedback_comments,
                             "grade[modgrade_type]": gradetype,
                             "grade[modgrade_point]": maxgrade,
                             advancedgradingmethod_submissions: advancedgradingmethod_submissions,
@@ -275,8 +318,9 @@ function leeJSON() {
                             completionusegrade: completionusegrade,
                             completionsubmit: completionsubmit
                         };
+
                         datos.push(obj);
-                        idspreguntas.push(nombre);
+    //                    idspreguntas.push(nombre);
                     }
 
                 }
@@ -287,6 +331,7 @@ function leeJSON() {
     }
 
     function enviar(dato, indice) {
+
         var googledata = [];
         if (indice < dato.length) {
             var idpagina = dato[indice].coursemodule;
