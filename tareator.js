@@ -445,7 +445,7 @@ $(document).ready(function() {
     if (numberofpages == undefined) {
         alert("No tengo datos");
     } else {
-        if (confirm('Vas a editar ' + numberofpages + ' páginas')) {
+        if (confirm('Vas a editar ' + numberofpages + ' tareas')) {
             leeJSON();
         }
     }
