@@ -13,9 +13,10 @@ function leeJSON() {
     const sheet = GetURLParameter('sheetid');
     const page = GetURLParameter('sheetpage');
     const activitytype = GetURLParameter('activitytype');
-    const sesskey = $("input[name=sesskey]").val();
+    const sesskey = $("input[name=sesskey]").val();    
+    const key = GetURLParameter('key');
     const numberofpages = GetURLParameter('numberofpages');
-    var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key=AIzaSyAGwGIRI2y4r7Oumhme6zYVqLzwQEx4klQ";
+    var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key="+key;
     var datos = [];
     var idspreguntas = [];
 
