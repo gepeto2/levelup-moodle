@@ -35,12 +35,12 @@ function leeJSON() {
                             entries[i+4][10] + "{mlang" + "}{mlang " + "gl}" +
                             entries[i+5][10] + "{mlang" + "}";
                         var muestradescripcion = convertyesno(entries[i][19]);
-                        var permitirentregasdesde = convertyesno(entries[i][24]);
-                        var fechadeentrega = convertyesno(entries[i][25]);
-                        var fechalimite = convertyesno(entries[i][26]);
-                        var recordarmecalificaren = convertyesno(entries[i][27]);
-                        var assignsubmission_file_maxfiles = entries[i][29];
-                        var archivosenviados = convertyesno(entries[i][28]);
+                        var permitirentregasdesde = convertyesno(entries[i][27]);
+                        var fechadeentrega = convertyesno(entries[i][28]);
+                        var fechalimite = convertyesno(entries[i][29]);
+                        var recordarmecalificaren = convertyesno(entries[i][30]);
+                        var assignsubmission_file_maxfiles = entries[i][31];
+                        var archivosenviados = convertyesno(entries[i][32]);
                         var tipoarchivo;
                         var iconoarchivo;
                         var htmlarchivo1 = "";
@@ -263,11 +263,11 @@ function leeJSON() {
                         var maxgrade = entries[i][22];
                         var advancedgradingmethod_submissions = convertadvancedgradingmethod(entries[i][23]);
                         var gradepass = entries[i][26];
-                        var visible = convertdisponibilidad(entries[i][31]);
-                        var completion = convertcompletion(entries[i][32]);
-                        var completionview = convertyesno(entries[i][33]);
-                        var completionusegrade = convertyesno(entries[i][34]);
-                        var completionsubmit = convertyesno(entries[i][35]);
+                        var visible = convertdisponibilidad(entries[i][33]);
+                        var completion = convertcompletion(entries[i][34]);
+                        var completionview = convertyesno(entries[i][35]);
+                        var completionusegrade = convertyesno(entries[i][36]);
+                        var completionsubmit = convertyesno(entries[i][37]);
                         var obj = {
                             mform_isexpanded_id_availability: 1,
                             ggbparameters: "",
