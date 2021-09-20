@@ -13,294 +13,296 @@ function leeJSON() {
     const page = GetURLParameter('sheetpage');
     const questiontype = GetURLParameter('questiontype');
     const sesskey = $("input[name=sesskey]").val();
-    const numberofquestions = GetURLParameter('numberofquestions');
-    urljson = "https://spreadsheets.google.com/feeds/list/"+sheet+"/"+page+"/public/values?alt=json";
+    const key = GetURLParameter('key');
+    const numberofpages = GetURLParameter('numberofpages');
+    var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key="+key;
     var datos = [];
     var idspreguntas = [];
 
     $.getJSON(urljson, function (data) {
-        var entries = data.feed.entry;
+        var entries = data.values;
         for(i = 0; i < entries.length; i++){
-            if((entries[i].gsx$corregir.$t) == "TRUE"){
-                var idpregunta = entries[i].gsx$idpregunta.$t;
-                var nombre = entries[i].gsx$nombrepregunta.$t;
-                var tipo = entries[i].gsx$tipo.$t;
-                var idcategoria = entries[i].gsx$idcategoria.$t;
-                var courseid = entries[i].gsx$courseid.$t;
-                if((entries[i].gsx$multi.$t) == "TRUE"){
-                    var enunciado = "{mlang es}"+entries[i].gsx$enunciadopregunta.$t+"{mlang}{mlang ca}"
-                    +entries[i+1].gsx$enunciadopregunta.$t+"{mlang}{mlang ca_valencia}"
-                    +entries[i+2].gsx$enunciadopregunta.$t+"{mlang}{mlang en}"
-                    +entries[i+3].gsx$enunciadopregunta.$t+"{mlang}{mlang eu}"
-                    +entries[i+4].gsx$enunciadopregunta.$t+"{mlang}{mlang gl}"
-                    +entries[i+5].gsx$enunciadopregunta.$t+"{mlang}";
-                    var generalfeedback = "{mlang es}"+entries[i].gsx$retroalimentacion.$t+"{mlang}{mlang ca}"
-                    +entries[i+1].gsx$retroalimentacion.$t+"{mlang}{mlang ca_valencia}"
-                    +entries[i+2].gsx$retroalimentacion.$t+"{mlang}{mlang en}"
-                    +entries[i+3].gsx$retroalimentacion.$t+"{mlang}{mlang eu}"
-                    +entries[i+4].gsx$retroalimentacion.$t+"{mlang}{mlang gl}"
-                    +entries[i+5].gsx$retroalimentacion.$t+"{mlang}";
+            if((entries[i][1]) == "TRUE"){
+                var idpregunta = entries[i][6];
+                var nombre = entries[i][14];
+                var tipo = entries[i][8];
+                var idcategoria = entries[i][10];
+                var courseid = entries[i][5];
+                if((entries[i][2]) == "TRUE"){
+                    var enunciado = "{mlang es}"+entries[i][15]+"{mlang}{mlang ca}"
+                    +entries[i+1][15]+"{mlang}{mlang ca_valencia}"
+                    +entries[i+2][15]+"{mlang}{mlang en}"
+                    +entries[i+3][15]+"{mlang}{mlang eu}"
+                    +entries[i+4][15]+"{mlang}{mlang gl}"
+                    +entries[i+5][15]+"{mlang}";
+                    var generalfeedback = "{mlang es}"+entries[i][17]+"{mlang}{mlang ca}"
+                    +entries[i+1][17]+"{mlang}{mlang ca_valencia}"
+                    +entries[i+2][17]+"{mlang}{mlang en}"
+                    +entries[i+3][17]+"{mlang}{mlang eu}"
+                    +entries[i+4][17]+"{mlang}{mlang gl}"
+                    +entries[i+5][17]+"{mlang}";
                 } else {
-                    var idioma = entries[i].gsx$idioma.$t;
-                    var enunciado = "{mlang "+idioma+"}"+entries[i].gsx$enunciadopregunta.$t+"{mlang}";
+                    var idioma = entries[i][3].$t;
+                    var enunciado = "{mlang "+idioma+"}"+entries[i][15]+"{mlang}";
                 }
-                    var defaultmark = entries[i].gsx$puntuacion.$t;
-                    var tags = entries[i].gsx$tags.$t;
+                    var defaultmark = entries[i][16];
+                //    var tags = entries[i].gsx$tags.$t;
                     if (questiontype == "multichoice") {
-                        if((entries[i].gsx$multi.$t) == "TRUE"){
-                            var eleccion1 = "{mlang es}"+entries[i].gsx$eleccion1.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion1.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion1.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion1.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion1.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion1.$t+"{mlang}";
-                            var eleccion2 = "{mlang es}"+entries[i].gsx$eleccion2.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion2.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion2.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion2.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion2.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion2.$t+"{mlang}";
-                            var eleccion3 = "{mlang es}"+entries[i].gsx$eleccion3.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion3.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion3.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion3.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion3.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion3.$t+"{mlang}";
-                            var eleccion4 = "{mlang es}"+entries[i].gsx$eleccion4.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion4.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion4.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion4.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion4.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion4.$t+"{mlang}";
-                            var eleccion5 = "{mlang es}"+entries[i].gsx$eleccion5.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion5.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion5.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion5.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion5.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion5.$t+"{mlang}";
-                            var eleccion6 = "{mlang es}"+entries[i].gsx$eleccion6.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion6.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion6.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion6.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion6.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion6.$t+"{mlang}";
-                            var eleccion7 = "{mlang es}"+entries[i].gsx$eleccion7.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion7.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion7.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion7.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion7.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion7.$t+"{mlang}";
-                            var eleccion8 = "{mlang es}"+entries[i].gsx$eleccion8.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion8.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion8.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion8.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion8.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion8.$t+"{mlang}";
-                            var eleccion9 = "{mlang es}"+entries[i].gsx$eleccion9.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion9.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion9.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion9.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion9.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion9.$t+"{mlang}";
-                            var eleccion10 = "{mlang es}"+entries[i].gsx$eleccion10.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion10.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion10.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion10.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion10.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion10.$t+"{mlang}";
-                            var eleccion11 = "{mlang es}"+entries[i].gsx$eleccion11.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion11.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion11.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion11.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion11.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion11.$t+"{mlang}";
-                            var eleccion12 = "{mlang es}"+entries[i].gsx$eleccion12.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion12.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion12.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion12.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion12.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion12.$t+"{mlang}";
-                            var eleccion13 = "{mlang es}"+entries[i].gsx$eleccion13.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion13.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion13.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion13.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion13.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion13.$t+"{mlang}";
-                            var eleccion14 = "{mlang es}"+entries[i].gsx$eleccion14.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion14.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion14.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion14.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion14.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion14.$t+"{mlang}";
-                            var eleccion15 = "{mlang es}"+entries[i].gsx$eleccion15.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$eleccion15.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$eleccion15.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$eleccion15.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$eleccion15.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$eleccion15.$t+"{mlang}";
-                            var retroalimentacion1 = "{mlang es}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion1.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion1.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion1.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion1.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion1.$t+"{mlang}";
-                            var retroalimentacion2 = "{mlang es}"+entries[i].gsx$retroalimentacion2.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion2.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion2.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion2.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion2.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion2.$t+"{mlang}";
-                            var retroalimentacion3 = "{mlang es}"+entries[i].gsx$retroalimentacion3.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion3.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion3.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion3.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion3.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion3.$t+"{mlang}";
-                            var retroalimentacion4 = "{mlang es}"+entries[i].gsx$retroalimentacion4.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion4.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion4.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion4.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion4.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion4.$t+"{mlang}";
-                            var retroalimentacion5 = "{mlang es}"+entries[i].gsx$retroalimentacion5.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion5.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion5.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion5.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion5.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion5.$t+"{mlang}";
-                            var retroalimentacion6 = "{mlang es}"+entries[i].gsx$retroalimentacion6.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion6.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion6.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion6.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion6.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion6.$t+"{mlang}";
-                            var retroalimentacion7 = "{mlang es}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion7.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion7.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion7.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion7.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion7.$t+"{mlang}";
-                            var retroalimentacion8 = "{mlang es}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion8.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion8.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion8.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion8.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion8.$t+"{mlang}";
-                            var retroalimentacion9 = "{mlang es}"+entries[i].gsx$retroalimentacion9.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion9.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion9.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion9.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion9.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion9.$t+"{mlang}";
-                            var retroalimentacion10 = "{mlang es}"+entries[i].gsx$retroalimentacion10.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion10.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion10.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion10.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion10.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion10.$t+"{mlang}";
-                            var retroalimentacion11 = "{mlang es}"+entries[i].gsx$retroalimentacion11.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion11.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion11.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion11.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion11.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion11.$t+"{mlang}";
-                            var retroalimentacion12 = "{mlang es}"+entries[i].gsx$retroalimentacion12.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion12.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion12.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion12.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion12.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion12.$t+"{mlang}";
-                            var retroalimentacion13 = "{mlang es}"+entries[i].gsx$retroalimentacion13.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion13.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion13.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion13.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion13.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion13.$t+"{mlang}";
-                            var retroalimentacion14 = "{mlang es}"+entries[i].gsx$retroalimentacion14.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion14.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion14.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion14.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion14.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion14.$t+"{mlang}";
-                            var retroalimentacion15 = "{mlang es}"+entries[i].gsx$retroalimentacion15.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacion15.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacion15.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacion15.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacion15.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacion15.$t+"{mlang}";
-                            var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacioncorrecta.$t+"{mlang}";
-                            var retroalimentacionparcial = "{mlang es}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacionparcial.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacionparcial.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacionparcial.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacionparcial.$t+"{mlang}";
-                            var retroalimentacionincorrecta = "{mlang es}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                        if((entries[i][2]) == "TRUE"){
+                            var eleccion1 = "{mlang es}"+entries[i][22]+"{mlang}{mlang ca}"
+                            +entries[i+1][22]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][22]+"{mlang}{mlang en}"
+                            +entries[i+3][22]+"{mlang}{mlang eu}"
+                            +entries[i+4][22]+"{mlang}{mlang gl}"
+                            +entries[i+5][22]+"{mlang}";
+                            var eleccion2 = "{mlang es}"+entries[i][25]+"{mlang}{mlang ca}"
+                            +entries[i+1][25]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][25]+"{mlang}{mlang en}"
+                            +entries[i+3][25]+"{mlang}{mlang eu}"
+                            +entries[i+4][25]+"{mlang}{mlang gl}"
+                            +entries[i+5][25]+"{mlang}";
+                            var eleccion3 = "{mlang es}"+entries[i][28]+"{mlang}{mlang ca}"
+                            +entries[i+1][28]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][28]+"{mlang}{mlang en}"
+                            +entries[i+3][28]+"{mlang}{mlang eu}"
+                            +entries[i+4][28]+"{mlang}{mlang gl}"
+                            +entries[i+5][28]+"{mlang}";
+                            var eleccion4 = "{mlang es}"+entries[i][31]+"{mlang}{mlang ca}"
+                            +entries[i+1][31]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][31]+"{mlang}{mlang en}"
+                            +entries[i+3][31]+"{mlang}{mlang eu}"
+                            +entries[i+4][31]+"{mlang}{mlang gl}"
+                            +entries[i+5][31]"{mlang}";
+                            var eleccion5 = "{mlang es}"+entries[i][34]+"{mlang}{mlang ca}"
+                            +entries[i+1][34]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][34]+"{mlang}{mlang en}"
+                            +entries[i+3][34]+"{mlang}{mlang eu}"
+                            +entries[i+4][34]+"{mlang}{mlang gl}"
+                            +entries[i+5][34]+"{mlang}";
+                            var eleccion6 = "{mlang es}"+entries[i][37]+"{mlang}{mlang ca}"
+                            +entries[i+1][37]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][37]+"{mlang}{mlang en}"
+                            +entries[i+3][37]+"{mlang}{mlang eu}"
+                            +entries[i+4][37]+"{mlang}{mlang gl}"
+                            +entries[i+5][37]+"{mlang}";
+                            var eleccion7 = "{mlang es}"+entries[i][40]+"{mlang}{mlang ca}"
+                            +entries[i+1][40]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][40]+"{mlang}{mlang en}"
+                            +entries[i+3][40]+"{mlang}{mlang eu}"
+                            +entries[i+4][40]+"{mlang}{mlang gl}"
+                            +entries[i+5][40]+"{mlang}";
+                            var eleccion8 = "{mlang es}"+entries[i][43]+"{mlang}{mlang ca}"
+                            +entries[i+1][43]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][43]+"{mlang}{mlang en}"
+                            +entries[i+3][43]+"{mlang}{mlang eu}"
+                            +entries[i+4][43]+"{mlang}{mlang gl}"
+                            +entries[i+5][43]+"{mlang}";
+                            var eleccion9 = "{mlang es}"+entries[i][46]+"{mlang}{mlang ca}"
+                            +entries[i+1][46]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][46]+"{mlang}{mlang en}"
+                            +entries[i+3][46]+"{mlang}{mlang eu}"
+                            +entries[i+4][46]+"{mlang}{mlang gl}"
+                            +entries[i+5][46]+"{mlang}";
+                            var eleccion10 = "{mlang es}"+entries[i][49]+"{mlang}{mlang ca}"
+                            +entries[i+1][49]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][49]+"{mlang}{mlang en}"
+                            +entries[i+3][49]+"{mlang}{mlang eu}"
+                            +entries[i+4][49]+"{mlang}{mlang gl}"
+                            +entries[i+5][49]+"{mlang}";
+                            var eleccion11 = "{mlang es}"+entries[i][52]+"{mlang}{mlang ca}"
+                            +entries[i+1][52]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][52]+"{mlang}{mlang en}"
+                            +entries[i+3][52]+"{mlang}{mlang eu}"
+                            +entries[i+4][52]+"{mlang}{mlang gl}"
+                            +entries[i+5][52]+"{mlang}";
+                            var eleccion12 = "{mlang es}"+entries[i][55]+"{mlang}{mlang ca}"
+                            +entries[i+1][55]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][55]+"{mlang}{mlang en}"
+                            +entries[i+3][55]+"{mlang}{mlang eu}"
+                            +entries[i+4][55]+"{mlang}{mlang gl}"
+                            +entries[i+5][55]+"{mlang}";
+                            var eleccion13 = "{mlang es}"+entries[i][58]+"{mlang}{mlang ca}"
+                            +entries[i+1][58]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][58]+"{mlang}{mlang en}"
+                            +entries[i+3][58]+"{mlang}{mlang eu}"
+                            +entries[i+4][58]+"{mlang}{mlang gl}"
+                            +entries[i+5][58]+"{mlang}";
+                            var eleccion14 = "{mlang es}"+entries[i][61]+"{mlang}{mlang ca}"
+                            +entries[i+1][61]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][61]+"{mlang}{mlang en}"
+                            +entries[i+3][61]+"{mlang}{mlang eu}"
+                            +entries[i+4][61]+"{mlang}{mlang gl}"
+                            +entries[i+5][61]+"{mlang}";
+                            var eleccion15 = "{mlang es}"+entries[i][64]+"{mlang}{mlang ca}"
+                            +entries[i+1][64]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][64]+"{mlang}{mlang en}"
+                            +entries[i+3][64]+"{mlang}{mlang eu}"
+                            +entries[i+4][64]+"{mlang}{mlang gl}"
+                            +entries[i+5][64]+"{mlang}";
+                            var retroalimentacion1 = "{mlang es}"+entries[i][24]+"{mlang}{mlang ca}"
+                            +entries[i+1][24]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][24]+"{mlang}{mlang en}"
+                            +entries[i+3][24]+"{mlang}{mlang eu}"
+                            +entries[i+4][24]+"{mlang}{mlang gl}"
+                            +entries[i+5][24]+"{mlang}";
+                            var retroalimentacion2 = "{mlang es}"+entries[i][27]+"{mlang}{mlang ca}"
+                            +entries[i+1][27]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][27]+"{mlang}{mlang en}"
+                            +entries[i+3][27]+"{mlang}{mlang eu}"
+                            +entries[i+4][27]+"{mlang}{mlang gl}"
+                            +entries[i+5][27]+"{mlang}";
+                            var retroalimentacion3 = "{mlang es}"+entries[i][30]+"{mlang}{mlang ca}"
+                            +entries[i+1][30]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][30]+"{mlang}{mlang en}"
+                            +entries[i+3][30]+"{mlang}{mlang eu}"
+                            +entries[i+4][30]+"{mlang}{mlang gl}"
+                            +entries[i+5][30]+"{mlang}";
+                            var retroalimentacion4 = "{mlang es}"+entries[i][33]+"{mlang}{mlang ca}"
+                            +entries[i+1][33]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][33]+"{mlang}{mlang en}"
+                            +entries[i+3][33]+"{mlang}{mlang eu}"
+                            +entries[i+4][33]+"{mlang}{mlang gl}"
+                            +entries[i+5][33]+"{mlang}";
+                            var retroalimentacion5 = "{mlang es}"+entries[i][36]+"{mlang}{mlang ca}"
+                            +entries[i+1][36]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][36]+"{mlang}{mlang en}"
+                            +entries[i+3][36]+"{mlang}{mlang eu}"
+                            +entries[i+4][36]+"{mlang}{mlang gl}"
+                            +entries[i+5][36]+"{mlang}";
+                            var retroalimentacion6 = "{mlang es}"+entries[i][39]+"{mlang}{mlang ca}"
+                            +entries[i+1][39]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][39]t+"{mlang}{mlang en}"
+                            +entries[i+3][39]+"{mlang}{mlang eu}"
+                            +entries[i+4][39]+"{mlang}{mlang gl}"
+                            +entries[i+5][39]+"{mlang}";
+                            var retroalimentacion7 = "{mlang es}"+entries[i][42]+"{mlang}{mlang ca}"
+                            +entries[i+1][42]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][42]+"{mlang}{mlang en}"
+                            +entries[i+3][42]+"{mlang}{mlang eu}"
+                            +entries[i+4][42]+"{mlang}{mlang gl}"
+                            +entries[i+5][42]+"{mlang}";
+                            var retroalimentacion8 = "{mlang es}"+entries[i][45]+"{mlang}{mlang ca}"
+                            +entries[i+1][45]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][45]+"{mlang}{mlang en}"
+                            +entries[i+3][45]+"{mlang}{mlang eu}"
+                            +entries[i+4][45]+"{mlang}{mlang gl}"
+                            +entries[i+5][45]+"{mlang}";
+                            var retroalimentacion9 = "{mlang es}"+entries[i][48]+"{mlang}{mlang ca}"
+                            +entries[i+1][48]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][48]+"{mlang}{mlang en}"
+                            +entries[i+3][48]+"{mlang}{mlang eu}"
+                            +entries[i+4][48]+"{mlang}{mlang gl}"
+                            +entries[i+5][48]+"{mlang}";
+                            var retroalimentacion10 = "{mlang es}"+entries[i][51]+"{mlang}{mlang ca}"
+                            +entries[i+1][51]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][51]+"{mlang}{mlang en}"
+                            +entries[i+3][51]+"{mlang}{mlang eu}"
+                            +entries[i+4][51]+"{mlang}{mlang gl}"
+                            +entries[i+5][51]+"{mlang}";
+                            var retroalimentacion11 = "{mlang es}"+entries[i][54]+"{mlang}{mlang ca}"
+                            +entries[i+1][54]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][54]+"{mlang}{mlang en}"
+                            +entries[i+3][54]+"{mlang}{mlang eu}"
+                            +entries[i+4][54]+"{mlang}{mlang gl}"
+                            +entries[i+5][54]+"{mlang}";
+                            var retroalimentacion12 = "{mlang es}"+entries[i][57]+"{mlang}{mlang ca}"
+                            +entries[i+1][57]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][57]+"{mlang}{mlang en}"
+                            +entries[i+3][57]+"{mlang}{mlang eu}"
+                            +entries[i+4][57]+"{mlang}{mlang gl}"
+                            +entries[i+5][57]+"{mlang}";
+                            var retroalimentacion13 = "{mlang es}"+entries[i][60]+"{mlang}{mlang ca}"
+                            +entries[i+1][60]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][60]+"{mlang}{mlang en}"
+                            +entries[i+3][60]+"{mlang}{mlang eu}"
+                            +entries[i+4][60]+"{mlang}{mlang gl}"
+                            +entries[i+5][60]+"{mlang}";
+                            var retroalimentacion14 = "{mlang es}"+entries[i][63]+"{mlang}{mlang ca}"
+                            +entries[i+1][63]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][63]+"{mlang}{mlang en}"
+                            +entries[i+3][63]+"{mlang}{mlang eu}"
+                            +entries[i+4][63]+"{mlang}{mlang gl}"
+                            +entries[i+5][63]+"{mlang}";
+                            var retroalimentacion15 = "{mlang es}"+entries[i][66]+"{mlang}{mlang ca}"
+                            +entries[i+1][66]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][66]+"{mlang}{mlang en}"
+                            +entries[i+3][66]+"{mlang}{mlang eu}"
+                            +entries[i+4][66]+"{mlang}{mlang gl}"
+                            +entries[i+5][66]+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang es}"+entries[i][47]+"{mlang}{mlang ca}"
+                            +entries[i+1][47]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][47]+"{mlang}{mlang en}"
+                            +entries[i+3][47]+"{mlang}{mlang eu}"
+                            +entries[i+4][47]+"{mlang}{mlang gl}"
+                            +entries[i+5][47]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang es}"+entries[i][48]+"{mlang}{mlang ca}"
+                            +entries[i+1][48]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][48]+"{mlang}{mlang en}"
+                            +entries[i+3][48]+"{mlang}{mlang eu}"
+                            +entries[i+4][48]+"{mlang}{mlang gl}"
+                            +entries[i+5][48]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang es}"+entries[i][49]+"{mlang}{mlang ca}"
+                            +entries[i+1][49]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][49]+"{mlang}{mlang en}"
+                            +entries[i+3][49]+"{mlang}{mlang eu}"
+                            +entries[i+4][49]+"{mlang}{mlang gl}"
+                            +entries[i+5][49]+"{mlang}";
                         } else {
-                            var eleccion1 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion1.$t+"{mlang}";
-                            var eleccion2 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion2.$t+"{mlang}";
-                            var eleccion3 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion3.$t+"{mlang}";
-                            var eleccion4 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion4.$t+"{mlang}";
-                            var eleccion5 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion5.$t+"{mlang}";
-                            var eleccion6 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion6.$t+"{mlang}";
-                            var eleccion7 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion7.$t+"{mlang}";
-                            var eleccion8 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion8.$t+"{mlang}";
-                            var eleccion9 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion9.$t+"{mlang}";
-                            var eleccion10 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion10.$t+"{mlang}";
-                            var eleccion11 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion11.$t+"{mlang}";
-                            var eleccion12 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion12.$t+"{mlang}";
-                            var eleccion13 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion13.$t+"{mlang}";
-                            var eleccion14 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion14.$t+"{mlang}";
-                            var eleccion15 = "{mlang "+idioma+"}"+entries[i].gsx$eleccion15.$t+"{mlang}";
-                            var retroalimentacion1 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion1.$t+"{mlang}";
-                            var retroalimentacion2 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion2.$t+"{mlang}";
-                            var retroalimentacion3 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion3.$t+"{mlang}";
-                            var retroalimentacion4 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion4.$t+"{mlang}";
-                            var retroalimentacion5 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion5.$t+"{mlang}";    
-                            var retroalimentacion6 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion6.$t+"{mlang}";
-                            var retroalimentacion7 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion7.$t+"{mlang}";
-                            var retroalimentacion8 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion8.$t+"{mlang}";
-                            var retroalimentacion9 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion9.$t+"{mlang}";
-                            var retroalimentacion10 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion10.$t+"{mlang}";  
-                            var retroalimentacion11 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion11.$t+"{mlang}";
-                            var retroalimentacion12 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion12.$t+"{mlang}";
-                            var retroalimentacion13 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion13.$t+"{mlang}";
-                            var retroalimentacion14 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion14.$t+"{mlang}";
-                            var retroalimentacion15 = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacion15.$t+"{mlang}";                              
-                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
-                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
-                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                            var eleccion1 = "{mlang "+idioma+"}"+entries[i][22]+"{mlang}";
+                            var eleccion2 = "{mlang "+idioma+"}"+entries[i][25]+"{mlang}";
+                            var eleccion3 = "{mlang "+idioma+"}"+entries[i][28]+"{mlang}";
+                            var eleccion4 = "{mlang "+idioma+"}"+entries[i][31]+"{mlang}";
+                            var eleccion5 = "{mlang "+idioma+"}"+entries[i][34]+"{mlang}";
+                            var eleccion6 = "{mlang "+idioma+"}"+entries[i][37]+"{mlang}";
+                            var eleccion7 = "{mlang "+idioma+"}"+entries[i][40]+"{mlang}";
+                            var eleccion8 = "{mlang "+idioma+"}"+entries[i][43]+"{mlang}";
+                            var eleccion9 = "{mlang "+idioma+"}"+entries[i][46]+"{mlang}";
+                            var eleccion10 = "{mlang "+idioma+"}"+entries[i][49]+"{mlang}";
+                            var eleccion11 = "{mlang "+idioma+"}"+entries[i][52]+"{mlang}";
+                            var eleccion12 = "{mlang "+idioma+"}"+entries[i][55]+"{mlang}";
+                            var eleccion13 = "{mlang "+idioma+"}"+entries[i][58]+"{mlang}";
+                            var eleccion14 = "{mlang "+idioma+"}"+entries[i][61]+"{mlang}";
+                            var eleccion15 = "{mlang "+idioma+"}"+entries[i][64]+"{mlang}";
+                            var retroalimentacion1 = "{mlang "+idioma+"}"+entries[i][24]+"{mlang}";
+                            var retroalimentacion2 = "{mlang "+idioma+"}"+entries[i][27]+"{mlang}";
+                            var retroalimentacion3 = "{mlang "+idioma+"}"+entries[i][30]+"{mlang}";
+                            var retroalimentacion4 = "{mlang "+idioma+"}"+entries[i][33]+"{mlang}";
+                            var retroalimentacion5 = "{mlang "+idioma+"}"+entries[i][36]+"{mlang}";    
+                            var retroalimentacion6 = "{mlang "+idioma+"}"+entries[i][39]+"{mlang}";
+                            var retroalimentacion7 = "{mlang "+idioma+"}"+entries[i][42]+"{mlang}";
+                            var retroalimentacion8 = "{mlang "+idioma+"}"+entries[i][45]+"{mlang}";
+                            var retroalimentacion9 = "{mlang "+idioma+"}"+entries[i][48]+"{mlang}";
+                            var retroalimentacion10 = "{mlang "+idioma+"}"+entries[i][51]+"{mlang}";  
+                            var retroalimentacion11 = "{mlang "+idioma+"}"+entries[i][54]+"{mlang}";
+                            var retroalimentacion12 = "{mlang "+idioma+"}"+entries[i][57]+"{mlang}";
+                            var retroalimentacion13 = "{mlang "+idioma+"}"+entries[i][60]+"{mlang}";
+                            var retroalimentacion14 = "{mlang "+idioma+"}"+entries[i][63]+"{mlang}";
+                            var retroalimentacion15 = "{mlang "+idioma+"}"+entries[i][66]+"{mlang}";                              
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i][47]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i][48]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i][49]+"{mlang}";
                         }
-                        var single = convertsingle(entries[i].gsx$unavariasrespuestas.$t);
-                        var shuffleanswers = convertshuffleanswers(entries[i].gsx$barajarrespuestas.$t);
-                        var answernumbering = convertanswernumbering(entries[i].gsx$numerar.$t);
-                        var showstandardinstruction = convertshowstandardinstruction(entries[i].gsx$mostrarinstruccionesestandar.$t);
-                        var fraction0 = convertCalif(entries[i].gsx$calif1.$t);
-                        var fraction1 = convertCalif(entries[i].gsx$calif2.$t);
-                        var fraction2 = convertCalif(entries[i].gsx$calif3.$t);
-                        var fraction3 = convertCalif(entries[i].gsx$calif4.$t);
-                        var fraction4 = convertCalif(entries[i].gsx$calif5.$t); 
-                        var fraction5 = convertCalif(entries[i].gsx$calif6.$t);
-                        var fraction6 = convertCalif(entries[i].gsx$calif7.$t);
-                        var fraction7 = convertCalif(entries[i].gsx$calif8.$t); 
-                        var fraction8 = convertCalif(entries[i].gsx$calif9.$t);
-                        var fraction9 = convertCalif(entries[i].gsx$calif10.$t); 
-                        var fraction10 = convertCalif(entries[i].gsx$calif11.$t);
-                        var fraction11 = convertCalif(entries[i].gsx$calif12.$t);
-                        var fraction12 = convertCalif(entries[i].gsx$calif13.$t);
-                        var fraction13 = convertCalif(entries[i].gsx$calif14.$t);
-                        var fraction14 = convertCalif(entries[i].gsx$calif15.$t); 
-                        var noanswers = entries[i].gsx$numelecciones.$t;
+                        var single = convertsingle(entries[i][18]);
+                        var shuffleanswers = convertshuffleanswers(entries[i][19]);
+                        var answernumbering = convertanswernumbering(entries[i][20]);
+                        var showstandardinstruction = convertshowstandardinstruction(entries[i][21]);
+                        var fraction0 = convertCalif(entries[i][23]);
+                        var fraction1 = convertCalif(entries[i][26]);
+                        var fraction2 = convertCalif(entries[i][29]);
+                        var fraction3 = convertCalif(entries[i][32]);
+                        var fraction4 = convertCalif(entries[i][35]); 
+                        var fraction5 = convertCalif(entries[i][38]);
+                        var fraction6 = convertCalif(entries[i][41]);
+                        var fraction7 = convertCalif(entries[i][44]); 
+                        var fraction8 = convertCalif(entries[i][47]);
+                        var fraction9 = convertCalif(entries[i][50]); 
+                        var fraction10 = convertCalif(entries[i][53]);
+                        var fraction11 = convertCalif(entries[i][56]);
+                        var fraction12 = convertCalif(entries[i][59]);
+                        var fraction13 = convertCalif(entries[i][62]);
+                        var fraction14 = convertCalif(entries[i][65]); 
+                        var noanswers = entries[i][46];
+                        var tags =  entries[i][50];
                         var obj = {
                             mform_isexpanded_id_answerhdr: 1,
                             noanswers: noanswers,
@@ -419,94 +421,95 @@ function leeJSON() {
                         idspreguntas.push(nombre);
                     }
                     if (questiontype == "ordering") {
-                        if((entries[i].gsx$multi.$t) == "TRUE"){
-                            var item1 = "{mlang es}"+entries[i].gsx$item1.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item1.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item1.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item1.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item1.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item1.$t+"{mlang}";
-                            var item2 = "{mlang es}"+entries[i].gsx$item2.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item2.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item2.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item2.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item2.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item2.$t+"{mlang}";
-                            var item3 = "{mlang es}"+entries[i].gsx$item3.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item3.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item3.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item3.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item3.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item3.$t+"{mlang}";
-                            var item4 = "{mlang es}"+entries[i].gsx$item4.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item4.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item4.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item4.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item4.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item4.$t+"{mlang}";
-                            var item5 = "{mlang es}"+entries[i].gsx$item5.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item5.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item5.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item5.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item5.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item5.$t+"{mlang}";
-                            var item6 = "{mlang es}"+entries[i].gsx$item6.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item6.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item6.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item6.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item6.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item6.$t+"{mlang}";
-                            var item7 = "{mlang es}"+entries[i].gsx$item7.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item7.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item7.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item7.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item7.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item7.$t+"{mlang}";
-                            var item8 = "{mlang es}"+entries[i].gsx$item8.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$item8.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$item8.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$item8.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$item8.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$item8.$t+"{mlang}";
-                            var retroalimentacioncorrecta = "{mlang es}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacioncorrecta.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacioncorrecta.$t+"{mlang}";
-                            var retroalimentacionparcial = "{mlang es}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacionparcial.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacionparcial.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacionparcial.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacionparcial.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacionparcial.$t+"{mlang}";
-                            var retroalimentacionincorrecta = "{mlang es}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca}"
-                            +entries[i+1].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang ca_valencia}"
-                            +entries[i+2].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang en}"
-                            +entries[i+3].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang eu}"
-                            +entries[i+4].gsx$retroalimentacionincorrecta.$t+"{mlang}{mlang gl}"
-                            +entries[i+5].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                        if((entries[i][2]) == "TRUE"){
+                            var item1 = "{mlang es}"+entries[i][25]+"{mlang}{mlang ca}"
+                            +entries[i+1][25]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][25]+"{mlang}{mlang en}"
+                            +entries[i+3][25]+"{mlang}{mlang eu}"
+                            +entries[i+4][25]+"{mlang}{mlang gl}"
+                            +entries[i+5][25]+"{mlang}";
+                            var item2 = "{mlang es}"+entries[i][26]+"{mlang}{mlang ca}"
+                            +entries[i+1][26]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][26]+"{mlang}{mlang en}"
+                            +entries[i+3][26]+"{mlang}{mlang eu}"
+                            +entries[i+4][26]+"{mlang}{mlang gl}"
+                            +entries[i+5][26]+"{mlang}";
+                            var item3 = "{mlang es}"+entries[i][27]+"{mlang}{mlang ca}"
+                            +entries[i+1][27]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][27]+"{mlang}{mlang en}"
+                            +entries[i+3][27]+"{mlang}{mlang eu}"
+                            +entries[i+4][27]+"{mlang}{mlang gl}"
+                            +entries[i+5][27]+"{mlang}";
+                            var item4 = "{mlang es}"+entries[i][28]+"{mlang}{mlang ca}"
+                            +entries[i+1][28]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][28]+"{mlang}{mlang en}"
+                            +entries[i+3][28]+"{mlang}{mlang eu}"
+                            +entries[i+4][28]+"{mlang}{mlang gl}"
+                            +entries[i+5][28]+"{mlang}";
+                            var item5 = "{mlang es}"+entries[i][29]+"{mlang}{mlang ca}"
+                            +entries[i+1][29]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][29]+"{mlang}{mlang en}"
+                            +entries[i+3][29]+"{mlang}{mlang eu}"
+                            +entries[i+4][29]+"{mlang}{mlang gl}"
+                            +entries[i+5][29]+"{mlang}";
+                            var item6 = "{mlang es}"+entries[i][30]+"{mlang}{mlang ca}"
+                            +entries[i+1][30]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][30]+"{mlang}{mlang en}"
+                            +entries[i+3][30]+"{mlang}{mlang eu}"
+                            +entries[i+4][30]+"{mlang}{mlang gl}"
+                            +entries[i+5][30]+"{mlang}";
+                            var item7 = "{mlang es}"+entries[i][31]+"{mlang}{mlang ca}"
+                            +entries[i+1][31]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][31]+"{mlang}{mlang en}"
+                            +entries[i+3][31]+"{mlang}{mlang eu}"
+                            +entries[i+4][31]+"{mlang}{mlang gl}"
+                            +entries[i+5][31]+"{mlang}";
+                            var item8 = "{mlang es}"+entries[i][32]+"{mlang}{mlang ca}"
+                            +entries[i+1][32]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][32]+"{mlang}{mlang en}"
+                            +entries[i+3][32]+"{mlang}{mlang eu}"
+                            +entries[i+4][32]+"{mlang}{mlang gl}"
+                            +entries[i+5][32]+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang es}"+entries[i][34]+"{mlang}{mlang ca}"
+                            +entries[i+1][34]"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][34]+"{mlang}{mlang en}"
+                            +entries[i+3][34]+"{mlang}{mlang eu}"
+                            +entries[i+4][34]+"{mlang}{mlang gl}"
+                            +entries[i+5][34]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang es}"+entries[i][35]+"{mlang}{mlang ca}"
+                            +entries[i+1][35]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][35]+"{mlang}{mlang en}"
+                            +entries[i+3][35]+"{mlang}{mlang eu}"
+                            +entries[i+4][35]+"{mlang}{mlang gl}"
+                            +entries[i+5][35]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang es}"+entries[i][36]+"{mlang}{mlang ca}"
+                            +entries[i+1][36]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][36]+"{mlang}{mlang en}"
+                            +entries[i+3][36]+"{mlang}{mlang eu}"
+                            +entries[i+4][36]+"{mlang}{mlang gl}"
+                            +entries[i+5][36]+"{mlang}";
                         } else {
-                            var item1 = "{mlang "+idioma+"}"+entries[i].gsx$item1.$t+"{mlang}";
-                            var item2 = "{mlang "+idioma+"}"+entries[i].gsx$item2.$t+"{mlang}";
-                            var item3 = "{mlang "+idioma+"}"+entries[i].gsx$item3.$t+"{mlang}";
-                            var item4 = "{mlang "+idioma+"}"+entries[i].gsx$item4.$t+"{mlang}";
-                            var item5 = "{mlang "+idioma+"}"+entries[i].gsx$item5.$t+"{mlang}";
-                            var item6 = "{mlang "+idioma+"}"+entries[i].gsx$item6.$t+"{mlang}";
-                            var item7 = "{mlang "+idioma+"}"+entries[i].gsx$item7.$t+"{mlang}";
-                            var item8 = "{mlang "+idioma+"}"+entries[i].gsx$item8.$t+"{mlang}";
-                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacioncorrecta.$t+"{mlang}";
-                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionparcial.$t+"{mlang}";
-                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i].gsx$retroalimentacionincorrecta.$t+"{mlang}";
+                            var item1 = "{mlang "+idioma+"}"+entries[i][25]+"{mlang}";
+                            var item2 = "{mlang "+idioma+"}"+entries[i][26]+"{mlang}";
+                            var item3 = "{mlang "+idioma+"}"+entries[i][27]+"{mlang}";
+                            var item4 = "{mlang "+idioma+"}"+entries[i][28]+"{mlang}";
+                            var item5 = "{mlang "+idioma+"}"+entries[i][29]+"{mlang}";
+                            var item6 = "{mlang "+idioma+"}"+entries[i][30]+"{mlang}";
+                            var item7 = "{mlang "+idioma+"}"+entries[i][31]+"{mlang}";
+                            var item8 = "{mlang "+idioma+"}"+entries[i][32]+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i][34]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i][35]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i][36]+"{mlang}";
                         }
-                        var idnumber = entries[i].gsx$idnumber.$t;
-                        var layouttype = convertlayouttype(entries[i].gsx$layouttype.$t);
-                        var itemselectiontype = convertitemselectiontype(entries[i].gsx$itemselectiontype.$t);
-                        var sizeofsubset = entries[i].gsx$sizeofsubset.$t;
-                        var gradingtype = convertgradingtype(entries[i].gsx$gradingtype.$t);
-                        var gradingdetails = convertgradingdetails(entries[i].gsx$gradingdetails.$t);
-                        var numberthechoices = convertanswernumbering(entries[i].gsx$numberthechoices.$t);
-                        var countanswers = entries[i].gsx$numitems.$t;
+                        var idnumber = entries[i][18];
+                        var layouttype = convertlayouttype(entries[i][19]);
+                        var itemselectiontype = convertitemselectiontype(entries[i][20]);
+                        var sizeofsubset = entries[i][21];
+                        var gradingtype = convertgradingtype(entries[i][22]);
+                        var gradingdetails = convertgradingdetails(entries[i][23]);
+                        var numberthechoices = convertanswernumbering(entries[i][24]);
+                        var countanswers = entries[i][33].$t;
+                        var tags =  entries[i][37];
                         var obj = {
                             countanswers: countanswers,
                             mform_isexpanded_id_answerheader_0: 1,
