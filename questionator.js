@@ -278,9 +278,9 @@ function leeJSON() {
                             var retroalimentacion13 = "{mlang "+idioma+"}"+entries[i][60]+"{mlang}";
                             var retroalimentacion14 = "{mlang "+idioma+"}"+entries[i][63]+"{mlang}";
                             var retroalimentacion15 = "{mlang "+idioma+"}"+entries[i][66]+"{mlang}";                              
-                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i][47]+"{mlang}";
-                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i][48]+"{mlang}";
-                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i][49]+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i][68]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i][69]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i][70]+"{mlang}";
                         }
                         var single = convertsingle(entries[i][18]);
                         var shuffleanswers = convertshuffleanswers(entries[i][19]);
@@ -301,8 +301,8 @@ function leeJSON() {
                         var fraction12 = convertCalif(entries[i][59]);
                         var fraction13 = convertCalif(entries[i][62]);
                         var fraction14 = convertCalif(entries[i][65]); 
-                        var noanswers = entries[i][46];
-                        var tags =  entries[i][50];
+                        var noanswers = entries[i][67];
+                        var tags =  entries[i][71];
                         var obj = {
                             mform_isexpanded_id_answerhdr: 1,
                             noanswers: noanswers,
