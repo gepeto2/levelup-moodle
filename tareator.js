@@ -40,8 +40,8 @@ function leeJSON() {
                         var fechadeentrega = convertyesno(entries[i][28]);
                         var fechalimite = convertyesno(entries[i][29]);
                         var recordarmecalificaren = convertyesno(entries[i][30]);
-                        var assignsubmission_file_maxfiles = entries[i][31];
-                        var archivosenviados = convertyesno(entries[i][32]);
+                        var assignsubmission_file_maxfiles = entries[i][32];
+                        var archivosenviados = convertyesno(entries[i][31]);
                         var tipoarchivo;
                         var iconoarchivo;
                         var htmlarchivo1 = "";
