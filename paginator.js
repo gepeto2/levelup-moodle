@@ -19,7 +19,7 @@ function leeJSON() {
     var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key="+key;
     var datos = [];
     var idspreguntas = [];
-
+    
     $.getJSON(urljson, function (data) {
         var entries = data.values;
         for(i = 0; i < entries.length; i++){
@@ -76,7 +76,6 @@ function leeJSON() {
                  datos.push(obj);
                  idspreguntas.push(nombre);
              }
-
           }
     })
     .done(function(){
