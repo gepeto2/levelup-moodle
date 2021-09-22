@@ -36,6 +36,7 @@ function leeJSON() {
                 var mostrarfecha = convertyesno(entries[i][10]);
                 var disponibilidad = convertdisponibility(entries[i][11]);
                 var numeroid = entries[i][12];
+                var completion = convertcompletion(entries[i][13]);
                 var obj = {
                     display: 5,
                     completionunlocked: 1,
@@ -69,7 +70,8 @@ function leeJSON() {
                     printheading: 1,
                     printintro: 0,
                     printlastmodified: 1,
-                    availabilityconditionsjson: ""
+                    availabilityconditionsjson: "",
+                    completion: completion
                         };
                  datos.push(obj);
                  idspreguntas.push(nombre);
@@ -184,8 +186,21 @@ function convertdisponibility(data) {
     }
     if (data == "Hacerlo disponible pero no mostrarlo en la página del curso") {
         disponibility = "-1"
-    }
-    
+    }   
+}
+
+function convertcompletion(data) {
+     var completion;
+     if (data == "No indicar finalización de la actividad") {
+         completion = 0
+     }
+     if (data == "Los estudiantes pueden marcar manualmente la actividad como completada") {
+         completion = 1
+     }
+     if (data == "Mostrar la actividad como completada cuando se cumplan las condiciones") {
+         completion = 2
+     }
+     return completion;
 }
 
 $(document).ready(function() {
