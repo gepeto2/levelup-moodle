@@ -21,7 +21,7 @@ function leeJSON() {
     var idspreguntas = [];
 
     $.getJSON(urljson, function (data) {
-        var entries = data.feed.entry;
+        var entries = data.values;
         for(i = 0; i < entries.length; i++){
             if((entries[i][0]) == "TRUE"){
                 var idpagina = entries[i][1];
