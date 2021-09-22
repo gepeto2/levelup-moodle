@@ -14,27 +14,28 @@ function leeJSON() {
     const page = GetURLParameter('sheetpage');
     const activitytype = GetURLParameter('activitytype');
     const sesskey = $("input[name=sesskey]").val();
+    const key = GetURLParameter('key');
     const numberofpages = GetURLParameter('numberofpages');
-    urljson = "https://spreadsheets.google.com/feeds/list/"+sheet+"/"+page+"/public/values?alt=json";
+    var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key="+key;
     var datos = [];
     var idspreguntas = [];
 
     $.getJSON(urljson, function (data) {
         var entries = data.feed.entry;
         for(i = 0; i < entries.length; i++){
-            if((entries[i].gsx$editar.$t) == "TRUE"){
-                var idpagina = entries[i].gsx$idpagina.$t;
-                var courseid = entries[i].gsx$courseid.$t;
-                var seccion = entries[i].gsx$seccion.$t;
-                var nombre = entries[i].gsx$nombre.$t;
-                var descripcion = entries[i].gsx$descripcion.$t;
-                var muestradescripcion = entries[i].gsx$muestradescripcion.$t;
-                var contenido = entries[i].gsx$contenido.$t;
-                var mostrarnombre = entries[i].gsx$mostrarnombre.$t;
-                var mostrardescripcion = entries[i].gsx$mostrardescripcion.$t;
-                var mostrarfecha = entries[i].gsx$mostrarfecha.$t;
-                var disponibilidad = entries[i].gsx$disponibilidad.$t;
-                var numeroid = entries[i].gsx$numeroid.$t;
+            if((entries[i][0]) == "TRUE"){
+                var idpagina = entries[i][1];
+                var courseid = entries[i][2];
+                var seccion = entries[i][3];
+                var nombre = entries[i][4];
+                var descripcion = entries[i][5];
+                var muestradescripcion = convertyesno(entries[i][6]);
+                var contenido = entries[i][7];
+                var mostrarnombre = convertyesno(entries[i][8]);
+                var mostrardescripcion = convertyesno(entries[i][9]);
+                var mostrarfecha = convertyesno(entries[i][10]);
+                var disponibilidad = convertdisponibility(entries[i][11]);
+                var numeroid = entries[i][12];
                 var obj = {
                     display: 5,
                     completionunlocked: 1,
@@ -160,6 +161,31 @@ function convertanswernumbering(data){
     if (data == "I. II. III..."){ answernumbering = "IIII"}
     if (data == "Sin numeraciÃ³n"){ answernumbering = "none"}
     return answernumbering;
+}
+
+ function convertyesno(data) {
+     var yesno;
+        if (data == "TRUE") {
+            yesno = 1
+        }
+        if (data == "FALSE") {
+            yesno = 0
+        }
+        return yesno;
+ }
+
+function convertdisponibility(data) {
+   var disponibility;
+    if (data == "Mostrar en la página del curso") {
+        disponibility = 1
+    }
+    if (data == "Ocultar a estudiantes") {
+        disponibility = 0
+    }
+    if (data == "Hacerlo disponible pero no mostrarlo en la página del curso") {
+        disponibility = "-1"
+    }
+    
 }
 
 $(document).ready(function() {
