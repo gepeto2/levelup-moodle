@@ -1546,6 +1546,97 @@ function leeJSON() {
                         datos.push(obj);
                         idspreguntas.push(nombre);
                     }
+                    if (questiontype == "gapfill") {
+                        if((entries[i][2]) == "TRUE"){
+                            var enunciadogapfill = "{mlang es}"+entries[i][15]+"{mlang};
+                            enunciadogapfill = enunciadogapfill.replace("[", "{mlang}[");
+                            enunciadogapfill = enunciadogapfill.replace("]", "]{mlang es}");
+                            var retroalimentacioncorrecta = "{mlang es}"+entries[i][28]+"{mlang}{mlang ca}"
+                            +entries[i+1][28]"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][28]+"{mlang}{mlang en}"
+                            +entries[i+3][28]+"{mlang}{mlang eu}"
+                            +entries[i+4][28]+"{mlang}{mlang gl}"
+                            +entries[i+5][28]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang es}"+entries[i][29]+"{mlang}{mlang ca}"
+                            +entries[i+1][29]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][29]+"{mlang}{mlang en}"
+                            +entries[i+3][29]+"{mlang}{mlang eu}"
+                            +entries[i+4][29]+"{mlang}{mlang gl}"
+                            +entries[i+5][29]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang es}"+entries[i][30]+"{mlang}{mlang ca}"
+                            +entries[i+1][30]+"{mlang}{mlang ca_valencia}"
+                            +entries[i+2][30]+"{mlang}{mlang en}"
+                            +entries[i+3][30]+"{mlang}{mlang eu}"
+                            +entries[i+4][30]+"{mlang}{mlang gl}"
+                            +entries[i+5][30]+"{mlang}";
+                        } else {
+                            var enunciadogapfill = "{mlang "+idioma+"}"+entries[i][25]+"{mlang}";
+                            var retroalimentacioncorrecta = "{mlang "+idioma+"}"+entries[i][28]+"{mlang}";
+                            var retroalimentacionparcial = "{mlang "+idioma+"}"+entries[i][29]+"{mlang}";
+                            var retroalimentacionincorrecta = "{mlang "+idioma+"}"+entries[i][30]+"{mlang}";
+                        }
+                        var idnumber = entries[i][18];
+                        var delimitchars = entries[i][19];
+                        var answerdisplay = entries[i][20];
+                        var fixedgapsize = converttruefalse(entries[i][21]);
+                        var singleuse = converttruefalse(entries[i][22]);
+                        var optionsaftertext = converttruefalse(entries[i][23]);
+                        var disableregex = converttruefalse(entries[i][24]);
+                        var letterhints = converttruefalse(entries[i][25]);
+                        var noduplicates = converttruefalse(entries[i].[26]);
+                        var casesensitive = converttruefalse(entries[i][27]);   
+                        var tags =  entries[i][31];
+                        var obj = {
+                            reaload: 1,
+                            itemsettings: "[]",
+                            numhints: 2,                        
+                            id: idpregunta,
+                            inpopup: "",
+                            cmid:"",
+                            courseid: courseid,
+                            scrollpos:0,
+                            appendqnumstring:"",
+                            qtype: tipo,
+                            makecopy:0,
+                            sesskey: sesskey,
+                            _qf__qtype_ordering_edit_form:1,
+                            mform_showmore_id_feedbackheader:0,
+                            mform_isexpanded_id_generalheader:1,
+                            mform_isexpanded_id_feedbackheader:1,
+                            mform_isexpanded_id_combinedfeedbackhdr:0,
+                            mform_isexpanded_id_multitriesheader:0,
+                            mform_isexpanded_id_tagsheader:0,
+                            mform_isexpanded_id_coursetagsheader:0,
+                            mform_isexpanded_id_createdmodifiedheader:0,
+                            category: idcategoria,
+                            name: nombre,
+                            "questiontext[text]": enunciado,
+                            "questiontext[format]": 1,
+                            "generalfeedback[text]": generalfeedback,
+                            "generalfeedback[format]": 1,
+                            idnumber: idnumber,
+                            delimitchars: delimitchars,
+                            answerdisplay: answerdisplay,
+                            fixedgapsize: fixedgapsize,
+                            singleuse: singleuse,
+                            optionsaftertext: optionsaftertext,
+                            disableregex: disableregex,
+                            letterhints: letterhints,
+                            noduplicates: noduplicates,
+                            casesensitive: casesensitive,
+                            "correctfeedback[text]": retroalimentacioncorrecta,
+                            "correctfeedback[format]": 1,
+                            "partiallycorrectfeedback[text]": retroalimentacionparcial,
+                            "partiallycorrectfeedback[format]": 1,
+                            "incorrectfeedback[text]": retroalimentacionincorrecta,
+                            "incorrectfeedback[format]": 1
+                        };
+                        if (tags !== "") {
+                            obj["tags[]"]  = tags;
+                        }
+                        datos.push(obj);
+                        idspreguntas.push(nombre);
+                    }
                         
                         
             }
