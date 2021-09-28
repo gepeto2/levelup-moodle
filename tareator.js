@@ -25,16 +25,9 @@ function leeJSON() {
                   var entries = data.values;
                 for (i = 0; i < entries.length; i++) {
                    if ((entries[i][1]) == "TRUE") {
-                     var idtarea = entries[i][6];
+                        var idtarea = entries[i][6];
                         var courseid = entries[i][5];
                         var nombre = entries[i][9];
-                        var descripcion = "{mlang " + "es}" + entries[i][10] + "{mlang" + "}{mlang " + "ca}" +
-                            entries[i+1][10] + "{mlang" + "}{mlang " + "ca_valencia}" +
-                            entries[i+2][10] + "{mlang" + "}{mlang " + "en}" +
-                            entries[i+3][10]+ "{mlang" + "}{mlang " + "eu}" +
-                            entries[i+4][10] + "{mlang" + "}{mlang " + "gl}" +
-                            entries[i+5][10] + "{mlang" + "}{mlang " + "fr}" +
-                            entries[i+6][10] + "{mlang" + "}";
                         var muestradescripcion = convertyesno(entries[i][19]);
                         var permitirentregasdesde = convertyesno(entries[i][27]);
                         var fechadeentrega = convertyesno(entries[i][28]);
@@ -48,6 +41,15 @@ function leeJSON() {
                         var htmlarchivo2 = "";
                         var htmlarchivo3 = "";
                         var htmlarchivo4 = "";
+                     if ((entries[i][2]) == "TRUE") {
+                          var descripcion = "{mlang " + "es}" + entries[i][10] + "{mlang" + "}{mlang " + "ca}" +
+                            entries[i+1][10] + "{mlang" + "}{mlang " + "ca_valencia}" +
+                            entries[i+2][10] + "{mlang" + "}{mlang " + "en}" +
+                            entries[i+3][10] + "{mlang" + "}{mlang " + "eu}" +
+                            entries[i+4][10] + "{mlang" + "}{mlang " + "gl}" +
+                            entries[i+5][10] + "{mlang" + "}{mlang " + "fr}" +
+                            entries[i+6][10] + "{mlang" + "}";
+
                         var archivo1_es = entries[i][11];
                           if (entries[i+1][11] === undefined) {
                             var archivo1_ca = "";   } else {
@@ -292,6 +294,38 @@ function leeJSON() {
                         if (archivo4_fr != "") {
                             htmlarchivo4 += "{mlang " + "fr}" + "<img src=" + iconoarchivo + " alt=" + archivo4_fr + "width='20' height='28'><a href=" + enlace4_fr + " target='_blank'> " + archivo4_fr + "</a><p></p>{mlang}";
                         }
+                     } else {
+                          var idioma = entries[i][3];
+                          var descripcion = "{mlang " + idioma+"}" + entries[i][10] + "{mlang" + "}";
+                          var archivo1 = entries[i][11];
+                          var archivo2 = entries[i][13];
+                          var archivo3 = entries[i][15];
+                          var archivo4 = entries[i][17];
+                          var enlace1 = entries[i][12];
+                          var enlace2 = entries[i][14];
+                          var enlace3 = entries[i][16];
+                          var enlace4 = entries[i][18];
+                          tipoarchivo = archivo1.substr(archivo1.lastIndexOf('.') + 1);
+                          iconoarchivo = fileicon(tipoarchivo);
+                          if (archivo1 != "") {
+                            htmlarchivo1 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo1 + "width='20' height='28'><a href=" + enlace1 + " target='_blank'> " + archivo1 + "</a><p></p>{mlang}";
+                          }
+                          tipoarchivo = archivo2.substr(archivo2.lastIndexOf('.') + 1);
+                          iconoarchivo = fileicon(tipoarchivo);
+                          if (archivo2 != "") {
+                            htmlarchivo2 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo2 + "width='20' height='28'><a href=" + enlace2 + " target='_blank'> " + archivo2 + "</a><p></p>{mlang}";
+                          }
+                          tipoarchivo = archivo3.substr(archivo4.lastIndexOf('.') + 1);
+                          iconoarchivo = fileicon(tipoarchivo);
+                          if (archivo3 != "") {
+                            htmlarchivo3 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo3 + "width='20' height='28'><a href=" + enlace3 + " target='_blank'> " + archivo3 + "</a><p></p>{mlang}";
+                          }
+                          tipoarchivo = archivo4.substr(archivo4.lastIndexOf('.') + 1);
+                          iconoarchivo = fileicon(tipoarchivo);
+                          if (archivo4 != "") {
+                            htmlarchivo4 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo4 + "width='20' height='28'><a href=" + enlace4 + " target='_blank'> " + archivo4 + "</a><p></p>{mlang}";
+                          }
+                     }                         
                         descripcion = descripcion + htmlarchivo1 + htmlarchivo2 + htmlarchivo3 + htmlarchivo4;
                         var feedback_comments = convertyesno(entries[i][20]);
                         var gradetype = convertgradetype(entries[i][21]);
@@ -357,8 +391,8 @@ function leeJSON() {
 
                         datos.push(obj);
     //                    idspreguntas.push(nombre);
-                    }
-
+                     }
+                   
                 }
             })
             .done(function() {
