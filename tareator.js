@@ -296,7 +296,7 @@ function leeJSON() {
                         }
                      } else {
                           var idioma = entries[i][3];
-                          var descripcion = "{mlang " + idioma+"}" + entries[i][10] + "{mlang" + "}";
+                          var descripcion = entries[i][10];
                           var archivo1 = entries[i][11];
                           var archivo2 = entries[i][13];
                           var archivo3 = entries[i][15];
@@ -308,22 +308,22 @@ function leeJSON() {
                           tipoarchivo = archivo1.substr(archivo1.lastIndexOf('.') + 1);
                           iconoarchivo = fileicon(tipoarchivo);
                           if (archivo1 != "") {
-                            htmlarchivo1 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo1 + "width='20' height='28'><a href=" + enlace1 + " target='_blank'> " + archivo1 + "</a><p></p>{mlang}";
+                            htmlarchivo1 += "<img src=" + iconoarchivo + " alt=" + archivo1 + "width='20' height='28'><a href=" + enlace1 + " target='_blank'> " + archivo1 + "</a><p></p>";
                           }
                           tipoarchivo = archivo2.substr(archivo2.lastIndexOf('.') + 1);
                           iconoarchivo = fileicon(tipoarchivo);
                           if (archivo2 != "") {
-                            htmlarchivo2 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo2 + "width='20' height='28'><a href=" + enlace2 + " target='_blank'> " + archivo2 + "</a><p></p>{mlang}";
+                            htmlarchivo2 += "<img src=" + iconoarchivo + " alt=" + archivo2 + "width='20' height='28'><a href=" + enlace2 + " target='_blank'> " + archivo2 + "</a><p></p>";
                           }
                           tipoarchivo = archivo3.substr(archivo4.lastIndexOf('.') + 1);
                           iconoarchivo = fileicon(tipoarchivo);
                           if (archivo3 != "") {
-                            htmlarchivo3 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo3 + "width='20' height='28'><a href=" + enlace3 + " target='_blank'> " + archivo3 + "</a><p></p>{mlang}";
+                            htmlarchivo3 += "<img src=" + iconoarchivo + " alt=" + archivo3 + "width='20' height='28'><a href=" + enlace3 + " target='_blank'> " + archivo3 + "</a><p></p>";
                           }
                           tipoarchivo = archivo4.substr(archivo4.lastIndexOf('.') + 1);
                           iconoarchivo = fileicon(tipoarchivo);
                           if (archivo4 != "") {
-                            htmlarchivo4 += "{mlang " + idioma+"}" + "<img src=" + iconoarchivo + " alt=" + archivo4 + "width='20' height='28'><a href=" + enlace4 + " target='_blank'> " + archivo4 + "</a><p></p>{mlang}";
+                            htmlarchivo4 += "<img src=" + iconoarchivo + " alt=" + archivo4 + "width='20' height='28'><a href=" + enlace4 + " target='_blank'> " + archivo4 + "</a><p></p>";
                           }
                      }                         
                         descripcion = descripcion + htmlarchivo1 + htmlarchivo2 + htmlarchivo3 + htmlarchivo4;
