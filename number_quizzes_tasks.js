@@ -26,9 +26,10 @@
         $('#contenido').append('<div id="numpages"><a href="' + urlpage + '" target="_blank">Páginas: </a></div>');
         $('#contenido').append('<div id="numltis"><a href="' + urllti + '" target="_blank">LTIs: </a></div>');
         $('#contenido').append('<div id="numurls"><a href="' + url + '" target="_blank">Enlaces: </a></div>');
+        $('#contenido').append('<button class="btn btn-secondary" id="totales" onclick="totales()">Mostrar totales</button>');
     });
 
-    $("#totales").click(function() {
+    function totales() {
         $.get(urlassign, function(result) {
             var obj = $(result).find('.generaltable tr td.c1');
             var tasks = obj.length;
@@ -64,4 +65,5 @@
             var urls = obj.length;
             $('#numurls').append(urls);
         });
-    });
+        $("#totales").hide();
+    };
