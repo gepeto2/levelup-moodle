@@ -11,7 +11,6 @@ function geturl(type){
     var urlroot = urlsite+"/mod/"+type+"/index.php?id="+course;
     return urlroot;
 }
-$( document ).ready(function() {
     var urlassign = geturl('assign');
     var urlquiz = geturl('quiz');
     var urladaptivequiz = geturl('adaptivequiz');
@@ -61,4 +60,3 @@ $( document ).ready(function() {
     $('#contenido').append('<div id="numurls"><a href="'+url+'" target="_blank">Enlaces: </a></div>');
     $('#numurls').append(urls);
   });
-});
