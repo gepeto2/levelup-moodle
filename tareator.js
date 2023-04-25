@@ -42,118 +42,136 @@ function leeJSON() {
                         var htmlarchivo3 = "";
                         var htmlarchivo4 = "";
                      if ((entries[i][2]) == "TRUE") {
-                          var descripcion = "{mlang " + "es}" + entries[i][10] + "{mlang" + "}{mlang " + "ca}" +
-                            entries[i+1][10] + "{mlang" + "}{mlang " + "ca_valencia}" +
-                            entries[i+2][10] + "{mlang" + "}{mlang " + "en}" +
-                            entries[i+3][10] + "{mlang" + "}{mlang " + "eu}" +
-                            entries[i+4][10] + "{mlang" + "}{mlang " + "gl}" +
-                            entries[i+5][10] + "{mlang" + "}{mlang " + "fr}" +
-                            entries[i+6][10] + "{mlang" + "}";
+                          var descripcion = "{mlang " + "es}" + 
+                            entries[i][10] + "{mlang" + "}{mlang " + "ca}" +
+                            entries[i+1][10] + "{mlang" + "}{mlang " + "ca_ct}" +
+                            entries[i+2][10] + "{mlang" + "}{mlang " + "ca_valencia}" +
+                            entries[i+3][10] + "{mlang" + "}{mlang " + "en}" +
+                            entries[i+4][10] + "{mlang" + "}{mlang " + "eu}" +
+                            entries[i+5][10] + "{mlang" + "}{mlang " + "gl}" +
+                            entries[i+6][10] + "{mlang" + "}{mlang " + "fr}" +
+                            entries[i+7][10] + "{mlang" + "}";
 
                         var archivo1_es = entries[i][11];
                           if (entries[i+1][11] === undefined) {
                             var archivo1_ca = "";   } else {
                             var archivo1_ca = entries[i+1][11];}
                           if (entries[i+2][11] === undefined) {
-                            var archivo1_ca_valencia = "";   } else {
-                            var archivo1_ca_valencia = entries[i+2][11];}
+                            var archivo1_ca_ct = "";   } else {
+                            var archivo1_ca_ct = entries[i+2][11];}
                           if (entries[i+3][11] === undefined) {
-                            var archivo1_en = "";   } else {
-                            var archivo1_en = entries[i+3][11];}
+                            var archivo1_ca_valencia = "";   } else {
+                            var archivo1_ca_valencia = entries[i+3][11];}
                           if (entries[i+4][11] === undefined) {
-                            var archivo1_eu = "";   } else {
-                            var archivo1_eu = entries[i+4][11];}
+                            var archivo1_en = "";   } else {
+                            var archivo1_en = entries[i+4][11];}
                           if (entries[i+5][11] === undefined) {
-                            var archivo1_gl = "";   } else {
-                            var archivo1_gl = entries[i+5][11];}
+                            var archivo1_eu = "";   } else {
+                            var archivo1_eu = entries[i+5][11];}
                           if (entries[i+6][11] === undefined) {
+                            var archivo1_gl = "";   } else {
+                            var archivo1_gl = entries[i+6][11];}
+                          if (entries[i+7][11] === undefined) {
                             var archivo1_fr = "";   } else {
-                            var archivo1_fr = entries[i+6][11];}                     
+                            var archivo1_fr = entries[i+7][11];}                     
                         var enlace1_es = entries[i][12];
                         var enlace1_ca = entries[i+1][12];
-                        var enlace1_ca_valencia = entries[i + 2][12];
-                        var enlace1_en = entries[i+3][12];
-                        var enlace1_eu = entries[i+4][12];
-                        var enlace1_gl = entries[i+5][12];
-                        var enlace1_fr = entries[i+6][12];
+                        var enlace1_ca_ct = entries[i+2][12];
+                        var enlace1_ca_valencia = entries[i+3][12];
+                        var enlace1_en = entries[i+4][12];
+                        var enlace1_eu = entries[i+5][12];
+                        var enlace1_gl = entries[i+6][12];
+                        var enlace1_fr = entries[i+7][12];
                         var archivo2_es = entries[i][13];
                           if (entries[i+1][13] === undefined) {
                             var archivo2_ca = "";   } else {
                             var archivo2_ca = entries[i+1][13];}
                           if (entries[i+2][13] === undefined) {
-                            var archivo2_ca_valencia = "";   } else {
-                            var archivo2_ca_valencia = entries[i+2][13];}
+                            var archivo2_ca_ct = "";   } else {
+                            var archivo2_ca_ct = entries[i+2][13];}
                           if (entries[i+3][13] === undefined) {
-                            var archivo2_en = "";   } else {
-                            var archivo2_en = entries[i+3][13];}
+                            var archivo2_ca_valencia = "";   } else {
+                            var archivo2_ca_valencia = entries[i+3][13];}
                           if (entries[i+4][13] === undefined) {
-                            var archivo2_eu = "";   } else {
-                            var archivo2_eu = entries[i+4][13];}
+                            var archivo2_en = "";   } else {
+                            var archivo2_en = entries[i+4][13];}
                           if (entries[i+5][13] === undefined) {
-                            var archivo2_gl = "";   } else {
-                            var archivo2_gl = entries[i+5][13];}
+                            var archivo2_eu = "";   } else {
+                            var archivo2_eu = entries[i+5][13];}
                           if (entries[i+6][13] === undefined) {
+                            var archivo2_gl = "";   } else {
+                            var archivo2_gl = entries[i+6][13];}
+                          if (entries[i+7][13] === undefined) {
                             var archivo2_fr = "";   } else {
-                            var archivo2_fr = entries[i+6][13];}    
+                            var archivo2_fr = entries[i+7][13];}    
                         var enlace2_es = entries[i][14];
                         var enlace2_ca = entries[i+1][14];
-                        var enlace2_ca_valencia = entries[i+2][14];
-                        var enlace2_en = entries[i+3][14];
-                        var enlace2_eu = entries[i+4][14];
-                        var enlace2_gl = entries[i+5][14];
-                        var enlace2_fr = entries[i+6][14];
+                        var enlace2_ca_ct = entries[i+2][14];
+                        var enlace2_ca_valencia = entries[i+3][14];
+                        var enlace2_en = entries[i+4][14];
+                        var enlace2_eu = entries[i+5][14];
+                        var enlace2_gl = entries[i+6][14];
+                        var enlace2_fr = entries[i+7][14];
                         var archivo3_es = entries[i][15];
                           if (entries[i+1][15] === undefined) {
                             var archivo3_ca = "";   } else {
                             var archivo3_ca = entries[i+1][15];}
                           if (entries[i+2][15] === undefined) {
-                            var archivo3_ca_valencia = "";   } else {
-                            var archivo3_ca_valencia = entries[i+2][15];}
+                            var archivo3_ca_ct = "";   } else {
+                            var archivo3_ca_ct = entries[i+2][15];}
                           if (entries[i+3][15] === undefined) {
-                            var archivo3_en = "";   } else {
-                            var archivo3_en = entries[i+3][15];}
+                            var archivo3_ca_valencia = "";   } else {
+                            var archivo3_ca_valencia = entries[i+3][15];}
                           if (entries[i+4][15] === undefined) {
-                            var archivo3_eu = "";   } else {
-                            var archivo3_eu = entries[i+4][15];}
+                            var archivo3_en = "";   } else {
+                            var archivo3_en = entries[i+4][15];}
                           if (entries[i+5][15] === undefined) {
-                            var archivo3_gl = "";   } else {
-                            var archivo3_gl = entries[i+5][15];}
+                            var archivo3_eu = "";   } else {
+                            var archivo3_eu = entries[i+5][15];}
                           if (entries[i+6][15] === undefined) {
+                            var archivo3_gl = "";   } else {
+                            var archivo3_gl = entries[i+6][15];}
+                          if (entries[i+7][15] === undefined) {
                             var archivo3_fr = "";   } else {
-                            var archivo3_fr = entries[i+6][15];}
+                            var archivo3_fr = entries[i+7][15];}
                         var enlace3_es = entries[i][16];
                         var enlace3_ca = entries[i+1][16];
-                        var enlace3_ca_valencia = entries[i+2][16];
-                        var enlace3_en = entries[i+3][16];
-                        var enlace3_eu = entries[i+4][16];
-                        var enlace3_gl = entries[i+5][16];
-                        var enlace3_fr = entries[i+6][16];
+                        var enlace3_ca_ct = entries[i+2][16];
+                        var enlace3_ca_valencia = entries[i+3][16];
+                        var enlace3_en = entries[i+4][16];
+                        var enlace3_eu = entries[i+5][16];
+                        var enlace3_gl = entries[i+6][16];
+                        var enlace3_fr = entries[i+7][16];
                         var archivo4_es = entries[i][17];
                           if (entries[i+1][17] === undefined) {
                             var archivo4_ca = "";   } else {
                             var archivo4_ca = entries[i+1][17];}
                           if (entries[i+2][17] === undefined) {
-                            var archivo4_ca_valencia = "";   } else {
-                            var archivo4_ca_valencia = entries[i+2][17];}
+                            var archivo4_ca_ct = "";   } else {
+                            var archivo4_ca_ct = entries[i+2][17];}
                           if (entries[i+3][17] === undefined) {
-                            var archivo4_en = "";   } else {
-                            var archivo4_en = entries[i+3][17];}
+                            var archivo4_ca_valencia = "";   } else {
+                            var archivo4_ca_valencia = entries[i+3][17];}
                           if (entries[i+4][17] === undefined) {
-                            var archivo4_eu = "";   } else {
-                            var archivo4_eu = entries[i+4][17];}
+                            var archivo4_en = "";   } else {
+                            var archivo4_en = entries[i+4][17];}
                           if (entries[i+5][17] === undefined) {
-                            var archivo4_gl = "";   } else {
-                            var archivo4_gl = entries[i+5][17];}
+                            var archivo4_eu = "";   } else {
+                            var archivo4_eu = entries[i+5][17];}
                           if (entries[i+6][17] === undefined) {
+                            var archivo4_gl = "";   } else {
+                            var archivo4_gl = entries[i+6][17];}
+                          if (entries[i+7][17] === undefined) {
                             var archivo4_fr = "";   } else {
-                            var archivo4_fr = entries[i+6][17];}
+                            var archivo4_fr = entries[i+7][17];}
                         var enlace4_es = entries[i][18];
                         var enlace4_ca = entries[i+1][18];
-                        var enlace4_ca_valencia = entries[i+2][18];
-                        var enlace4_en = entries[i+3][18];
-                        var enlace4_eu = entries[i+4][18];
-                        var enlace4_gl = entries[i+5][18];
-                        var enlace4_fr = entries[i+6][18];
+                        var enlace4_ca_ct = entries[i+2][18];
+                        var enlace4_ca_valencia = entries[i+3][18];
+                        var enlace4_en = entries[i+4][18];
+                        var enlace4_eu = entries[i+5][18];
+                        var enlace4_gl = entries[i+6][18];
+                        var enlace4_fr = entries[i+7][18];
                         tipoarchivo = archivo1_es.substr(archivo1_es.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo1_es != "") {
@@ -163,6 +181,11 @@ function leeJSON() {
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo1_ca != "") {
                             htmlarchivo1 += "{mlang " + "ca}" + "<img src=" + iconoarchivo + " alt=" + archivo1_ca + "width='20' height='28'><a href=" + enlace1_ca + " target='_blank'> " + archivo1_ca + "</a><p></p>{mlang}";
+                        }
+                        tipoarchivo = archivo1_ca_ct.substr(archivo1_ca_ct.lastIndexOf('.') + 1);
+                        iconoarchivo = fileicon(tipoarchivo);
+                        if (archivo1_ca_ct != "") {
+                            htmlarchivo1 += "{mlang " + "ca_ct}" + "<img src=" + iconoarchivo + " alt=" + archivo1_ca_ct + "width='20' height='28'><a href=" + enlace1_ca_ct + " target='_blank'> " + archivo1_ca_ct + "</a><p></p>{mlang}";
                         }
                         tipoarchivo = archivo1_ca_valencia.substr(archivo1_ca_valencia.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
@@ -199,6 +222,11 @@ function leeJSON() {
                         if (archivo2_ca != "") {
                             htmlarchivo2 += "{mlang " + "ca}" + "<img src=" + iconoarchivo + " alt=" + archivo2_ca + "width='20' height='28'><a href=" + enlace2_ca + " target='_blank'> " + archivo2_ca + "</a><p></p>{mlang}";
                         }
+                        tipoarchivo = archivo2_ca_ct.substr(archivo2_ca_ct.lastIndexOf('.') + 1);
+                        iconoarchivo = fileicon(tipoarchivo);
+                        if (archivo2_ca_ct != "") {
+                            htmlarchivo2 += "{mlang " + "ca_ct}" + "<img src=" + iconoarchivo + " alt=" + archivo2_ca_ct + "width='20' height='28'><a href=" + enlace2_ca_ct + " target='_blank'> " + archivo2_ca_ct + "</a><p></p>{mlang}";
+                        }
                         tipoarchivo = archivo2_ca_valencia.substr(archivo2_ca_valencia.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo2_ca_valencia != "") {
@@ -234,6 +262,11 @@ function leeJSON() {
                         if (archivo3_ca != "") {
                             htmlarchivo3 += "{mlang " + "ca}" + "<img src=" + iconoarchivo + " alt=" + archivo3_ca + "width='20' height='28'><a href=" + enlace3_ca + " target='_blank'> " + archivo3_ca + "</a><p></p>{mlang}";
                         }
+                        tipoarchivo = archivo3_ca_ct.substr(archivo3_ca_ct.lastIndexOf('.') + 1);
+                        iconoarchivo = fileicon(tipoarchivo);
+                        if (archivo3_ca_ct != "") {
+                            htmlarchivo3 += "{mlang " + "ca_ct}" + "<img src=" + iconoarchivo + " alt=" + archivo3_ca_ct + "width='20' height='28'><a href=" + enlace3_ca_ct + " target='_blank'> " + archivo3_ca_ct + "</a><p></p>{mlang}";
+                        }
                         tipoarchivo = archivo3_ca_valencia.substr(archivo3_ca_valencia.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo3_ca_valencia != "") {
@@ -268,6 +301,11 @@ function leeJSON() {
                         iconoarchivo = fileicon(tipoarchivo);
                         if (archivo4_ca != "") {
                             htmlarchivo4 += "{mlang " + "ca}" + "<img src=" + iconoarchivo + " alt=" + archivo4_ca + "width='20' height='28'><a href=" + enlace4_ca + " target='_blank'> " + archivo4_ca + "</a><p></p>{mlang}";
+                        }
+                        tipoarchivo = archivo4_ca_ct.substr(archivo4_ca_ct.lastIndexOf('.') + 1);
+                        iconoarchivo = fileicon(tipoarchivo);
+                        if (archivo4_ca_ct != "") {
+                            htmlarchivo4 += "{mlang " + "ca_ct}" + "<img src=" + iconoarchivo + " alt=" + archivo4_ca_ct + "width='20' height='28'><a href=" + enlace4_ca_ct + " target='_blank'> " + archivo4_ca_ct + "</a><p></p>{mlang}";
                         }
                         tipoarchivo = archivo4_ca_valencia.substr(archivo4_ca_valencia.lastIndexOf('.') + 1);
                         iconoarchivo = fileicon(tipoarchivo);
