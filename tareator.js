@@ -19,14 +19,15 @@ function leeJSON() {
     var urljson = "https://sheets.googleapis.com/v4/spreadsheets/"+sheet+"/values/"+page+"?key="+key;
     var datos = [];
     var idspreguntas = [];
-
+    var idtarea = "";
         $.getJSON(urljson, function(data) {
                 // var entries = data.feed.entry;
                   var entries = data.values;
                 for (i = 0; i < entries.length; i++) {
                    if ((entries[i][1]) == "TRUE") {
-                        var idtarea = entries[i][6];
+                        idtarea = entries[i][6];
                         var courseid = entries[i][5];
+                        var seccion = entries[i][8];
                         var nombre = entries[i][9];
                         var muestradescripcion = convertyesno(entries[i][19]);
                         var permitirentregasdesde = convertyesno(entries[i][27]);
@@ -384,13 +385,14 @@ function leeJSON() {
                             completionunlocked: 1,
                             course: courseid,
                             coursemodule: idtarea,
-                            module: 1,
+                            section: seccion,
+                            module: "3",
                             modulename: "assign",
-                            instance: "",
+                            instance: "2",
                             add: 0,
                             update: idtarea,
-                            return: 0,
-                            sr: 0,
+                            return: "1",
+                            sr: "0",
                             sesskey: sesskey,
                             _qf__mod_assign_mod_form: 1,
                             mform_isexpanded_id_general: 1,
@@ -408,6 +410,13 @@ function leeJSON() {
                             "introeditor[format]": 1,
                             "introeditor[text]": descripcion,
                             showdescription: 0,
+                            "activityeditor[text]": "",
+                            "activityeditor[format]": 1,
+                            submissionattachments: 0,
+                            assignsubmission_comments_enabled: 1,
+                            showResetIcon: 1,
+                            submissiondrafts: 0,
+                            requiresubmissionstatement: 0,
                             assignfeedback_comments_enabled: feedback_comments,
                             "grade[modgrade_type]": gradetype,
                             "grade[modgrade_point]": maxgrade,
@@ -434,17 +443,17 @@ function leeJSON() {
                 }
             })
             .done(function() {
-                enviar(datos, 0);
+                enviar(datos, 0, idtarea);
             })
     }
 
-    function enviar(dato, indice) {
+    function enviar(dato, indice, idtarea) {
 
         var googledata = [];
         if (indice < dato.length) {
             var idpagina = dato[indice].coursemodule;
             const hostname = window.location.hostname;
-            const urlhost = "https://" + hostname + "/course/modedit.php";
+            const urlhost = "https://" + hostname + "/course/modedit.php?update=" + idtarea + "&return=1";
             $.ajax({
                 url: urlhost,
                 method: "POST",
