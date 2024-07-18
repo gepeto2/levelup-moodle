@@ -354,7 +354,7 @@ function leeJSON() {
                           if (archivo2 != "") {
                             htmlarchivo2 += "<img src=" + iconoarchivo + " alt=" + archivo2 + "width='20' height='28'><a href=" + enlace2 + " target='_blank'> " + archivo2 + "</a><p></p>";
                           }
-                          tipoarchivo = archivo3.substr(archivo4.lastIndexOf('.') + 1);
+                          tipoarchivo = archivo3.substr(archivo3.lastIndexOf('.') + 1);
                           iconoarchivo = fileicon(tipoarchivo);
                           if (archivo3 != "") {
                             htmlarchivo3 += "<img src=" + iconoarchivo + " alt=" + archivo3 + "width='20' height='28'><a href=" + enlace3 + " target='_blank'> " + archivo3 + "</a><p></p>";
