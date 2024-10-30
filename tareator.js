@@ -555,6 +555,9 @@ function leeJSON() {
         if (tipoarchivo == 'xlsx' || tipoarchivo == 'xls') {
             iconoarchivo = 'https://upload.wikimedia.org/wikipedia/commons/f/f3/.xlsx_icon.svg';
         }
+        if (tipoarchivo == 'fzz') {
+            iconoarchivo = 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Fritzing_icon_%28new%29.png';
+        }
         return iconoarchivo;
     }
 
