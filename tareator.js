@@ -428,6 +428,7 @@ function leeJSON() {
                             "cutoffdate[enabled]": fechalimite,
                             "gradingduedate[enabled]": recordarmecalificaren,
                             assignsubmission_file_enabled: archivosenviados,
+                            assignsubmission_onlinetext_enabled: 1,
                             visible: visible,
                             availabilityconditionsjson: "",
                             completion: completion,
